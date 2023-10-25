@@ -24,7 +24,7 @@ const Card = ({ card }) => {
     <div>
       <form onSubmit={checkAnswer}>
         <div className='answer' style={{ backgroundColor: correct }} >
-          {card.eng}
+          {card.en}
         </div>
         <input type="text" name="bg" />
         <button type="submit">Check answer</button>

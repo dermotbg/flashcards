@@ -6,6 +6,7 @@ const usersRouter = require('./controllers/users')
 const { MDB_URI } = require('./utils/config')
 const { requestLogger } = require('./utils/middleware')
 const { unknownEndpoint } = require('./utils/middleware')
+const flashcardsRouter = require('./controllers/cards')
 
 app.use(express.json())
 
@@ -22,6 +23,7 @@ mongoose
 
 app.use(requestLogger)
 app.use('/api/users',usersRouter)
+app.use('/api/flashcards',flashcardsRouter)
 
 
 app.use(unknownEndpoint)

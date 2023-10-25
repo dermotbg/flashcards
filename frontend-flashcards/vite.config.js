@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy:{
       '/api':{
-        target: 'http://localhost:3000',
+        target: 'http://localhost:3001', // 3001 for mongo // 3000 for json-server
         changeOrigin: true
       }
     }
