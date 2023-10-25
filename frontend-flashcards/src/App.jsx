@@ -1,10 +1,9 @@
 import { useEffect } from 'react'
-import { getCards, setSelected } from './reducers/cardReducer'
+import { clearCards, getCards, setSelected } from './reducers/cardReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 
 import Card from './components/Card'
-
 
 const App = () => {
 
@@ -36,7 +35,6 @@ const App = () => {
 
   const getRandomCards = (cards, amount) => {
     const output = []
-
     const shuffled = shuffle([...cards])
     for (let i = 0; i < amount; i++){
       output.push(shuffled[randomArrayIndex(0, shuffled.length -1)])
@@ -45,6 +43,8 @@ const App = () => {
   }
 
   const triggerStart = () => {
+    dispatch(clearCards())
+    dispatch(getCards())
     const selectedTen = getRandomCards(cards.all, 10)
     dispatch(setSelected(selectedTen))
   }

@@ -19,11 +19,17 @@ const cardSlice = createSlice({
         all: [state.all],
         selected: action.payload
       }
+    },
+    clearCards(){
+      return {
+        all: [],
+        selected: []
+      }
     }
   }
 })
 
-export const { setCards, setSelected } = cardSlice.actions
+export const { setCards, setSelected, clearCards } = cardSlice.actions
 
 export const getCards = () => {
   return async dispatch => {

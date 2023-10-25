@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import './Card.css'
 const Card = ({ card }) => {
+
 
   const [correct, setCorrect] = useState('')
   // const [inCorrect, setIncorrect] = useState(null)
@@ -30,6 +32,10 @@ const Card = ({ card }) => {
 
     </div>
   )
+}
+
+Card.propTypes = {
+  card: PropTypes.object.isRequired
 }
 
 export default Card
