@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { v4 as uuid } from 'uuid'
 
 import Card from './components/Card'
+import RegForm from './components/RegForm'
 
 const App = () => {
 
@@ -52,6 +53,7 @@ const App = () => {
   return(
     <>
       <div>Hello Flashcards</div>
+      <RegForm />
       <button onClick={() => triggerStart()}>Start</button>
       <div>
         {cards.selected.length !== 0 ? cards.selected.map(c => {

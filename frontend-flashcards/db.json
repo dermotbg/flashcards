@@ -1,0 +1,3143 @@
+{
+  "users": [
+    {
+      "username": "dermot",
+      "score": 0,
+      "id": 1
+    },
+    {
+      "username": "newUser",
+      "password": "newPassword",
+      "id": 2
+    }
+  ],
+  "flashcards": [
+    {
+      "eng": "Go (on foot)",
+      "bg": "вървя",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "1"
+    },
+    {
+      "eng": "To Pass (through)",
+      "bg": "минавам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "2"
+    },
+    {
+      "eng": "To Pass (def aspect)",
+      "bg": "мина",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "3"
+    },
+    {
+      "eng": "To turn",
+      "bg": "завивам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "4"
+    },
+    {
+      "eng": "To turn (def aspect)",
+      "bg": "завия",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "5"
+    },
+    {
+      "eng": "To get (to) / Reach",
+      "bg": "Стигам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "6"
+    },
+    {
+      "eng": "To Go to / Reach (def aspect)",
+      "bg": "стигна",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "7"
+    },
+    {
+      "eng": "To come",
+      "bg": "Идвам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "8"
+    },
+    {
+      "eng": "To leave / depart",
+      "bg": "тръгвам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "9"
+    },
+    {
+      "eng": "To Leave/Depart (def aspect)",
+      "bg": "тръгна",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "10"
+    },
+    {
+      "eng": "To enter / visit",
+      "bg": "влизам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "11"
+    },
+    {
+      "eng": "To Enter / Visit (def aspect)",
+      "bg": "вляза",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "12"
+    },
+    {
+      "eng": "To go out / leave",
+      "bg": "излизам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "13"
+    },
+    {
+      "eng": "To go out (def aspect)",
+      "bg": "изляза",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "14"
+    },
+    {
+      "eng": "To get in / climb up",
+      "bg": "качвам се",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "15"
+    },
+    {
+      "eng": "To get in /climb up (def aspect)",
+      "bg": "Кача се",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "16"
+    },
+    {
+      "eng": "To get out / climb down",
+      "bg": "слизам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "17"
+    },
+    {
+      "eng": "Get out / Climb down (def aspect)",
+      "bg": "Сляза",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "18"
+    },
+    {
+      "eng": "To cross (street etc)",
+      "bg": "Пресичам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "19"
+    },
+    {
+      "eng": "Cross the street",
+      "bg": "пресека улицата",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "20"
+    },
+    {
+      "eng": "Came (definite aspect)",
+      "bg": "Дойда",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "21"
+    },
+    {
+      "eng": "To go (def aspect)",
+      "bg": "отида",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": "22"
+    },
+    {
+      "eng": "Generous",
+      "bg": "Щедър",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "23"
+    },
+    {
+      "eng": "Lazy",
+      "bg": "Мързелив",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "24"
+    },
+    {
+      "eng": "Cowardly",
+      "bg": "Страхлив",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "25"
+    },
+    {
+      "eng": "Horrible",
+      "bg": "Ужасен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "26"
+    },
+    {
+      "eng": "Boring",
+      "bg": "Скучен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "27"
+    },
+    {
+      "eng": "Quiet",
+      "bg": "Мълчалив",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "28"
+    },
+    {
+      "eng": "Open minded",
+      "bg": "Открита",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "29"
+    },
+    {
+      "eng": "Sad",
+      "bg": "Тъжен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "30"
+    },
+    {
+      "eng": "Talkative",
+      "bg": "Приказлив",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "31"
+    },
+    {
+      "eng": "Gentle",
+      "bg": "Нежен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "32"
+    },
+    {
+      "eng": "Cheeky",
+      "bg": "Нахален",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "33"
+    },
+    {
+      "eng": "Likeable",
+      "bg": "Симпатичен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "34"
+    },
+    {
+      "eng": "Fun",
+      "bg": "Забавен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "35"
+    },
+    {
+      "eng": "Funny",
+      "bg": "Смешен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "36"
+    },
+    {
+      "eng": "Clever",
+      "bg": "Умен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "37"
+    },
+    {
+      "eng": "Tired",
+      "bg": "Изморен",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "38"
+    },
+    {
+      "eng": "Eye",
+      "bg": "Око",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "39"
+    },
+    {
+      "eng": "Eyes",
+      "bg": "Очи",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": "40"
+    },
+    {
+      "eng": "Straight Nose",
+      "bg": "Правилен Нос",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Hooked Nose",
+      "bg": "Гърбав Нос",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Messy Hair",
+      "bg": "Рошава Коса",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Slender Body",
+      "bg": "Стройно Тяло",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Wavy Hair",
+      "bg": "Чуплива Коса",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Colourful Eyes",
+      "bg": "Пъстри Очи",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Curly Hair",
+      "bg": "Къдрава Коса",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Ear",
+      "bg": "Ухо",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Ears",
+      "bg": "Уши",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Skin",
+      "bg": "Кожа",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Ginger Hair",
+      "bg": "Рижа Коса",
+      "cat": "appearance",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Smiley",
+      "bg": "Усмихнат",
+      "cat": "character",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Path",
+      "bg": "Тротоар",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Sign",
+      "bg": "Знак",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Roadside Help",
+      "bg": "Пътна помощ",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Main Street",
+      "bg": "Главна улица",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Side/Off Street",
+      "bg": "Пряка",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Adjacent / Neighbouring Street",
+      "bg": "Съседна улица",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Crossroad",
+      "bg": "кръстовище",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Monument",
+      "bg": "паметник",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Hospital",
+      "bg": "Болница",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Church",
+      "bg": "Църква",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Weigh",
+      "bg": "Тегля",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Package /  Packet",
+      "bg": "Пакет",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Box",
+      "bg": "Кутия",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Small coins",
+      "bg": "Дребни",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "exact",
+      "bg": "Точно",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Fresh",
+      "bg": "Пресен",
+      "cat": "shopping",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Size",
+      "bg": "Размер",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To try (clothes)",
+      "bg": "Пробвам",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "taste",
+      "bg": "вкус",
+      "cat": "shopping",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Suits me",
+      "bg": "Отива ми",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Fits me",
+      "bg": "става ми",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "It's small for me",
+      "bg": "Малък ми е",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "It's big for me",
+      "bg": "Голям ми е",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Shop window",
+      "bg": "витрините",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Piece / Portion",
+      "bg": "Парче",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Magazine",
+      "bg": "списание",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Change (money)",
+      "bg": "Ресто",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To shop",
+      "bg": "Пазарувам",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Jewelry",
+      "bg": "бижута",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Drugstore",
+      "bg": "Дрогерия",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Tag / Label",
+      "bg": "Етикет",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Butcher",
+      "bg": "Месар",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Boots",
+      "bg": "ботуши",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Furniture",
+      "bg": "Мебели",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Queue",
+      "bg": "опашка",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Cashier",
+      "bg": "Касиер",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Clerk",
+      "bg": "продавач",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Newspaper",
+      "bg": "вестник",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cost (Sngl)",
+      "bg": "Струва",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Chain",
+      "bg": "Верига",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Lump (piece of cheese)",
+      "bg": "бучка",
+      "cat": "shopping",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Quality",
+      "bg": "Качество",
+      "cat": "shopping",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Buyer",
+      "bg": "купувач",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Tip (money)",
+      "bg": "бакшиш",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Bakery",
+      "bg": "Хлебарница",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Second hand",
+      "bg": "Втора употреба",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I Buy",
+      "bg": "купувам",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I wear",
+      "bg": "нося",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Cheap",
+      "bg": "Евтино",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Looking (Browsing)",
+      "bg": "Разглеждам",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Cost (plural)",
+      "bg": "Струват",
+      "cat": "shopping",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm Hungry",
+      "bg": "гладен съм",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I'm thirsty",
+      "bg": "жаден съм",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I feel like eating (something)",
+      "bg": "яде ми се",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I feel like drinking (Something)",
+      "bg": "Пие ми се",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To feed (myself)",
+      "bg": "храня се",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Meal / Dish",
+      "bg": "ядене",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Plate",
+      "bg": "Чиния",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cup / Glass",
+      "bg": "Чаша",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cutlery / Utensils",
+      "bg": "Прибори",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Fork",
+      "bg": "Вилица",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Spoon",
+      "bg": "Лъжица",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Knife",
+      "bg": "нож",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Napkin",
+      "bg": "Салфетка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "tablecloth",
+      "bg": "покривка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Pear",
+      "bg": "Круша",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Peach",
+      "bg": "Праскова",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Apricot",
+      "bg": "Кайсия",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Plum",
+      "bg": "Слива",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cherry",
+      "bg": "Череша",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Sour Cherry",
+      "bg": "Вишна",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Strawberry",
+      "bg": "ягода",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Grapes",
+      "bg": "Грозде",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Orange",
+      "bg": "Портокал",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Lemon",
+      "bg": "Лимон",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Watermelon",
+      "bg": "Диня",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Melon",
+      "bg": "пъпеш",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Jam /Marmalade",
+      "bg": "Конфитюр",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Pepper",
+      "bg": "Чушка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Garlic",
+      "bg": "чесън",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Aubergine",
+      "bg": "Патладжан",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cabbage",
+      "bg": "Зеле",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Carrot",
+      "bg": "Морков",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Potato",
+      "bg": "Картоф",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Beans",
+      "bg": "боб",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Peas",
+      "bg": "Грах",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Corn",
+      "bg": "Царевица",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Rice",
+      "bg": "Ориз",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Mushrooms",
+      "bg": "Гъби",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Spices / Seasonings",
+      "bg": "Подправки",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Parsley",
+      "bg": "Магданоз",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Savoury",
+      "bg": "Чубрица",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Dill",
+      "bg": "Копър",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Vinegar",
+      "bg": "Оцет",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Oil",
+      "bg": "Олио",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Slice of toast",
+      "bg": "Препечена филийка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Butter",
+      "bg": "Масло",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Milk",
+      "bg": "Мляко",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Ham",
+      "bg": "Шунка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Chicken",
+      "bg": "Пиле",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Chicken Meat",
+      "bg": "Пилешно месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Pork meat",
+      "bg": "свинско месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Veal meat",
+      "bg": "Телешко месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Lamb meat",
+      "bg": "агнешко месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Tasty",
+      "bg": "Вкусен",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Cucumber",
+      "bg": "Краставица",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Taste",
+      "bg": "Вкус",
+      "cat": "food_eating",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Pineapple",
+      "bg": "Ананас",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "blueberries",
+      "bg": "Боровинки",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Raspberries",
+      "bg": "Малини",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Figs",
+      "bg": "Смокиня",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Quince",
+      "bg": "Дюля",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Hazelnut",
+      "bg": "Лешник",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Chestnut",
+      "bg": "кестен",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Beer nuts",
+      "bg": "Бирени ядки",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Sunflower",
+      "bg": "Слънчоглед",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Seeds",
+      "bg": "Семки",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Lettuce",
+      "bg": "Маруля",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Radish",
+      "bg": "Репичка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Leek",
+      "bg": "Праз",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Asparagus",
+      "bg": "Аспрежа",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cauliflower",
+      "bg": "Карфиол",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Brussels Sprouts",
+      "bg": "Брюкселско зеле",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Parsnip",
+      "bg": "Пащърнак",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Pumpkin",
+      "bg": "Тивка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Courgette",
+      "bg": "Тивичка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Chillies",
+      "bg": "Люта чушка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Celery",
+      "bg": "Целина",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Root",
+      "bg": "Корен",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Turnip",
+      "bg": "ряпа",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Olive",
+      "bg": "Маслина",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "olive oil",
+      "bg": "Зехтин",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Beetroot",
+      "bg": "Цвекло",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Turkey",
+      "bg": "Пуйка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Turkey meat",
+      "bg": "Пуешко месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Duck",
+      "bg": "Пате",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Duck meat",
+      "bg": "Патешко Месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Paté",
+      "bg": "Пастет",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Caviar",
+      "bg": "Хайвер",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Beef",
+      "bg": "Говеждо месо",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Chef",
+      "bg": "Готвач",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Starter",
+      "bg": "предястие",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Main course",
+      "bg": "остновно ястие",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Portion",
+      "bg": "Порция",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Oven",
+      "bg": "фурна",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Stove",
+      "bg": "печка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Fridge",
+      "bg": "хладилник",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Raw",
+      "bg": "Суров",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Boiled",
+      "bg": "варен",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Baked/roasted",
+      "bg": "печен",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Fried",
+      "bg": "Пържен",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Steamed",
+      "bg": "задушен",
+      "cat": "food_eating",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "To cut/slice",
+      "bg": "нарязвам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To add",
+      "bg": "добавям",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To stir",
+      "bg": "Разбърквам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To serve",
+      "bg": "Сервирам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To boil",
+      "bg": "Варя",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Bake",
+      "bg": "пека",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To fry",
+      "bg": "Пържа",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To steam",
+      "bg": "задушавам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Grate / Shred",
+      "bg": "Настъргвам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To salt",
+      "bg": "Посолявам",
+      "cat": "food_eating",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Salmon",
+      "bg": "Сьомга",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I touch",
+      "bg": "докосвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Playing (instrument)",
+      "bg": "Свиря",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I stay",
+      "bg": "оставам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Generally / In Principle",
+      "bg": "по принцип",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I listen",
+      "bg": "слушам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I depend",
+      "bg": "Завися",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Neighbour",
+      "bg": "Съсед",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Back to (Going)",
+      "bg": "назад / обратно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Recently",
+      "bg": "наскоро",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Briefly",
+      "bg": "Кратко",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Too much / excessive",
+      "bg": "прекалено",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I Give",
+      "bg": "давам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I say",
+      "bg": "Казвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I am glad",
+      "bg": "Радвам се",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "pillow",
+      "bg": "възглавница",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "To come (Command)",
+      "bg": "Ела",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To choose",
+      "bg": "избирам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Patterned shadow",
+      "bg": "Шарен сянка",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Silver",
+      "bg": "Сребро",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Gold",
+      "bg": "Злато",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Arranged / Tidy",
+      "bg": "подреден",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "River",
+      "bg": "Река",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Different",
+      "bg": "Различно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I look (appearance)",
+      "bg": "Изглеждам",
+      "cat": "appearance",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Question",
+      "bg": "Въпроси",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I count",
+      "bg": "броя",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Heavy",
+      "bg": "Тежък",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "International",
+      "bg": "международен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I remember",
+      "bg": "помня",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "List",
+      "bg": "списък",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I forget",
+      "bg": "Забравям",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "End",
+      "bg": "Край",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Enough",
+      "bg": "Достатъчно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Hill",
+      "bg": "Хълм",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Steep",
+      "bg": "Стръмен",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "to kick",
+      "bg": "Ритам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Wind",
+      "bg": "Вятър",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "awake",
+      "bg": "буден",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Just",
+      "bg": "просто",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "No one",
+      "bg": "Никой",
+      "cat": "people",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Everyone",
+      "bg": "Всички",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Each",
+      "bg": "Всеки",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Waiter",
+      "bg": "Сервитьор",
+      "cat": "people",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Than (non physical comparison)",
+      "bg": "Отколкото",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Whether",
+      "bg": "Дали",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "sheep",
+      "bg": "овце",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Someone",
+      "bg": "някой",
+      "cat": "people",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "None",
+      "bg": "николко",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "some",
+      "bg": "няколко",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I cook",
+      "bg": "Готвя",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I Clean",
+      "bg": "чистя",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "on the contrary",
+      "bg": "Напротив",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Nearby",
+      "bg": "наблизо",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I Really Want",
+      "bg": "Наистина Искам",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To travel",
+      "bg": "пътувам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "exception",
+      "bg": "Изключение",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "exceptions",
+      "bg": "Изключения",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Some things",
+      "bg": "някои неща",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Asks",
+      "bg": "пита",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Important",
+      "bg": "важен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To Gift",
+      "bg": "Продарявам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To help",
+      "bg": "Помагам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Offer / Suggest",
+      "bg": "Предлагам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To show",
+      "bg": "показвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Tell (story)",
+      "bg": "Разказвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To close",
+      "bg": "затварям",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Send",
+      "bg": "Пращам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "inside",
+      "bg": "Вътре",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Early hours",
+      "bg": "Ранни час",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "confused",
+      "bg": "объркан",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Quiet",
+      "bg": "Тихо",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Loud",
+      "bg": "Силен",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "about",
+      "bg": "относно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "earth/ground/land",
+      "bg": "земя",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "To wish / desire",
+      "bg": "желая",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To owe",
+      "bg": "дължа",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "A letter (post)",
+      "bg": "писмо",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "gloves",
+      "bg": "ръкавици",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Cutting Onions",
+      "bg": "Режа Лук",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Hopefully",
+      "bg": "Дано",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "changeable",
+      "bg": "променим",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm found / Located",
+      "bg": "Намирам се",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Hungry",
+      "bg": "Гладен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Wake me",
+      "bg": "Събуди ми",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To invite",
+      "bg": "каня",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Ring",
+      "bg": "Пръстен",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "museum",
+      "bg": "музей",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To pick (fruit)",
+      "bg": "Бера",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To try on (clothes)",
+      "bg": "пробвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "A gift",
+      "bg": "подарък",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "To put",
+      "bg": "слагам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Immediately",
+      "bg": "Веднага",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "to kiss",
+      "bg": "целувам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Bring",
+      "bg": "донасям",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Its raining",
+      "bg": "вали дъжд",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To receive",
+      "bg": "получавам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "success",
+      "bg": "успех",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "From now / already",
+      "bg": "отсега",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Easy",
+      "bg": "Лесно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To collect",
+      "bg": "Събирам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Smell",
+      "bg": "миризма",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Hangover",
+      "bg": "Махмурлук",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Still",
+      "bg": "още",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm sitting",
+      "bg": "седя",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Barrel",
+      "bg": "Бъчва",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Soft",
+      "bg": "Мек",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Step By Step",
+      "bg": "Стъпка по стъпка",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Discount",
+      "bg": "отстъпка",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "choice",
+      "bg": "Избор",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Percent",
+      "bg": "Процент",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Manufacturer",
+      "bg": "произбодител",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Needed/Required",
+      "bg": "Необходим",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To Exercise (not physical)",
+      "bg": "Упражнявам се",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To practise",
+      "bg": "практикувам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Drunk",
+      "bg": "Пиян",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Busy",
+      "bg": "зает",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm trying",
+      "bg": "Опитвам се",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To remind",
+      "bg": "Напомня",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Fix / Repair",
+      "bg": "поправям",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Tree",
+      "bg": "Дърво",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Though / However",
+      "bg": "Обаче",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm joking",
+      "bg": "шегувам се",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To order",
+      "bg": "Поръчвам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To hold/keep",
+      "bg": "задържам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Strange",
+      "bg": "Странен",
+      "cat": "randoms",
+      "subcat": "adjectives",
+      "id": ""
+    },
+    {
+      "eng": "Vine",
+      "bg": "Лоза",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Wedding",
+      "bg": "Сватба",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Difference",
+      "bg": "Разлика",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Venue",
+      "bg": "Заведение",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Recipe/Prescription",
+      "bg": "Рецепта",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I Jump",
+      "bg": "Скачам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "have fun! (command)",
+      "bg": "забавлявай се",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "backpack",
+      "bg": "Раница",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "You can",
+      "bg": "Ти можеш",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "We Can",
+      "bg": "Ние можем",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I go",
+      "bg": "отивам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Undies/Boxers",
+      "bg": "Гащи",
+      "cat": "clothes",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I apologize",
+      "bg": "Извинявам се",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I can",
+      "bg": "Мога",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I Make/Do",
+      "bg": "Правя",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Ladies and Gents",
+      "bg": "Дами и Господа",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I fly",
+      "bg": "летя",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I stop",
+      "bg": "спирам",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I start",
+      "bg": "започвам",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Almond/s",
+      "bg": "Бадем/и",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Drivers License",
+      "bg": "шофьорска книжка",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Traffic Light",
+      "bg": "светофар",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Residential Complex",
+      "bg": "Жилищен Комплекс",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Dual Carriageway",
+      "bg": "Шосе",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Carefully",
+      "bg": "Внимателно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Careful",
+      "bg": "Внимателен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Rich / Weathly",
+      "bg": "Богат",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Engine + Motorbike",
+      "bg": "Мотор",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "It's not true",
+      "bg": "Не вярно е",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Thing",
+      "bg": "Нещо",
+      "cat": "",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Costume",
+      "bg": "Носия",
+      "cat": "clothes",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Direct",
+      "bg": "Директен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I walk (to)",
+      "bg": "Ходя",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Typical",
+      "bg": "Типичен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "During/Through",
+      "bg": "През",
+      "cat": "movement",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I drive",
+      "bg": "Карам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "City Transport",
+      "bg": "градски транспорт",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Xmas",
+      "bg": "Коледа",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Socks",
+      "bg": "Чорапи",
+      "cat": "clothes",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I'm interested",
+      "bg": "интересувам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "A stop (bus, tram)",
+      "bg": "спирка",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Hat",
+      "bg": "Шапка",
+      "cat": "clothes",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I see",
+      "bg": "Виждам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I search",
+      "bg": "Търся",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Neighbourhood",
+      "bg": "Квартал",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I'm smiling",
+      "bg": "Усмихвам се",
+      "cat": "expressions",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Flight",
+      "bg": "Полет",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Building",
+      "bg": "Сграда",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Zebra Crossing",
+      "bg": "пешеходна пътека",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Truck",
+      "bg": "Камион",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "adventure",
+      "bg": "приключение",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Mountain",
+      "bg": "Планина",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Take it easy / calmly",
+      "bg": "спокойно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "inspection",
+      "bg": "проверка",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Before",
+      "bg": "Преди",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Madam",
+      "bg": "Госпожа",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Wrong/Incorrect",
+      "bg": "Грешно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "On foot",
+      "bg": "Пеш",
+      "cat": "movement",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I know (personally)",
+      "bg": "Познавам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Hot",
+      "bg": "Горещ",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I'm not sure (m)",
+      "bg": "Не съм сигурен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Attention",
+      "bg": "Внимание",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Team",
+      "bg": "Екип",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Beach",
+      "bg": "плаж",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "The last one",
+      "bg": "последната",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Helmet",
+      "bg": "каска",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I Read",
+      "bg": "Чета",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I hear",
+      "bg": "Чувам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Instead",
+      "bg": "Вместо",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Peanut/s",
+      "bg": "Фъстък/Фъстъци",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I'm not sure (f)",
+      "bg": "не съм сигурна",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "In my opinion",
+      "bg": "Според мен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Indeed",
+      "bg": "Наистина",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Sesame",
+      "bg": "Сусам",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "To check",
+      "bg": "проверявам",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Decoration",
+      "bg": "Украса",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I Write",
+      "bg": "Пиша",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "Happy",
+      "bg": "щастлив",
+      "cat": "character",
+      "subcat": "adjective",
+      "id": ""
+    },
+    {
+      "eng": "It Depends",
+      "bg": "Зависи",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Corner",
+      "bg": "Ъгъл",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Sick",
+      "bg": "болен",
+      "cat": "character",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Ready",
+      "bg": "Готов",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Foreigner",
+      "bg": "Чужденец",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Be (command)",
+      "bg": "Бъди",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "The next (neuter)",
+      "bg": "следващото",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To Exit (Command)",
+      "bg": "Излез",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Arrive",
+      "bg": "Пристигам",
+      "cat": "movement",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To sell",
+      "bg": "Продавам",
+      "cat": "shopping",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "To Give (Command)",
+      "bg": "Дай",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To look (command)",
+      "bg": "Виж",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Somewhere",
+      "bg": "Някъде",
+      "cat": "streets_areas",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To Enter (Command)",
+      "bg": "Влез",
+      "cat": "movement",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To eat (Command)",
+      "bg": "Яж",
+      "cat": "food_eating",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "ball",
+      "bg": "топка",
+      "cat": "randoms",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Colourful",
+      "bg": "Цветен",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "I play",
+      "bg": "играя",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "I agree",
+      "bg": "Сугласен съм",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Together",
+      "bg": "заедно",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "Petrol",
+      "bg": "Бензин",
+      "cat": "movement",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "Miss",
+      "bg": "Госпожица",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "The rest",
+      "bg": "Останалото",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "To Grind",
+      "bg": "Меля",
+      "cat": "randoms",
+      "subcat": "verbs",
+      "id": ""
+    },
+    {
+      "eng": "A Drink",
+      "bg": "Напитка",
+      "cat": "food_eating",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "For example",
+      "bg": "Например",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "leaf",
+      "bg": "лист",
+      "cat": "streets_areas",
+      "subcat": "items",
+      "id": ""
+    },
+    {
+      "eng": "I mean",
+      "bg": "Знача",
+      "cat": "randoms",
+      "subcat": "",
+      "id": ""
+    },
+    {
+      "eng": "The same",
+      "bg": "същото",
+      "cat": "randoms"
+    }
+  ]
+}
