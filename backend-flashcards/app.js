@@ -4,6 +4,8 @@ const app = express()
 
 const usersRouter = require('./controllers/users')
 const { MDB_URI } = require('./utils/config')
+const { requestLogger } = require('./utils/middleware')
+const { unknownEndpoint } = require('./utils/middleware')
 
 app.use(express.json())
 
@@ -18,7 +20,10 @@ mongoose
   })
 
 
+app.use(requestLogger)
 app.use('/api/users',usersRouter)
 
+
+app.use(unknownEndpoint)
 
 module.exports = app
