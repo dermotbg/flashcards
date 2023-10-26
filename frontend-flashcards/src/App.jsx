@@ -5,13 +5,16 @@ import { v4 as uuid } from 'uuid'
 
 import Card from './components/Card'
 import RegForm from './components/RegForm'
+import Login from './components/LoginForm'
+import { checkLogin } from './reducers/loginReducer'
 
 const App = () => {
-
+  const login = useSelector((state) => state.login)
   const cards = useSelector((state) => state.flashcards)
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(checkLogin())
     dispatch(getCards())
   }, [dispatch])
 
@@ -50,11 +53,21 @@ const App = () => {
     dispatch(setSelected(selectedTen))
   }
 
+  // put in loading spinner on reset to stop heavy clicks
+
   return(
     <>
       <div>Hello Flashcards</div>
-      <RegForm />
+      {!login
+        ?
+        <div>
+          <Login />
+          <RegForm />
+        </div>
+        : null
+      }
       <button onClick={() => triggerStart()}>Start</button>
+      {/* <button onClick={() => triggerStart()} style={{display:'none'}}>Restart</button> */}
       <div>
         {cards.selected.length !== 0 ? cards.selected.map(c => {
           return <Card key={uuid()} card={c}/>
