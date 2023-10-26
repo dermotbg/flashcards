@@ -8,6 +8,13 @@ const RegForm = () => {
 
   const regHandler = async (event) => {
     event.preventDefault()
+    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{8,16}$/
+    if(!regex.test(event.target.password.value)){
+      dispatch(setMessage({
+        message: 'password must be between 8-16 characters, and contain at least one number and special character',
+        isError: true
+      }))
+    }
     const userObj = {
       username: event.target.username.value,
       password: event.target.password.value
