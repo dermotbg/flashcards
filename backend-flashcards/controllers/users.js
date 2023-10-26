@@ -9,8 +9,7 @@ usersRouter.get('/', async (request, response) => {
 })
 
 usersRouter.post('/', async (request, response) => {
-  console.log(request.body)
-  try{
+  // console.log(request.body)
     const { username, password  } = request.body
   
     if(!password) return response.status(400).json({ error: 'password needed'})
@@ -24,15 +23,10 @@ usersRouter.post('/', async (request, response) => {
       score: 0
     })
   
-    console.log('just before the save',user)
+    // console.log('just before the save',user)
   
     const savedUser = await user.save()
     response.status(201).json(savedUser)
-  }
-  catch(err){
-    console.log(err)
-  }
-
 })
 
 module.exports = usersRouter

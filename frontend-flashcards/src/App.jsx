@@ -11,6 +11,7 @@ import { checkLogin } from './reducers/loginReducer'
 const App = () => {
   const login = useSelector((state) => state.login)
   const cards = useSelector((state) => state.flashcards)
+  // const notification = useSelector((state) => state.notification)
   const dispatch = useDispatch()
 
   useEffect(() => {
