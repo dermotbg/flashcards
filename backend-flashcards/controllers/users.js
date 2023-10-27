@@ -29,4 +29,14 @@ usersRouter.post('/', async (request, response) => {
     response.status(201).json(savedUser)
 })
 
+usersRouter.put('/:id/score', async (request, response) => {
+  const body = request.body
+  console.log(body.score)
+
+  await User.findByIdAndUpdate(body.id, { score: body.score }, {
+    returnOriginal: false
+  })
+  return response.status(204).end()
+}) 
+
 module.exports = usersRouter

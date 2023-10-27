@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { loginUser } from '../reducers/loginReducer'
+import { loginUser } from '../reducers/userReducer'
 
 const Login = () => {
 
