@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-// const uniqueValidator = require('mongoose-unique-validator')
+const uniqueValidator = require('mongoose-unique-validator')
 
 const cardSchema = new mongoose.Schema({
   en: {
@@ -18,7 +18,7 @@ const cardSchema = new mongoose.Schema({
   rating: Number
 }) 
 
-// cardSchema.plugin(uniqueValidator)
+cardSchema.plugin(uniqueValidator)
 
 cardSchema.set('toJSON', {
   transform: (document, returnedObj) => {

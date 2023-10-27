@@ -8,22 +8,30 @@ const RegForm = () => {
 
   const regHandler = async (event) => {
     event.preventDefault()
-    const regex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{8,16}$/
-    if(!regex.test(event.target.password.value)){
+    const pwRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*].{8,16}$/
+    const whspRegex = /\s/
+    if(!pwRegex.test(event.target.password.value)){
       dispatch(setMessage({
-        message: 'password must be between 8-16 characters, and contain at least one number and special character',
+        message: 'Password must be between 8-16 characters, and contain at least one number and special character',
         isError: true
       }))
+      return
+    }
+    else if (whspRegex.test(event.target.username.value)){
+      dispatch(setMessage({
+        message: 'Please refrain from using spaces in your username',
+        isError: true
+      }))
+      return
     }
     const userObj = {
-      username: event.target.username.value,
-      password: event.target.password.value
+      username: event.target.username.value.trim(),
+      password: event.target.password.value.trim()
     }
     try{
       await createUser(userObj)
     }
     catch(error){
-      // console.log('HEREs the bastid',error.response.data.error)
       dispatch(setMessage({
         message: error.response.data.error,
         isError: true
@@ -32,7 +40,6 @@ const RegForm = () => {
     event.target.username.value = '',
     event.target.password.value = ''
   }
-  // console.log(notification)
   return(
     <>
       <p>Register here to save progress:</p>

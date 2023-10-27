@@ -1,13 +1,14 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
+import ToggleVisible from './ToggleVisible'
 const Card = ({ card }) => {
 
 
   const [correct, setCorrect] = useState('')
-  // const [inCorrect, setIncorrect] = useState(null)
+  const [answerChecked, setAnswerChecked] = useState(false)
 
-  // const clr = { color: correct ? 'green' : 'red' }
+  const checkAnswerRef = useRef()
 
   const checkAnswer = (event) => {
     event.preventDefault()
@@ -19,6 +20,9 @@ const Card = ({ card }) => {
       setCorrect('')
     }, 5000)
   }
+  const showAnswer = () => {
+    setAnswerChecked(true)
+  }
 
   return(
     <div>
@@ -26,10 +30,11 @@ const Card = ({ card }) => {
         <div className='answer' style={{ backgroundColor: correct }} >
           {card.en}
         </div>
-        <input type="text" name="bg" />
-        <button type="submit">Check answer</button>
+        {answerChecked ? null : <div><input type="text" name="bg" /> <button type="submit">Check answer</button></div>}
       </form>
-
+      <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer}>
+        <p>{card.en} / {card.bg}</p>
+      </ToggleVisible>
     </div>
   )
 }
