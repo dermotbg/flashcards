@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
 import ToggleVisible from './ToggleVisible'
@@ -13,14 +13,22 @@ const Card = ({ card }) => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
+  useEffect(() => {
+    console.log('re-rendered')
+  }, [] )
+
   const checkAnswerRef = useRef()
 
-  const checkAnswer = (event) => {
+  const checkAnswer = useCallback((event) => {
     event.preventDefault()
+
     console.log(card)
+
     const answer = card.bg.localeCompare(event.target.bg.value, 'bg', { sensitivity: 'base' })
+
     if(!answer){
       setCorrect('green')
+      showAnswer()
       let updatedUser = user
       switch (card.difficulty) {
       case 'easy':
@@ -36,12 +44,15 @@ const Card = ({ card }) => {
         break
       }
       dispatch(updateScore(updatedUser))
+      setAnswerChecked(true)
     }
+
     else {setCorrect('red')}
     setTimeout(() => {
       setCorrect('')
     }, 5000)
-  }
+  }, [card, dispatch, user])
+
   const showAnswer = () => {
     setAnswerChecked(true)
   }

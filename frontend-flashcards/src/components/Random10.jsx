@@ -1,14 +1,13 @@
-import { clearCards, getCards, setSelected } from '../reducers/cardReducer'
+import { getCards, setSelected } from '../reducers/cardReducer'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
-import { v4 as uuid } from 'uuid'
+import { useCallback, useEffect } from 'react'
 
 import Card from './Card'
 
 const Random10 = () => {
-  const [disabled, setDisabled] = useState(false)
 
   const cards = useSelector((state) => state.flashcards)
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -35,33 +34,26 @@ const Random10 = () => {
     return Math.floor(Math.random() * ((max - min + 1) + min))
   }
 
-  const getRandomCards = (cards, amount) => {
+  const getRandomCards = useCallback((cards, amount) => {
     const output = []
     const shuffled = shuffle([...cards])
     for (let i = 0; i < amount; i++){
       output.push(shuffled[randomArrayIndex(0, shuffled.length -1)])
     }
     return output
-  }
+  }, [])
 
   const triggerStart = () => {
-    setDisabled(true)
-    dispatch(clearCards())
-    dispatch(getCards())
-    const selectedTen = getRandomCards(cards.all, 10)
-    dispatch(setSelected(selectedTen))
-    setTimeout(() => {
-      setDisabled(false)
-    }, 1000)
+    dispatch(setSelected(getRandomCards([...cards.all], 10)))
   }
 
   return(
     <div>
-      <button onClick={() => triggerStart()} disabled={disabled}>Give me 10 random cards!</button>
+      {cards.all[0] ? <button onClick={() => triggerStart()} >Give me 10 random cards!</button> : <div>Loading...</div>}
       {/* <button onClick={() => triggerStart()} style={{display:'none'}}>Restart</button> */}
       <div>
         {cards.selected.length !== 0 ? cards.selected.map(c => {
-          return <Card key={uuid()} card={c}/>
+          return <Card key={c.id} card={c}/>
         }): null}
       </div>
     </div>
