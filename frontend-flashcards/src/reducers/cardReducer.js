@@ -31,7 +31,7 @@ const cardSlice = createSlice({
         all: [...state.all],
         selected: []
       }
-    }
+    },
   }
 })
 
@@ -41,6 +41,18 @@ export const getCards = () => {
   return async dispatch => {
     const cards = await flashcardService.getCards()
     dispatch(setCards(cards))
+  }
+}
+
+export const rateCard = (cardObj, undo) => {
+  return async () => {
+    if(undo){
+      //conditional for removing rating
+      cardObj.undo = undo
+      await flashcardService.rateCard(cardObj)
+      return
+    }
+    await flashcardService.rateCard(cardObj)
   }
 }
 

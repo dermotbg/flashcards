@@ -11,7 +11,13 @@ const userSchema = new mongoose.Schema({
     maxLength: 15
   },
   passwordHash: { type: String, required: true},
-  score: Number
+  score: Number,
+  ratedCards: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Card'
+    }
+  ] 
 })
 
 

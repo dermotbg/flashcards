@@ -15,7 +15,13 @@ const cardSchema = new mongoose.Schema({
   cat: String,
   subcat: String,
   difficulty: String,
-  rating: Number
+  rating: Number,
+  ratedBy: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ] 
 }) 
 
 cardSchema.plugin(uniqueValidator)

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import RegForm from './components/RegForm'
 import Login from './components/LoginForm'
-import { checkLogin } from './reducers/userReducer'
+import { checkLogin, logoutUser } from './reducers/userReducer'
 import Random10 from './components/Random10'
 
 const App = () => {
@@ -11,14 +11,26 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    console.log('login checked')
     dispatch(checkLogin())
+    setInterval(() => {
+      dispatch(checkLogin())
+    }, (6000 * 61))
+    // need to force logout on expired token!!
+    // when router in place, redirect to login form
   }, [dispatch])
 
-  if(!login) return(<div>Loading...</div>)
   return(
     <>
-      <div>Hello {login.username}</div>
-      <div>Current Score: {login.score}</div>
+      {login
+        ?
+        <div>
+          <div>Hello {login.username}</div>
+          <div>Current Score: {login.score}</div>
+          <button onClick={() => dispatch(logoutUser())}>logout</button>
+          <Random10 />
+        </div>
+        : null}
       {!login
         ?
         <div>
@@ -27,7 +39,6 @@ const App = () => {
         </div>
         : null
       }
-      <Random10 />
     </>
   )
 }

@@ -11,3 +11,8 @@ export const addScore = async (userObj) => {
   const response = await axios.put(`${baseUrl}/${userObj.id}/score`, userObj)
   return response.data
 }
+
+export const getUser = async (userObj) => {
+  const response = await axios.get(`${baseUrl}/${userObj.id}`)
+  return response.data
+}

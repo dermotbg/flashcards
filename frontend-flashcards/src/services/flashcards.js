@@ -12,7 +12,13 @@ const getCards = async () => {
   return response.data
 }
 
+const rateCard = async (card) => {
+  const response = await axios.put(`${baseUrl}/${card.id}`, card)
+  return response.data
+}
+
 export default {
   getCards,
-  setToken
+  setToken,
+  rateCard
 }

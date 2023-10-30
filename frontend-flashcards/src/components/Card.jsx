@@ -4,6 +4,7 @@ import './Card.css'
 import ToggleVisible from './ToggleVisible'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
+import { rateCard } from '../reducers/cardReducer'
 const Card = ({ card }) => {
 
   const [correct, setCorrect] = useState('')
@@ -14,7 +15,8 @@ const Card = ({ card }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('re-rendered')
+    // console.log('re-rendered')
+    // console.log(user)
   }, [] )
 
   const checkAnswerRef = useRef()
@@ -28,7 +30,6 @@ const Card = ({ card }) => {
 
     if(!answer){
       setCorrect('green')
-      showAnswer()
       let updatedUser = user
       switch (card.difficulty) {
       case 'easy':
@@ -57,6 +58,33 @@ const Card = ({ card }) => {
     setAnswerChecked(true)
   }
 
+
+  const ratingHandler = (card, event) => {
+    const cardObj = { ...card }
+    // check if user has already rated card
+    if(card.ratedBy.find((i) => i.id === user.id)){
+      console.log('heres the delete path')
+      const index = card.ratedBy.findIndex(i => i.username === user.username)
+
+      // future me needs to implement plus and minus conditionals for the below
+      cardObj.rating = card.rating - 1
+      cardObj.ratedBy = [ ...card.ratedBy ] // copy needed for splice to work
+      cardObj.ratedBy.splice(index, 1)
+      // const undo = true
+      dispatch(rateCard(cardObj))
+      return
+    }
+
+    cardObj.ratedBy = user.id
+    if(event.target.name === 'plus'){
+      cardObj.rating = card.rating + 1
+      dispatch(rateCard(cardObj))
+      return
+    }
+    cardObj.rating = card.rating - 1
+    dispatch(rateCard(cardObj))
+  }
+
   return(
     <div>
       <form onSubmit={checkAnswer}>
@@ -65,6 +93,8 @@ const Card = ({ card }) => {
           <div>
             <em>In the context of {card.cat}</em>
           </div>
+          <button type='button' name='plus' onClick={(e) => ratingHandler(card, e)}>rate card +</button>
+          <button type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</button>
         </div>
         {answerChecked ? null : <div><input type="text" name="bg" /> <button type="submit">Check answer</button></div>}
       </form>

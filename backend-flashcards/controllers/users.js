@@ -4,8 +4,13 @@ const User = require('../models/users')
 const usersRouter = require('express').Router()
 
 usersRouter.get('/', async (request, response) => {
-  const users = await Users.find({})
+  const users = await Users.find({}).populate('ratedCards')
   response.json(users)
+})
+
+usersRouter.get('/:id', async (request, response) => {
+  const user = await Users.findById(request.params.id)
+  return response.json(user)
 })
 
 usersRouter.post('/', async (request, response) => {

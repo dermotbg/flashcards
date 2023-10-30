@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loginReq } from '../services/login'
 import flashcardService from '../services/flashcards'
-import { addScore } from '../services/users'
+import { addScore, getUser } from '../services/users'
+import { jwtDecode } from 'jwt-decode'
 
 const userSlice = createSlice({
   name: 'user',
@@ -11,6 +12,7 @@ const userSlice = createSlice({
       return action.payload
     },
     logoutUser(){
+      window.localStorage.removeItem('loggedInUser')
       return null
     },
     setScore(state, action){
@@ -32,8 +34,16 @@ export const loginUser = (loginObj) => {
 
 export const checkLogin = () => {
   return dispatch => {
+    // console.log('login checked')
     const loggedInUser = window.localStorage.getItem('loggedInUser')
     if (loggedInUser) {
+      const currentDate = new Date()
+      const decoded = jwtDecode(loggedInUser)
+      // come back to this below
+      // if(decoded.exp < currentDate.getTime()){
+      //   console.log('login expired exp:', decoded.exp, 'current:',currentDate.getTime(), 'difference:', (decoded.exp - currentDate.getTime()))
+      //   dispatch(logoutUser())
+      // }
       const user = JSON.parse(loggedInUser)
       flashcardService.setToken(user.token)
       dispatch(setUser(user))
@@ -48,5 +58,11 @@ export const updateScore = (userObj) => {
   }
 }
 
+export const get1User = (userObj) => {
+  return async () => {
+    const response = await getUser(userObj)
+    return response.data
+  }
+}
 
 export default userSlice.reducer

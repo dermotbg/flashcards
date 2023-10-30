@@ -11,12 +11,12 @@ const unknownEndpoint = (request, response, next) => {
 }
 
 const errorHandler = (error, request, response, next) => {
-  // console.log('heres the NAME',error.name)
-  // console.log('heres the MESSAGE',error.message)
   if (error.name === 'ValidationError'){
     return response.status(409).json({ error: 'username already taken' })
-  }
-  // console.error(error)
+  } 
+  // else if (error.name === 'CastError'){
+  //   return response.status(400).send({ error: error.message })
+  // }
   next(error)
 }
 
