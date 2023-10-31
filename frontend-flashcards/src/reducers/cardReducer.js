@@ -34,14 +34,9 @@ const cardSlice = createSlice({
     },
     rateCardAction(state, action){
       const id = action.payload.id
-      const cardToBeUpdated = state.selected.find(c => c.id === id)
-      const changedCard =  action.payload.undo
-        ? { ...cardToBeUpdated, rating: cardToBeUpdated -1 }
-        : { ...cardToBeUpdated, rating: cardToBeUpdated.rating +1 }
-      console.log(cardToBeUpdated.rating)
       return {
-        all: state.all,
-        selected: state.selected.map(c => c.id === changedCard.id ? changedCard : c)
+        all: [...state.all],
+        selected: state.selected.map(c => c.id === id ? action.payload : c)
       }
     }
   }
@@ -56,16 +51,8 @@ export const getCards = () => {
   }
 }
 
-export const rateCard = (cardObj, undo) => {
+export const rateCard = (cardObj) => {
   return async dispatch => {
-    if(undo){
-      //conditional for removing rating
-      console.log('undo active')
-      cardObj.undo = undo
-      await flashcardService.rateCard(cardObj)
-      dispatch(rateCardAction(cardObj))
-      return
-    }
     dispatch(rateCardAction(cardObj))
     await flashcardService.rateCard(cardObj)
   }

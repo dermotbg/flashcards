@@ -37,9 +37,9 @@ export const checkLogin = () => {
     // console.log('login checked')
     const loggedInUser = window.localStorage.getItem('loggedInUser')
     if (loggedInUser) {
-      const currentDate = new Date()
-      const decoded = jwtDecode(loggedInUser)
       // come back to this below
+      // const currentDate = new Date()
+      // const decoded = jwtDecode(loggedInUser)
       // if(decoded.exp < currentDate.getTime()){
       //   console.log('login expired exp:', decoded.exp, 'current:',currentDate.getTime(), 'difference:', (decoded.exp - currentDate.getTime()))
       //   dispatch(logoutUser())
