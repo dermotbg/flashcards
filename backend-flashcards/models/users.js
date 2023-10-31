@@ -25,6 +25,7 @@ userSchema.plugin(uniqueValidator)
 
 userSchema.set('toJSON', {
   transform: (document, returnedObj) => {
+    console.log('retOB',returnedObj)
     returnedObj.id = returnedObj._id.toString()
     delete returnedObj._id
     delete returnedObj.passwordHash

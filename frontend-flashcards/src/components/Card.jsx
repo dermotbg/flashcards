@@ -75,12 +75,13 @@ const Card = ({ card }) => {
       return
     }
 
-    cardObj.ratedBy = user.id
     if(event.target.name === 'plus'){
+      cardObj.ratedBy = { user: user.id, rating: '+'}
       cardObj.rating = card.rating + 1
       dispatch(rateCard(cardObj))
       return
     }
+    cardObj.ratedBy = { user: user.id, rating: '-'}
     cardObj.rating = card.rating - 1
     dispatch(rateCard(cardObj))
   }
@@ -92,6 +93,7 @@ const Card = ({ card }) => {
           {card.en}
           <div>
             <em>In the context of {card.cat}</em>
+            <div>{card.rating}</div> 
           </div>
           <button type='button' name='plus' onClick={(e) => ratingHandler(card, e)}>rate card +</button>
           <button type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</button>

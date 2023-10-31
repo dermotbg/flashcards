@@ -18,8 +18,15 @@ const cardSchema = new mongoose.Schema({
   rating: Number,
   ratedBy: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+      },
+      rating: {
+        type: String,
+        enum: ['+','-']
+      },
+      _id: false
     }
   ] 
 }) 
@@ -28,6 +35,7 @@ cardSchema.plugin(uniqueValidator)
 
 cardSchema.set('toJSON', {
   transform: (document, returnedObj) => {
+    console.log('returnedOBJ-CARD', returnedObj)
     returnedObj.id = returnedObj._id.toString()
     delete returnedObj._id
     delete returnedObj.__V

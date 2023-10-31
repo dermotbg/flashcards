@@ -42,18 +42,19 @@ flashcardsRouter.put('/:id', async (request, response) => {
     subcat: body.subcat,
     difficulty: body.difficulty,
     rating: body.rating,
-    ratedBy: body.ratedBy,
+    ratedBy: { user: body.ratedBy.user, rating: body.ratedBy.rating },
     id: body.id
   }
+
+  console.log('updated card done', updatedCard)
 
   await Card.findByIdAndUpdate(body.id, updatedCard, {
     new: true, 
     runValidators: true,
     context: 'query'
   })
-
-  // we have the user, now it needs to be added to the card, then the conditionals can come in? 
-  await User.findByIdAndUpdate(body.ratedBy, { $push: { ratedCards: body.id } }, {
+  // might need to add rating data to user in the future 
+  await User.findByIdAndUpdate(body.ratedBy.user, { $push: { ratedCards: body.id } }, {
     new: true, 
     runValidators: true,
     context: 'query'
