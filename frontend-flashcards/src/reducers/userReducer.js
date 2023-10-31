@@ -40,7 +40,7 @@ export const checkLogin = () => {
       // come back to this below
       const currentDate = new Date()
       const decoded = jwtDecode(loggedInUser)
-      if(decoded.exp < currentDate.getTime()){
+      if((decoded.exp * 1000) < currentDate.getTime()){
         console.log('login expired exp:', decoded.exp, 'current:',currentDate.getTime(), 'difference:', (decoded.exp - currentDate.getTime()))
         dispatch(logoutUser())
 
