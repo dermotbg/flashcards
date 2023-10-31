@@ -38,7 +38,9 @@ const Random10 = () => {
     const output = []
     const shuffled = shuffle([...cards])
     for (let i = 0; i < amount; i++){
-      output.push(shuffled[randomArrayIndex(0, shuffled.length -1)])
+      let randomIndex = randomArrayIndex(0, shuffled.length -1)
+      output.push(shuffled[randomIndex])
+      shuffled.splice(randomIndex, 1)
     }
     return output
   }, [])
