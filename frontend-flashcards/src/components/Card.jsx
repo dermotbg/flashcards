@@ -83,7 +83,7 @@ const Card = ({ card }) => {
             <em>In the context of {card.cat}</em>
             <div>{card.rating}</div>
           </div>
-          {Array.isArray(card.ratedBy) && card.ratedBy.user && card.ratedBy.find(({ user }) => user.user === user.id)
+          {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
             ? <button type='button' name='undo' onClick={() => undoRatingHandler(card)}> Undo rating </button>
             :
             <div>

@@ -14,13 +14,13 @@ const App = () => {
   const login = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  if(!login){navigate('/')}
 
   useEffect(() => {
     console.log('login checked')
     dispatch(checkLogin())
     setInterval(() => {
       dispatch(checkLogin())
-      navigate('/')
     }, (6000 * 61))
     // need to force logout on expired token!!
     // when router in place, redirect to login form
