@@ -38,12 +38,13 @@ export const checkLogin = () => {
     const loggedInUser = window.localStorage.getItem('loggedInUser')
     if (loggedInUser) {
       // come back to this below
-      // const currentDate = new Date()
-      // const decoded = jwtDecode(loggedInUser)
-      // if(decoded.exp < currentDate.getTime()){
-      //   console.log('login expired exp:', decoded.exp, 'current:',currentDate.getTime(), 'difference:', (decoded.exp - currentDate.getTime()))
-      //   dispatch(logoutUser())
-      // }
+      const currentDate = new Date()
+      const decoded = jwtDecode(loggedInUser)
+      if(decoded.exp < currentDate.getTime()){
+        console.log('login expired exp:', decoded.exp, 'current:',currentDate.getTime(), 'difference:', (decoded.exp - currentDate.getTime()))
+        dispatch(logoutUser())
+
+      }
       const user = JSON.parse(loggedInUser)
       flashcardService.setToken(user.token)
       dispatch(setUser(user))
