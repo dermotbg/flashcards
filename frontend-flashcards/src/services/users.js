@@ -12,7 +12,7 @@ export const addScore = async (userObj) => {
   return response.data
 }
 
-export const getUser = async (userObj) => {
-  const response = await axios.get(`${baseUrl}/${userObj.id}`)
+export const getUser = async (id) => {
+  const response = await axios.get(`${baseUrl}/${id}`)
   return response.data
 }

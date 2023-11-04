@@ -60,9 +60,10 @@ export const updateScore = (userObj) => {
 }
 
 export const get1User = (userObj) => {
-  return async () => {
+  return async dispatch => {
     const response = await getUser(userObj)
-    return response.data
+    dispatch(setUser(response))
+    return response
   }
 }
 

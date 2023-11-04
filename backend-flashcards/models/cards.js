@@ -16,6 +16,7 @@ const cardSchema = new mongoose.Schema({
   subcat: String,
   difficulty: String,
   rating: Number,
+  createdAt: {type: Date, default: Date.now()},
   ratedBy: [
     {
       user: {
@@ -29,7 +30,7 @@ const cardSchema = new mongoose.Schema({
       _id: false
     }
   ] 
-}) 
+}, { timestamps: true }) 
 
 cardSchema.plugin(uniqueValidator)
 

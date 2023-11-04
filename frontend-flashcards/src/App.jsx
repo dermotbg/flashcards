@@ -7,6 +7,7 @@ import { checkLogin, logoutUser } from './reducers/userReducer'
 import Random10 from './components/Random10'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './components/Home'
+import Account from './components/Account'
 
 import './components/Gen.css'
 
@@ -14,7 +15,6 @@ const App = () => {
   const login = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  if(!login){navigate('/')}
 
   useEffect(() => {
     console.log('login checked')
@@ -24,6 +24,7 @@ const App = () => {
     }, (6000 * 61))
     // need to force logout on expired token!!
     // when router in place, redirect to login form
+    if(!login){navigate('/')}
   }, [dispatch])
 
   const navbarContainer = {
@@ -40,7 +41,7 @@ const App = () => {
     <div>
       <div className='navbarContainer' style={navbarContainer}>
         <Link to='/'>Home</Link>
-        {login ? <Link to='#'>Account</Link> : <Link to='#'>Something</Link>  }
+        {login ? <Link to={`/user/${login.id}`}>Account</Link> : <Link to='#'>Something</Link>  }
         <Link to='#'>TBD</Link>
         {login
           ?
@@ -62,6 +63,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/random10' element={<Random10 />} />
+        <Route path='/user/:id' element={<Account login={login} />} />
       </Routes>
     </div>
   )

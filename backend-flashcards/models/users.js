@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     maxLength: 15
   },
   passwordHash: { type: String, required: true},
+  createdAt: {type: Date, default: Date.now()},
   score: Number,
   ratedCards: [
     {
