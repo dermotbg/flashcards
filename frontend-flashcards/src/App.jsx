@@ -10,6 +10,7 @@ import Home from './components/Home'
 import Account from './components/Account'
 
 import './components/Gen.css'
+import Avatar from './components/Avatar'
 
 const App = () => {
   const login = useSelector((state) => state.user)
@@ -45,10 +46,15 @@ const App = () => {
         <Link to='#'>TBD</Link>
         {login
           ?
-          <div>
-            <div>Hello {login.username}</div>
-            <div>Current Score: {login.score}</div>
-            <button onClick={() => dispatch(logoutUser())}>logout</button>
+          <div style={{ ...navbarContainer, border: 'none' }}>
+            <div>
+              <div>Hello {login.username}</div>
+              <div>Current Score: {login.score}</div>
+              <button onClick={() => dispatch(logoutUser())}>logout</button>
+            </div>
+            <div>
+              <Avatar size={30}/>
+            </div>
           </div>
           : null}
       </div>

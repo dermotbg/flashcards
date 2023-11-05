@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dicebear/collection": "^7.0.1",
+    "@dicebear/core": "^7.0.1",
     "@fontsource/inter": "^5.0.15",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.5.1",
