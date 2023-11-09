@@ -24,6 +24,7 @@ const ToggleVisible = forwardRef((props, refs) => {
         <button onClick={ () => { toggleVisible(); props.onClick() }}>{props.buttonLabel}</button>
       </div>
       <div style={shownWhileTrue}>
+        <button onClick={ () => { toggleVisible() }}>cancel</button>
         {props.children}
       </div>
     </div>
@@ -34,7 +35,10 @@ ToggleVisible.displayName = 'ToggVisible'
 ToggleVisible.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+}
+ToggleVisible.defaultProps = {
+  onClick: () => {}
 }
 
 export default ToggleVisible
