@@ -24,7 +24,7 @@ const ToggleVisible = forwardRef((props, refs) => {
         <button onClick={ () => { toggleVisible(); props.onClick() }}>{props.buttonLabel}</button>
       </div>
       <div style={shownWhileTrue}>
-        <button onClick={ () => { toggleVisible() }}>cancel</button>
+        <button onClick={ () => { toggleVisible() }}>{props.buttonLabel2}</button>
         {props.children}
       </div>
     </div>
@@ -34,6 +34,7 @@ const ToggleVisible = forwardRef((props, refs) => {
 ToggleVisible.displayName = 'ToggVisible'
 ToggleVisible.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  buttonLabel2: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func,
 }
