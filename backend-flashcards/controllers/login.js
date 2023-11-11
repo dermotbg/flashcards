@@ -27,7 +27,9 @@ loginRouter.post('/', async (request, response) => {
     token, 
     username: user.username, 
     id: user._id.toString(),
-    score: user.score  })
+    score: user.score,
+    avatar: user.avatar 
+  })
 })
 
 module.exports = loginRouter

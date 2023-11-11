@@ -4,9 +4,10 @@ import flashcardService from '../services/flashcards'
 import { addScore, getUser } from '../services/users'
 import { jwtDecode } from 'jwt-decode'
 
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: [],
+  initialState: {},
   reducers: {
     setUser(state, action){
       return action.payload

@@ -8,6 +8,7 @@ const { MDB_URI } = require('./utils/config')
 const middleware = require('./utils/middleware')
 const flashcardsRouter = require('./controllers/cards')
 const loginRouter = require('./controllers/login')
+const avatarRouter = require('./controllers/avatars')
 
 app.use(express.json())
 
@@ -27,6 +28,7 @@ app.use(middleware.requestLogger)
 app.use('/api/users',usersRouter)
 app.use('/api/flashcards',flashcardsRouter)
 app.use('/api/login', loginRouter)
+app.use('/api/avatars', avatarRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

@@ -1,18 +1,15 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { createAvatar } from '@dicebear/core'
 import { croodles as style } from '@dicebear/collection'
 import ToggleVisible from './ToggleVisible'
-import { HexColorPicker } from 'react-colorful'
 import { useDispatch, useSelector } from 'react-redux'
-import { setSomething } from '../reducers/avatarReducer'
+import { saveAvatar, setSomething } from '../reducers/avatarReducer'
 
 const Avatar = ({ size }) => {
 
-  const [color, setColor] = useState('#00FF00')
-  const [topColor, setTopColor] = useState('#00FF00')
-
   const avatar = useSelector(state => state.avatar)
+  const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
   // define array of all availble variants of possible choices. Can be sliced later for limiting.
@@ -20,13 +17,11 @@ const Avatar = ({ size }) => {
   const seeds = [ 'Pepper', 'Abbey', 'Garfield', 'Mittens', 'Loki', 'Shadow', 'Samantha', 'Bubba', 'Charlie', 'Sadie', 'Snickers', 'Rascal',
     'Chester', 'Midnight', 'Buster', 'Pumpkin', 'Fleix', 'Lilly', 'Whiskers', 'Luna' ]
 
-  // const avatar = useMemo(() => createAvatar(style, { size: 128 }).toDataUriSync(), [])
   const newAvatar = useMemo(() => {
     return createAvatar(style, {
       size: size ? size : 128,
       seed: avatar.seed,
       flip: avatar.flip,
-      // backgroundColor: [color],
       face: avatar.face,
       translateX: avatar.xAxis,
       translateY: avatar.yAxis,
@@ -36,25 +31,12 @@ const Avatar = ({ size }) => {
       moustache: avatar.moustache,
       nose: avatar.nose,
       top: avatar.top,
-      // topColor: avatar.topColor
     }).toDataUriSync()
   }, [avatar])
 
-
-
-  //Seeds: Pepper - Abbey - Garfield - Mittens - Loki - Shadow - Samantha - Bubba - Charlie - Sadie - Snickers - Rascal
-  //Seeds contd: Chester - Midnight - Buster - Pumpkin - Fleix - Lilly - Whiskers - Luna
-  // https://www.dicebear.com/styles/croodles/
-
-  // object will be created with avatar form component.
-  // saved to db in return for certain amount of points.
-  // app or home component will useMemo createAvatar from db information / options
-  // mini avatar in the navbar and leaderboards
-
   const changeHandler = (event) => {
-    // console.log(event.target.value)
-    console.log(event)
     const key = event.target.name
+    // separate array values from non arrays
     if (key === 'seed' || key === 'flip' || key === 'translateX' || key === 'translateY'){
       const value = event.target.value
       dispatch(setSomething({ [key]: value }))
@@ -66,6 +48,21 @@ const Avatar = ({ size }) => {
 
   const submitHandler = () => {
     // send newAvatar to db
+    const avatarObj = {
+      seed: avatar.seed,
+      flip: avatar.flip,
+      face: avatar.face,
+      translateX: avatar.xAxis,
+      translateY: avatar.yAxis,
+      beard: avatar.beard,
+      eyes: avatar.eyes,
+      mouth: avatar.mouth,
+      moustache: avatar.moustache,
+      nose: avatar.nose,
+      top: avatar.top,
+      user: user.id
+    }
+    dispatch(saveAvatar(avatarObj))
   }
 
   return(
@@ -73,13 +70,14 @@ const Avatar = ({ size }) => {
       <img src={newAvatar} alt='Avatar' />
       <div id='avatar-container' style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
         {size ? null :
-          <ToggleVisible buttonLabel={'Create New Avatar'} buttonLabel2={'back'}>
+          <ToggleVisible buttonLabel={'Create New Avatar'} buttonLabel2={'Cancel New Avatar'}>
             <div>
-              <select name='seed' onChange={changeHandler}>
+              <select name='seed' onChange={changeHandler} defaultValue={'default'}>
+                <option value='default' disabled={true}>Please select a seed</option>
                 {seeds.map((seed) => <option key={seed} value={seed}>{seed}</option>) }
               </select>
             </div>
-            <ToggleVisible buttonLabel={'flip'}>
+            <ToggleVisible buttonLabel={'flip'} buttonLabel2={'back'}>
               <p>Flip?</p>
               <div>
                 <input type='radio' id='flip' name='flip' value={true} onChange={changeHandler}/>
@@ -89,10 +87,6 @@ const Avatar = ({ size }) => {
                 <label htmlFor='noFlip'>No</label>
               </div>
             </ToggleVisible>
-            {/* <div>
-              <p>Background color</p>
-              <HexColorPicker color={color} onChange={changeHandler} name='bgColor'/>
-            </div> */}
             <ToggleVisible buttonLabel={'Axis'} buttonLabel2={'back'}>
               <div>
                 <p>X axis</p>
@@ -201,11 +195,7 @@ const Avatar = ({ size }) => {
                 </div>
               </div>
             </ToggleVisible>
-            <button type='submit' onSubmit={submitHandler}>save</button>
-            {/* <div>
-              <p>Top color</p>
-              <HexColorPicker color={topColor} onChange={setTopColor} />
-            </div> */}
+            <button onClick={submitHandler}>save</button>
           </ToggleVisible>
         }
       </div>

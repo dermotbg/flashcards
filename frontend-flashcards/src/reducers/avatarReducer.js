@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
+import { setAvatar, userAvatar } from '../services/avatars'
 
 const avatarSlice = createSlice({
   name: 'avatar',
@@ -20,17 +21,30 @@ const avatarSlice = createSlice({
   },
   reducers: {
     setSomething(state, action){
-      console.log(action.payload)
       const key = Object.keys(action.payload)[0]
       const value = Object.values(action.payload)[0]
-      console.log('key', key)
-      console.log('value', value)
       return {  ...state, [key]: value
       }
+    },
+    loadAvatar(state, action){
+      return action.payload
     }
   }
 })
 
-export const { setSomething } = avatarSlice.actions
+export const { setSomething, loadAvatar } = avatarSlice.actions
+
+export const saveAvatar = (avatarObj) => {
+  return async () => {
+    await setAvatar(avatarObj)
+  }
+}
+
+export const getAvatar = (id) => {
+  return async dispatch => {
+    const response = await userAvatar(id)
+    await dispatch(loadAvatar(response))
+  }
+}
 
 export default avatarSlice.reducer

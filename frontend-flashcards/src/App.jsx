@@ -11,22 +11,31 @@ import Account from './components/Account'
 
 import './components/Gen.css'
 import Avatar from './components/Avatar'
+import { getAvatar } from './reducers/avatarReducer'
 
 const App = () => {
-  const login = useSelector((state) => state.user)
+  const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const login = window.localStorage.getItem('loggedInUser')
 
   useEffect(() => {
-    console.log('login checked')
-    dispatch(checkLogin())
-    setInterval(() => {
+    if(login){
       dispatch(checkLogin())
-    }, (6000 * 61))
-    // need to force logout on expired token!!
-    // when router in place, redirect to login form
+      setInterval(() => {
+        dispatch(checkLogin())
+      }, (6000 * 61))
+    }
     if(!login){navigate('/')}
-  }, [dispatch])
+    // need to force logout on expired token!!
+  }, [dispatch, login])
+
+
+  useEffect(() => {
+    if (user && user.avatar){
+      dispatch(getAvatar(user.avatar))
+    }
+  }, [user])
 
   const navbarContainer = {
     display: 'flex',
@@ -37,20 +46,24 @@ const App = () => {
     border: 'solid'
   }
 
+  const logoutHandler = () => {
+    dispatch(logoutUser())
+    navigate('/')
+  }
 
   return(
     <div>
       <div className='navbarContainer' style={navbarContainer}>
         <Link to='/'>Home</Link>
-        {login ? <Link to={`/user/${login.id}`}>Account</Link> : <Link to='#'>Something</Link>  }
+        {user ? <Link to={`/user/${user.id}`}>Account</Link> : <Link to='#'>Something</Link>  }
         <Link to='#'>TBD</Link>
         {login
           ?
           <div style={{ ...navbarContainer, border: 'none' }}>
             <div>
-              <div>Hello {login.username}</div>
-              <div>Current Score: {login.score}</div>
-              <button onClick={() => dispatch(logoutUser())}>logout</button>
+              <div>Hello {user.username}</div>
+              <div>Current Score: {user.score}</div>
+              <button onClick={logoutHandler}>logout</button>
             </div>
             <div>
               <Avatar size={30}/>
@@ -69,7 +82,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/random10' element={<Random10 />} />
-        <Route path='/user/:id' element={<Account login={login} />} />
+        {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
       </Routes>
     </div>
   )

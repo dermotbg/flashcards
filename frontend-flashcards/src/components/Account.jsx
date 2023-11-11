@@ -9,8 +9,6 @@ const Account = ({ login }) => {
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
 
-  console.log(login)
-
   useEffect(() => {
     if(login.id) dispatch(get1User(login.id))
   },[dispatch, login.id])
@@ -36,7 +34,7 @@ const Account = ({ login }) => {
 }
 
 Account.propTypes = {
-  login: PropTypes.array.isRequired
+  login: PropTypes.object.isRequired
 }
 
 export default Account
