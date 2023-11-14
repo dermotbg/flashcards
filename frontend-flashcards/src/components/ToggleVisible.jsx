@@ -17,14 +17,14 @@ const ToggleVisible = forwardRef((props, refs) => {
     }
   })
 
-
+  // if 'noCancel' is passed in as buttonLanel2 prop the back button will not be shown.
   return(
     <div>
       <div style={hiddenWhileTrue}>
         <button onClick={ () => { toggleVisible(); props.onClick() }}>{props.buttonLabel}</button>
       </div>
       <div style={shownWhileTrue}>
-        <button onClick={ () => { toggleVisible() }}>{props.buttonLabel2}</button>
+        {props.buttonLabel2 === 'noCancel' ? null : <button onClick={ () => { toggleVisible() }}>{props.buttonLabel2}</button>}
         {props.children}
       </div>
     </div>
@@ -39,7 +39,7 @@ ToggleVisible.propTypes = {
   onClick: PropTypes.func,
 }
 ToggleVisible.defaultProps = {
-  onClick: () => {}
+  onClick: () => {},
 }
 
 export default ToggleVisible

@@ -93,7 +93,7 @@ const Card = ({ card }) => {
         </div>
         {answerChecked ? null : <div><input type="text" name="bg" /> <button type="submit">Check answer</button></div>}
       </form>
-      <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer}>
+      <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
         <p>{card.en} / {card.bg}</p>
       </ToggleVisible>
     </div>
