@@ -4,10 +4,10 @@ const Home = () => {
     <div>
       <p>Start a game:</p>
       <div>
-        <Link to='/Random10'> Random 10 cards </Link>
+        <Link to='/random10'> Random 10 cards </Link>
       </div>
       <div>
-        <Link to='/'> Coming Soon... </Link>
+        <Link to='/match5'> Match 5 </Link>
       </div>
       <Link to='/'> Coming Soon... </Link>
     </div>

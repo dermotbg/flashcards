@@ -12,6 +12,7 @@ import Account from './components/Account'
 import './components/Gen.css'
 import Avatar from './components/Avatar'
 import { getAvatar } from './reducers/avatarReducer'
+import Match5 from './components/Match5'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -83,6 +84,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/random10' element={<Random10 />} />
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
+        <Route path='/match5' element={<Match5 />} />
       </Routes>
     </div>
   )
