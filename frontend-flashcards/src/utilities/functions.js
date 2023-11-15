@@ -31,4 +31,4 @@ const getRandomCards = (cards, amount) => {
   return output
 }
 
-export default { getRandomCards }
+export default { getRandomCards, shuffle }

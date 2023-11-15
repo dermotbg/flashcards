@@ -10,8 +10,11 @@ const Match5 = () => {
   const cards = useSelector((state) => state.flashcards)
   const [match, setMatch] = useState([])
   const [correct, setCorrect] = useState('none')
+  // separate state to shuffle opposite selection again
+  const [shuffledEn, setShuffledEn] = useState([])
 
   const dispatch = useDispatch()
+  // let shuffled10 = []
 
   useEffect(() => {
     dispatch(getCards())
@@ -21,8 +24,13 @@ const Match5 = () => {
     dispatch(setSelected(functions.getRandomCards([...cards.all], 5)))
   }
 
+  useEffect(() => {
+    setShuffledEn(functions.shuffle([...cards.selected]))
+  }, [cards.selected])
+
   const matchHandler = (card, event) => {
-    console.log(card)
+    console.log('card', card)
+    console.log('event', event)
     if(match[0]) {
       setMatch([...match, event.target.name])
       console.log('m0 + card.bg', match[0], card.bg)
@@ -40,7 +48,6 @@ const Match5 = () => {
     console.log(event.target.name)
     setMatch([event.target.name])
   }
-
   return(
     <div>
       {cards.all[0] ? <button onClick={() => triggerStart()} >Start!</button> : <div>Loading...</div>}
@@ -49,27 +56,15 @@ const Match5 = () => {
           {cards.selected.length !== 0
             ?
             cards.selected.map((c) => {
-              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={(e) => matchHandler(c, e)} correct={correct} />)
-              // return(
-              //   <div key={`${c.bg}-bg`} style={{ backgroundColor: correct }}>
-              //     <input type='radio' id={`${c.bg}-bg`} name={c.bg} disabled={false} onChange={() => matchHandler(c, event)}/>
-              //     <label htmlFor={`${c.bg}-bg`}>{c.bg}</label>
-              //   </div>
-              // )
+              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} correct={correct} />)
             })
             : null}
         </div>
         <div id='en-container'>
-          {cards.selected.length !== 0
+          {shuffledEn.length !== 0
             ?
-            cards.selected.map((c) => {
-              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={(e) => matchHandler(c, e)} correct={correct} />)
-              // return(
-              //   <div key={`${c.en}-en`} style={{ backgroundColor: correct }}>
-              //     <input type='radio' id={`${c.en}-en`} name={c.en} disabled={false} onChange={() => matchHandler(c, event)}/>
-              //     <label htmlFor={`${c.en}-en`}>{c.en}</label>
-              //   </div>
-              // )
+            shuffledEn.map((c) => {
+              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} correct={correct} />)
             })
             : null}
         </div>
