@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, current } from '@reduxjs/toolkit'
 import flashcardService from '../services/flashcards'
 
 const cardSlice = createSlice({
@@ -38,11 +38,40 @@ const cardSlice = createSlice({
         all: [...state.all],
         selected: state.selected.map(c => c.id === id ? action.payload : c)
       }
+    },
+    // Disabled card state for match5 game
+    setDisabled(state, action){
+      const updatedSelected = action.payload.map((c) => {
+        const cardUpdated = { ...c, disabled: false } 
+        return cardUpdated
+      })
+      return {
+        all: [...state.all],
+        selected: updatedSelected
+      }
+    },
+    //Set the active card in Match5 (disabling all others)
+    setActive(state, action){
+      console.log('paybab',action.payload)
+      //takes name from the clicked card and sets all other disableds to true
+      const selected = state.selected
+      // we can try find the id of the card by it's name too.
+      const updatedCards = selected.map((c) => {
+        console.log(current(c))
+        return c.bg !== action.payload || c.en !== action.payload
+          ? { ...c, disabled: true }
+          : c
+      })
+      console.log(updatedCards)
+      return {
+        all: [...state.all],
+        selected: updatedCards
+      }
     }
   }
 })
 
-export const { setCards, setSelected, clearCards, resetSelected, rateCardAction } = cardSlice.actions
+export const { setCards, setSelected, clearCards, resetSelected, rateCardAction, setDisabled, setActive } = cardSlice.actions
 
 export const getCards = () => {
   return async dispatch => {

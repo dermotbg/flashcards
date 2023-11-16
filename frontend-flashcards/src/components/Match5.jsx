@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getCards, setSelected } from '../reducers/cardReducer'
+import { getCards, setActive, setDisabled, setSelected } from '../reducers/cardReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import functions from '../utilities/functions'
 import './Card.css'
@@ -14,45 +14,56 @@ const Match5 = () => {
   const [shuffledEn, setShuffledEn] = useState([])
 
   const dispatch = useDispatch()
-  // let shuffled10 = []
+
+  
+  // current state is broken. needs to be rewritten
+  // state should hold two separate selected arrays with bg and en
+  // this way we can have more control over individual sections and disable as needed. 
 
   useEffect(() => {
     dispatch(getCards())
   }, [dispatch])
 
+  //get 5 cards to be used
   const triggerStart = () => {
-    dispatch(setSelected(functions.getRandomCards([...cards.all], 5)))
+    const cardsToUse = functions.getRandomCards([...cards.all], 5)
+    dispatch(setSelected(cardsToUse))
+    dispatch(setDisabled(cardsToUse))
   }
 
+  // shuffle again for bg selections
   useEffect(() => {
+    // set boolean to track initial load and then use if statement. 
     setShuffledEn(functions.shuffle([...cards.selected]))
   }, [cards.selected])
 
   const matchHandler = (card, event) => {
     console.log('card', card)
-    console.log('event', event)
-    if(match[0]) {
-      setMatch([...match, event.target.name])
-      console.log('m0 + card.bg', match[0], card.bg)
-      console.log('m1 + card.en', event.target.value, card.en)
-      if(match[0] === card.bg && event.target.value === card.en){
-        console.log('correct')
-        setCorrect('green')
-        setMatch([])
-        setTimeout(() => {
-          setCorrect('')
-        }, 1000)
-        return
-      }
-      console.log('incorrect')
-      setCorrect('red')
-      setTimeout(() => {
-        setCorrect('')
-      }, 1000)
-      return
-    }
+    // if(match[0]) {
+    //   setMatch([...match, event.target.name])
+    //   console.log('m0 + card.bg', match[0], card.bg)
+    //   console.log('m1 + card.en', event.target.value, card.en)
+    //   if(match[0] === card.bg && event.target.value === card.en){
+    //     console.log('correct')
+    //     setCorrect('green')
+    //     // cards.....
+    //     setMatch([])
+    //     setTimeout(() => {
+    //       setCorrect('')
+    //     }, 1000)
+    //     return
+    //   }
+    //   console.log('incorrect')
+    //   setCorrect('red')
+    //   setTimeout(() => {
+    //     setCorrect('')
+    //   }, 1000)
+    //   return
+    // }
     console.log(event.target.value)
     setMatch([event.target.value])
+    dispatch(setActive(event.target.value))
+    // dispatch(setSelected(updatedCards))
   }
   return(
     <div>
@@ -62,7 +73,7 @@ const Match5 = () => {
           {cards.selected.length !== 0
             ?
             cards.selected.map((c) => {
-              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} correct={correct} />)
+              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} correct={correct} disabled={c.disabled} />)
             })
             : null}
         </div>
@@ -70,7 +81,7 @@ const Match5 = () => {
           {shuffledEn.length !== 0
             ?
             shuffledEn.map((c) => {
-              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} correct={correct} />)
+              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} correct={correct} disabled={c.disabled} />)
             })
             : null}
         </div>
