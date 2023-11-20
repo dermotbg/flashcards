@@ -66,10 +66,11 @@ const match5Slice = createSlice({
       // const addToMatch = state.matched.push(action.payload)
       console.log(action.payload)
       const cardToBeAdded = state.en.find(c => c.id === action.payload.id)
+      const matched = state.matched.concat(cardToBeAdded)
       return{
         en: state.en,
         bg: state.bg,
-        matched: state.matched.push(cardToBeAdded)
+        matched: matched
       }
     }
   }
