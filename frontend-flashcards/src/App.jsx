@@ -13,9 +13,11 @@ import './components/Gen.css'
 import Avatar from './components/Avatar'
 import { getAvatar } from './reducers/avatarReducer'
 import Match5 from './components/Match5'
+import { getCards } from './reducers/cardReducer'
 
 const App = () => {
   const user = useSelector((state) => state.user)
+  const cards = useSelector((state) => state.flashcards)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const login = window.localStorage.getItem('loggedInUser')
@@ -37,6 +39,12 @@ const App = () => {
       dispatch(getAvatar(user.avatar))
     }
   }, [user])
+
+  // fetch cards when app accessed. Possibly need to refactor into when there's an active login
+  useEffect(() => {
+    console.log('cards fetched from app level')
+    dispatch(getCards())
+  }, [dispatch])
 
   const navbarContainer = {
     display: 'flex',
@@ -82,9 +90,9 @@ const App = () => {
       }
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/random10' element={<Random10 />} />
+        <Route path='/random10' element={<Random10 cards={cards} />} />
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
-        <Route path='/match5' element={<Match5 />} />
+        <Route path='/match5' element={<Match5 cards={cards} />} />
       </Routes>
     </div>
   )

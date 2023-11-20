@@ -5,15 +5,15 @@ import functions from '../utilities/functions'
 
 import Card from './Card'
 
-const Random10 = () => {
+const Random10 = ({ cards }) => {
 
-  const cards = useSelector((state) => state.flashcards)
+  // const cards = useSelector((state) => state.flashcards)
 
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(getCards())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getCards())
+  // }, [dispatch])
 
   const triggerStart = () => {
     dispatch(setSelected(functions.getRandomCards([...cards.all], 10)))
