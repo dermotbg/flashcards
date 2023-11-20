@@ -1,19 +1,13 @@
-import { getCards, setSelected } from '../reducers/cardReducer'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
+import { setSelected } from '../reducers/cardReducer'
+import { useDispatch } from 'react-redux'
+import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 
 import Card from './Card'
 
 const Random10 = ({ cards }) => {
 
-  // const cards = useSelector((state) => state.flashcards)
-
   const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch(getCards())
-  // }, [dispatch])
 
   const triggerStart = () => {
     dispatch(setSelected(functions.getRandomCards([...cards.all], 10)))
@@ -29,6 +23,10 @@ const Random10 = ({ cards }) => {
       </div>
     </div>
   )
+}
+
+Random10.propTypes = {
+  cards: PropTypes.object.isRequired
 }
 
 export default Random10

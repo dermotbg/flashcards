@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { addToMatched, resetActive, set5, setActive, setDisabled } from '../reducers/match5Reducer'
 import { useDispatch, useSelector } from 'react-redux'
+import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 import './Card.css'
 import MatchCard from './MatchCard'
@@ -17,7 +18,7 @@ const Match5 = ({ cards }) => {
 
   // current state is broken. needs to be rewritten
   // state should hold two separate selected arrays with bg and en
-  // this way we can have more control over individual sections and disable as needed. 
+  // this way we can have more control over individual sections and disable as needed.
 
 
   //get 5 cards to be used from parent card state
@@ -30,8 +31,8 @@ const Match5 = ({ cards }) => {
 
   // shuffle again for bg selections
   useEffect(() => {
-    // set boolean to track initial load and then use if statement. 
-    
+    // set boolean to track initial load and then use if statement.
+
     setShuffledEn(functions.shuffle([...activeCards.en]))
   }, [activeCards.en])
 
@@ -98,6 +99,10 @@ const Match5 = ({ cards }) => {
       </div>
     </div>
   )
+}
+
+Match5.propTypes = {
+  cards: PropTypes.object.isRequired,
 }
 
 export default Match5

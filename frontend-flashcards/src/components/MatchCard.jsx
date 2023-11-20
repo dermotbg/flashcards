@@ -22,7 +22,11 @@ const MatchCard = ({ card, correct, en, matchHandler, disabled }) => {
 }
 
 MatchCard.propTypes = {
-  card: PropTypes.object.isRequired
+  card: PropTypes.object.isRequired,
+  correct: PropTypes.string,
+  matchHandler: PropTypes.func.isRequired,
+  en: PropTypes.bool, //this is just to print it in the right hand div
+  disabled: PropTypes.bool
 }
 
 export default MatchCard
