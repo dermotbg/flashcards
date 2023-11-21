@@ -31,4 +31,22 @@ const getRandomCards = (cards, amount) => {
   return output
 }
 
-export default { getRandomCards, shuffle }
+const addScore = (user, card) => {
+  let updatedUser = user
+  switch (card.difficulty) {
+  case 'easy':
+    updatedUser = { ...updatedUser, score: updatedUser.score + 1 }
+    break
+  case 'medium':
+    updatedUser = { ...updatedUser, score: updatedUser.score + 2 }
+    break
+  case 'hard':
+    updatedUser = { ...updatedUser, score: updatedUser.score + 3 }
+    break
+  default:
+    break
+  }
+  return updatedUser
+}
+
+export default { getRandomCards, shuffle, addScore }

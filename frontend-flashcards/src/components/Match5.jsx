@@ -5,10 +5,12 @@ import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 import './Card.css'
 import MatchCard from './MatchCard'
+import { updateScore } from '../reducers/userReducer'
 
 const Match5 = ({ cards }) => {
 
   const activeCards = useSelector((state) => state.match5)
+  const user = useSelector((state) => state.user) //need user for addScore func
   const [match, setMatch] = useState([])
   const [correct, setCorrect] = useState('none')
   // separate state to shuffle opposite selection again
@@ -44,13 +46,16 @@ const Match5 = ({ cards }) => {
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
         console.log('correct')
         setCorrect('green')
-        // cards.....
+        // calc players new score
+        let updatedUser = functions.addScore(user, card)
         // disable correct answer from future use
         dispatch(setDisabled(card))
         // set all other disabled cards back to active
         dispatch(resetActive(card))
         // add card to array of matched cards
         dispatch(addToMatched(card))
+        // add score to player acc
+        dispatch(updateScore(updatedUser))
         setMatch([])
         setTimeout(() => {
           setCorrect('')
@@ -76,7 +81,7 @@ const Match5 = ({ cards }) => {
     setMatch([])
   }
 
-  return(
+  return( // needs condition for when all 5 are matched. if matched.length === 5 etc etc
     <div>
       {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <div>Loading...</div>}
       <div className='matchBox'>
