@@ -43,10 +43,11 @@ const match5Slice = createSlice({
       }
     },
     resetActive(state, action){
+      // this can be refactored but for now it breaks when it's touched.
+      // checks each card to see if it has already been matched
       return{
         // en: state.en.map(c => c.en === action.payload.en ? c : { ...c, disabled: false }),
         en: state.en.map(c => {
-          // check if card has already been matched
           const alreadyMatched = state.matched.find(obj => obj.id === c.id)
           if (c.en === action.payload.en || alreadyMatched) {
             return { ...c, disabled:true }
@@ -76,11 +77,8 @@ const match5Slice = createSlice({
       }
     },
     addToMatched(state, action){
-      // const addToMatch = state.matched.push(action.payload)
-      console.log(action.payload)
       const cardToBeAdded = state.en.find(c => c.id === action.payload.id)
       const matched = state.matched.concat(cardToBeAdded)
-      console.log('matched',matched)
       return{
         en: state.en,
         bg: state.bg,

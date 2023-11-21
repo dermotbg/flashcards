@@ -41,7 +41,7 @@ const Match5 = ({ cards }) => {
       setMatch([...match, event.target.name])
       console.log('m0 + card.bg', match[0], card.bg)
       console.log('m1 + card.en', event.target.value, card.en)
-      if(match[0] === card.bg && event.target.value === card.en){
+      if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
         console.log('correct')
         setCorrect('green')
         // cards.....
