@@ -44,20 +44,33 @@ const match5Slice = createSlice({
     },
     resetActive(state, action){
       return{
-        en: state.en.map(c => c.en === action.payload.en ? c : { ...c, disabled: false }),
-        bg: state.bg.map(c => c.bg === action.payload.bg ? c : { ...c, disabled: false }),
+        // en: state.en.map(c => c.en === action.payload.en ? c : { ...c, disabled: false }),
+        en: state.en.map(c => {
+          // check if card has already been matched
+          const alreadyMatched = state.matched.find(obj => obj.id === c.id)
+          if (c.en === action.payload.en || alreadyMatched) {
+            return { ...c, disabled:true }
+          }
+          return { ...c, disabled: false } }),
+
+        // bg: state.bg.map(c => c.bg === action.payload.bg ? c : { ...c, disabled: false }),
+        bg: state.bg.map(c => {
+          const alreadyMatched = state.matched.find(obj => obj.id === c.id)
+          if (c.bg === action.payload.bg || alreadyMatched){
+            return { ...c, disabled:true }
+          }
+          return { ...c, disabled: false }}),
         matched: state.matched
       }
     },
     setDisabled(state, action){
       //to disable already completed matches
-      console.log(action.payload)
       const enToUpdate = state.en.find((c) => c.id === action.payload.id)
       const bgToUpdate = state.bg.find((c) => c.id === action.payload.id)
       const updatedEn = { ...enToUpdate, disabled: true }
       const updatedBg = { ...bgToUpdate, disabled: true }
       return{
-        en: state.en.map(c => c.id === updatedEn.id ? updatedEn : c), //needs to check matched state also
+        en: state.en.map(c => c.id === updatedEn.id ? updatedEn : c),
         bg: state.bg.map(c => c.id === updatedBg.id ? updatedBg : c),
         matched: state.matched
       }
@@ -67,6 +80,7 @@ const match5Slice = createSlice({
       console.log(action.payload)
       const cardToBeAdded = state.en.find(c => c.id === action.payload.id)
       const matched = state.matched.concat(cardToBeAdded)
+      console.log('matched',matched)
       return{
         en: state.en,
         bg: state.bg,
