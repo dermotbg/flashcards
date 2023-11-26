@@ -36,7 +36,6 @@ cardSchema.plugin(uniqueValidator)
 
 cardSchema.set('toJSON', {
   transform: (document, returnedObj) => {
-    console.log('returnedOBJ-CARD', returnedObj)
     returnedObj.id = returnedObj._id.toString()
     delete returnedObj._id
     delete returnedObj.__V

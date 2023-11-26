@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import RegForm from './components/RegForm'
 import Login from './components/LoginForm'
-import { checkLogin, logoutUser } from './reducers/userReducer'
+import { checkLogin, get1User, logoutUser } from './reducers/userReducer'
 import Random10 from './components/Random10'
 import { Link, Route, Routes, useNavigate } from 'react-router-dom'
 import Home from './components/Home'

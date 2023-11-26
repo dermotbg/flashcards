@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { addToMatched, resetActive, resetGame, set5, setActive, setDisabled } from '../reducers/match5Reducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { PropTypes } from 'prop-types'
@@ -13,8 +13,6 @@ const Match5 = ({ cards }) => {
   const user = useSelector((state) => state.user) //need user for addScore func
   const [match, setMatch] = useState([])
   const [correct, setCorrect] = useState('none')
-  // separate state to shuffle opposite selection again
-  const [shuffledEn, setShuffledEn] = useState([])
 
   const dispatch = useDispatch()
 
@@ -23,21 +21,11 @@ const Match5 = ({ cards }) => {
     const cardsToUse = functions.getRandomCards([...cards.all], 5)
     // set5 also adds disabled attribute to the cards
     dispatch(set5(cardsToUse))
-    // dispatch(setDisabled(cardsToUse))
   }
-
-  // shuffle again for bg selections
-  useEffect(() => {
-    // set boolean to track initial load and then use if statement.
-
-    setShuffledEn(functions.shuffle([...activeCards.en]))
-  }, [activeCards.en])
 
   const matchHandler = (card, event) => {
     if(match[0]) {
       setMatch([...match, event.target.name])
-      console.log('m0 + card.bg', match[0], card.bg)
-      console.log('m1 + card.en', event.target.value, card.en)
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
         console.log('correct')
         setCorrect('green')
@@ -98,9 +86,9 @@ const Match5 = ({ cards }) => {
             : null}
         </div>
         <div id='en-container'>
-          {shuffledEn.length !== 0
+          {activeCards.en.length !== 0
             ?
-            shuffledEn.map((c) => {
+            activeCards.en.map((c) => {
               return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} correct={correct} disabled={c.disabled} />)
             })
             : null}

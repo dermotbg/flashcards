@@ -16,15 +16,15 @@ const match5Slice = createSlice({
         return cardUpdated
       })
       return{
-        en: updatedSelected,
-        bg: functions.shuffle(updatedSelected),
+        en: functions.shuffle([...updatedSelected]),
+        bg: functions.shuffle([...updatedSelected]),
         matched: state.matched
       }
     },
     //Set the active card in Match5 (disabling all others)
     setActive(state, action){
-      // check which side was clicked by looking for cyrillic
-      const cyrillicPattern = /^[\u0400-\u04FF]+$/
+      // check which side was clicked by looking for cyrillic (having one cyrillic char will trigger this)
+      const cyrillicPattern = /[\u0400-\u04FF]+/
       if (cyrillicPattern.test(action.payload)){
         const allBg = state.bg
         //takes name from the clicked card and sets all other disableds to true
