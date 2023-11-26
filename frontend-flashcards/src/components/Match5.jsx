@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { addToMatched, resetActive, set5, setActive, setDisabled } from '../reducers/match5Reducer'
+import { addToMatched, resetActive, resetGame, set5, setActive, setDisabled } from '../reducers/match5Reducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
@@ -17,11 +17,6 @@ const Match5 = ({ cards }) => {
   const [shuffledEn, setShuffledEn] = useState([])
 
   const dispatch = useDispatch()
-
-  // current state is broken. needs to be rewritten
-  // state should hold two separate selected arrays with bg and en
-  // this way we can have more control over individual sections and disable as needed.
-
 
   //get 5 cards to be used from parent card state
   const triggerStart = () => {
@@ -77,8 +72,18 @@ const Match5 = ({ cards }) => {
   }
 
   const startHandler = () => {
+    dispatch(resetGame())
     triggerStart()
     setMatch([])
+  }
+
+  if (activeCards.matched.length === 5){
+    return (
+      <div>
+        Congrats! All cards matched!
+        <button onClick={startHandler} >Start Again!</button>
+      </div>
+    )
   }
 
   return( // needs condition for when all 5 are matched. if matched.length === 5 etc etc

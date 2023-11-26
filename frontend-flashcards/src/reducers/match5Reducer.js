@@ -84,10 +84,17 @@ const match5Slice = createSlice({
         bg: state.bg,
         matched: matched
       }
+    },
+    resetGame(state, action){
+      return {
+        en: [],
+        bg: [],
+        matched: [],
+      }
     }
   }
 })
 
-export const { set5, setActive, resetActive, setDisabled, addToMatched } = match5Slice.actions
+export const { set5, setActive, resetActive, setDisabled, addToMatched, resetGame } = match5Slice.actions
 
 export default match5Slice.reducer
