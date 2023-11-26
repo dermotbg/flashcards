@@ -65,10 +65,8 @@ const Match5 = ({ cards }) => {
       }, 1000)
       return
     }
-    console.log(event.target.value)
     setMatch([event.target.value])
     dispatch(setActive(event.target.value))
-    // dispatch(setSelected(updatedCards))
   }
 
   const startHandler = () => {
@@ -77,6 +75,7 @@ const Match5 = ({ cards }) => {
     setMatch([])
   }
 
+  // win state
   if (activeCards.matched.length === 5){
     return (
       <div>
@@ -86,7 +85,7 @@ const Match5 = ({ cards }) => {
     )
   }
 
-  return( // needs condition for when all 5 are matched. if matched.length === 5 etc etc
+  return(
     <div>
       {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <div>Loading...</div>}
       <div className='matchBox'>

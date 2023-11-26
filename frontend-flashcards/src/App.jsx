@@ -14,6 +14,7 @@ import Avatar from './components/Avatar'
 import { getAvatar } from './reducers/avatarReducer'
 import Match5 from './components/Match5'
 import { getCards } from './reducers/cardReducer'
+import Hangman from './components/Hangman'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -93,6 +94,7 @@ const App = () => {
         <Route path='/random10' element={<Random10 cards={cards} />} />
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
         <Route path='/match5' element={<Match5 cards={cards} />} />
+        <Route path='/hangman' element={<Hangman cards={cards} />} />
       </Routes>
     </div>
   )
