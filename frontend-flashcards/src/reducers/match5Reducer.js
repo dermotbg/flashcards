@@ -33,13 +33,23 @@ const match5Slice = createSlice({
             ? { ...c, disabled: true }
             : c
         })
-        console.log(updatedCards)
-        // eventually will do the same for en
         return {
           en: state.en,
           bg: updatedCards,
           matched: state.matched
         }
+      }
+      // else if EN side is clicked first, same as above.
+      const allEn = state.en
+      const updatedCards = allEn.map((c) => {
+        return c.en !== action.payload
+          ? { ...c, disabled: true }
+          : c
+      })
+      return {
+        en: updatedCards,
+        bg: state.bg,
+        matched: state.matched
       }
     },
     resetActive(state, action){
@@ -85,7 +95,7 @@ const match5Slice = createSlice({
         matched: matched
       }
     },
-    resetGame(state, action){
+    resetGame(){
       return {
         en: [],
         bg: [],
