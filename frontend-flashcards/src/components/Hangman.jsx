@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { useEffect } from 'react'
 import functions from '../utilities/functions'
 import { useDispatch, useSelector } from 'react-redux'
-import { setHangmanWord } from '../reducers/hangmanReducer'
+import { setGuessed, setHangmanWord } from '../reducers/hangmanReducer'
 
 const Hangman = ({ cards }) => {
   const mainCard = useSelector(state => state.hangman.card)
@@ -14,11 +14,35 @@ const Hangman = ({ cards }) => {
     dispatch(setHangmanWord(cardDealt[0]))
   },[cards])
 
-  if(!mainCard) return <div>Loading...</div>
+  useEffect(() => {
+    if(mainCard && mainCard.bg){
+      const wordArray = mainCard.bg.split('')
+      console.log(wordArray)
+      let guessedArray = []
+      for (let char of wordArray){
+        if (char === ' '){
+          guessedArray.push('\xa0'.repeat(5)) //blank space between words
+        }
+        else{
+          guessedArray.push('_')
+        }
+      }
+      console.log(guessedArray)
+      dispatch(setGuessed(guessedArray))
+    }
+  },[mainCard])
+
+  if(!mainCard && guessed.length === 0) return <div>Loading...</div>
   return(
     <div>
       <div>
         <div>Here is the EN: {mainCard.en}</div>
+        <div>Here is the blank: {guessed.map(c => {
+          return c !== '_'
+            ? c
+            :` '${c}${c}${c}${c}' `
+        }
+        )}</div>
       </div>
     </div>
   )

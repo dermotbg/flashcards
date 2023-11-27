@@ -13,10 +13,16 @@ const HangmanSlice = createSlice({
         card: action.payload,
         guessed: state.guessed
       }
+    },
+    setGuessed(state, action){
+      return{
+        card: state.card,
+        guessed: action.payload
+      }
     }
   }
 })
 
-export const { setHangmanWord } = HangmanSlice.actions
+export const { setHangmanWord, setGuessed } = HangmanSlice.actions
 
 export default HangmanSlice.reducer
