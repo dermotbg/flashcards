@@ -57,6 +57,10 @@ export const updateScore = (userObj) => {
   return async dispatch => {
     await addScore(userObj)
     dispatch(setScore(userObj))
+    // update the score stored in local storage for navbar reader (might change this setup later)
+    const loc = JSON.parse(window.localStorage.getItem('loggedInUser'))
+    loc.score = userObj.score
+    window.localStorage.setItem('loggedInUser', JSON.stringify(loc))
   }
 }
 
