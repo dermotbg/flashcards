@@ -45,6 +45,7 @@ const Hangman = ({ cards }) => {
   },[mainCard])
 
   const guessHandler = (event) => {
+    event.target.disabled = true
     const wordArray = mainCard.bg.toUpperCase().split('')
     if(wordArray.indexOf(event.target.value) === -1){
       console.log('incorrect')
@@ -75,6 +76,7 @@ const Hangman = ({ cards }) => {
   if(!mainCard && guessed.length === 0) return <div>Loading...</div>
   // still needs win/lose state and points allocation
   if(img === hangman8) return <div><button onClick={resetHandler}>try again by refreshing for now</button> <img src={img} alt="hangman-image" /> </div>
+  if (!guessed.includes('_')) return <div><button onClick={resetHandler}>Congrats! You have won. Start Again?</button></div>
   return(
     <div>
       <div>
@@ -88,7 +90,7 @@ const Hangman = ({ cards }) => {
       </div>
       <div>
         {chars.map((c) => {
-          return <button onClick={guessHandler} key={c} value={c}>{c}</button>
+          return <button onClick={guessHandler} key={c} value={c} disabled={false}>{c}</button>
         })}
       </div>
       <img src={img} alt="hangman-image" />
