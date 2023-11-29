@@ -76,7 +76,7 @@ const Match5 = ({ cards }) => {
   return(
     <div>
       {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <div>Loading...</div>}
-      <div className='matchBox'>
+      <div className='match-box'>
         <div id='bg-container'>
           {activeCards.bg.length !== 0
             ?

@@ -5,6 +5,9 @@ import ToggleVisible from './ToggleVisible'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
 import { rateCard } from '../reducers/cardReducer'
+
+import { Card as CardUI, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, FormControl, FormLabel } from '@chakra-ui/react'
+
 const Card = ({ card }) => {
 
   const [correct, setCorrect] = useState('')
@@ -77,26 +80,55 @@ const Card = ({ card }) => {
   return(
     <div>
       <form onSubmit={checkAnswer}>
-        <div className='answer' style={{ backgroundColor: correct }} >
-          {card.en}
-          <div>
-            <em>In the context of {card.cat}</em>
-            <div>{card.rating}</div>
-          </div>
+        <CardUI className='answer' style={{ backgroundColor: correct }} >
+          <Heading size='md'>{card.en}</Heading>
+          <CardBody>
+            <Text><em>In the context of {card.cat}</em></Text>
+            <Text>Card Rating: {card.rating}</Text>
+            {answerChecked
+              ? null
+              :
+              <div className='answer-container'>
+                <FormLabel>Your Answer:</FormLabel>
+                <Input style={{ alignSelf: 'center' }}  width='40%' size='md' type="text" name="bg" />
+                <Button style={{ alignSelf: 'flex-end' }} type="submit">Check answer</Button>
+              </div>}
+          </CardBody>
           {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
-            ? <button type='button' name='undo' onClick={() => undoRatingHandler(card)}> Undo rating </button>
+            ? <div><Button type='button' colorScheme='red' size='sm' name='undo' onClick={() => undoRatingHandler(card)}> Undo rating </Button></div>
             :
             <div>
-              <button type='button' name='plus'  onClick={(e) => ratingHandler(card, e)}>rate card +</button>
-              <button type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</button>
+              <Button colorScheme='green' size='sm' type='button' name='plus' onClick={(e) => ratingHandler(card, e)}>rate card +</Button>
+              <Button colorScheme='red' size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</Button>
             </div>}
-        </div>
-        {answerChecked ? null : <div><input type="text" name="bg" /> <button type="submit">Check answer</button></div>}
+        </CardUI>
       </form>
       <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
         <p>{card.en} / {card.bg}</p>
       </ToggleVisible>
     </div>
+    // <div>
+    //   <form onSubmit={checkAnswer}>
+    //     <div className='answer' style={{ backgroundColor: correct }} >
+    //       {card.en}
+    //       <div>
+    //         <em>In the context of {card.cat}</em>
+    //         <div>{card.rating}</div>
+    //       </div>
+    //       {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
+    //         ? <button type='button' name='undo' onClick={() => undoRatingHandler(card)}> Undo rating </button>
+    //         :
+    //         <div>
+    //           <button type='button' name='plus'  onClick={(e) => ratingHandler(card, e)}>rate card +</button>
+    //           <button type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</button>
+    //         </div>}
+    //     </div>
+    //     {answerChecked ? null : <div><input type="text" name="bg" /> <button type="submit">Check answer</button></div>}
+    //   </form>
+    //   <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
+    //     <p>{card.en} / {card.bg}</p>
+    //   </ToggleVisible>
+    // </div>
   )
 }
 

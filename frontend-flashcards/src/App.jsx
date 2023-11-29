@@ -15,6 +15,9 @@ import { getAvatar } from './reducers/avatarReducer'
 import Match5 from './components/Match5'
 import { getCards } from './reducers/cardReducer'
 import Hangman from './components/Hangman'
+import { Box } from '@chakra-ui/react'
+
+import NavBar from './components/NavBar'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -56,14 +59,18 @@ const App = () => {
     border: 'solid'
   }
 
-  const logoutHandler = () => {
-    dispatch(logoutUser())
-    navigate('/')
-  }
+  // const logoutHandler = () => {
+  //   dispatch(logoutUser())
+  //   navigate('/')
+  // }
 
   return(
-    <div>
-      <div className='navbarContainer' style={navbarContainer}>
+    <Box
+      // backgroundColor='brand.lightBlue'
+      // color='brand.white'
+    >
+      <NavBar />
+      {/* <div className='navbarContainer' style={navbarContainer}>
         <Link to='/'>Home</Link>
         {user ? <Link to={`/user/${user.id}`}>Account</Link> : <Link to='#'>Something</Link>  }
         <Link to='#'>TBD</Link>
@@ -80,7 +87,7 @@ const App = () => {
             </div>
           </div>
           : null}
-      </div>
+      </div> */}
       {!login
         ?
         <div>
@@ -96,7 +103,7 @@ const App = () => {
         <Route path='/match5' element={<Match5 cards={cards} />} />
         <Route path='/hangman' element={<Hangman cards={cards} />} />
       </Routes>
-    </div>
+    </Box>
   )
 }
 
