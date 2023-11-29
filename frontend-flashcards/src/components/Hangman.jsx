@@ -13,6 +13,8 @@ import hangman7 from '../assets/hangman_images/hangman_7.png'
 import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
+import { Button } from '@chakra-ui/react'
+
 const keyboardStyle = {
   display: 'flex',
   flexDirection: 'row',
@@ -20,7 +22,12 @@ const keyboardStyle = {
   justifyContent: 'center',
   alignItems: 'center',
   // border: 'solid red',
-  width: '38%'
+  width: '69%'
+}
+const centerFlex = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center'
 }
 
 
@@ -74,7 +81,6 @@ const Hangman = ({ cards }) => {
       indices.push(index)
       index = wordArray.indexOf(event.target.value, index + 1)
     }
-    console.log(indices)
     const updatedGuessed = [...guessed]
     for (let i of indices){
       updatedGuessed[i] = event.target.value
@@ -95,20 +101,30 @@ const Hangman = ({ cards }) => {
     setImg(images[0])
   }
 
-  if(!mainCard && guessed.length === 0) return <div>Loading...</div>
+  if(!mainCard && guessed.length === 0) return <div style={centerFlex} >Loading...</div>
   // lose condition
-  if(img === hangman8) return <div><button onClick={resetHandler}>try again by refreshing for now</button> <img src={img} alt="hangman-image" /> </div>
+  if(img === hangman8) return (
+    <div style={centerFlex}>
+      <Button onClick={resetHandler}>Oops! Try again</Button>
+      <img style={{ marginLeft: '40%' }} src={img} alt="hangman-image" />
+    </div>
+  )
   // win condition
-  if (!guessed.includes('_')) return <div><button onClick={resetHandler}>Congrats! You have won. Start Again?</button></div>
+  if (!guessed.includes('_')) return (
+    <div style={centerFlex}>
+      <Button onClick={resetHandler}>Congrats! You have won. Start Again?</Button>
+      {mainCard.en} / {mainCard.bg}
+    </div>)
 
   return(
-    <div>
-      <div>
-        <div>Here is the EN: {mainCard.en}</div>
-        <div>Here is the blank: {guessed.map(c => {
+    <div style={centerFlex}>
+      <img style={{ marginLeft: '40%' }} src={img} alt="hangman-image" />
+      <div style={centerFlex}>
+        <div>{mainCard.en}</div>
+        <div className='hangman-font'>{guessed.map(c => {
           return c !== '_'
             ? c
-            :` '${c}${c}${c}${c}' `
+            :` ${c}   `
         }
         )}</div>
       </div>
@@ -116,12 +132,11 @@ const Hangman = ({ cards }) => {
         {keyboardRows.map((row, rowIndex) => (
           <div key={rowIndex}>
             {row.map((c) => {
-              return <button onClick={guessHandler} key={c} value={c} disabled={false}>{c}</button>
+              return <Button border='1px' borderColor='black.500' margin='1px' onClick={guessHandler} key={c} value={c} disabled={false}>{c}</Button>
             })}
           </div>
         ))}
       </div>
-      <img src={img} alt="hangman-image" />
     </div>
   )
 }

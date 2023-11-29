@@ -2,3 +2,7 @@
 body {
   font-family: 'Inter';
 }
+
+.hangman-font{
+  font-size: large;
+}
