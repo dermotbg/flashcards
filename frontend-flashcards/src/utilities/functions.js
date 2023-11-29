@@ -31,17 +31,17 @@ const getRandomCards = (cards, amount) => {
   return output
 }
 
-const addScore = (user, card) => {
+const addScore = (user, card, hangman = false) => {
   let updatedUser = user
   switch (card.difficulty) {
   case 'easy':
-    updatedUser = { ...updatedUser, score: updatedUser.score + 1 }
+    updatedUser = { ...updatedUser, score: hangman ? updatedUser.score + 2 : updatedUser.score + 1 }
     break
   case 'medium':
-    updatedUser = { ...updatedUser, score: updatedUser.score + 2 }
+    updatedUser = { ...updatedUser, score: hangman ? updatedUser.score + 4 : updatedUser.score + 2  }
     break
   case 'hard':
-    updatedUser = { ...updatedUser, score: updatedUser.score + 3 }
+    updatedUser = { ...updatedUser, score: hangman ? updatedUser.score + 6 : updatedUser.score + 3  }
     break
   default:
     break

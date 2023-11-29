@@ -11,11 +11,13 @@ import hangman5 from '../assets/hangman_images/hangman_5.png'
 import hangman6 from '../assets/hangman_images/hangman_6.png'
 import hangman7 from '../assets/hangman_images/hangman_7.png'
 import hangman8 from '../assets/hangman_images/hangman_8.png'
+import { updateScore } from '../reducers/userReducer'
 
 
 const Hangman = ({ cards }) => {
   const mainCard = useSelector(state => state.hangman.card)
   const guessed = useSelector(state => state.hangman.guessed)
+  const user = useSelector((state) => state.user) //need user for addScore func
   const dispatch = useDispatch()
   const chars = ['Я','В','Е','Р','Т','Ъ','У','И','О','П','Ш','Щ','А','С','Д','Ф','Г','Х','Й','К','Л','Ю','Ч','З','Ь','Ц','Ж','Б','Н','М']
   const images = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8]
@@ -64,6 +66,12 @@ const Hangman = ({ cards }) => {
       updatedGuessed[i] = event.target.value
     }
     dispatch(setGuessed(updatedGuessed))
+    // win state / add points
+    if (!updatedGuessed.includes('_')){
+      // calc players new score
+      let updatedUser = functions.addScore(user, mainCard, true) //truthy val is hangman exception
+      dispatch(updateScore(updatedUser))
+    }
   }
 
   //handle game over reset
@@ -74,9 +82,11 @@ const Hangman = ({ cards }) => {
   }
 
   if(!mainCard && guessed.length === 0) return <div>Loading...</div>
-  // still needs win/lose state and points allocation
+  // lose condition
   if(img === hangman8) return <div><button onClick={resetHandler}>try again by refreshing for now</button> <img src={img} alt="hangman-image" /> </div>
+  // win condition
   if (!guessed.includes('_')) return <div><button onClick={resetHandler}>Congrats! You have won. Start Again?</button></div>
+
   return(
     <div>
       <div>
