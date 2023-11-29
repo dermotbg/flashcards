@@ -66,7 +66,7 @@ const App = () => {
 
   return(
     <Box
-      // backgroundColor='brand.lightBlue'
+      // backgroundColor='brand.orange'
       // color='brand.white'
     >
       <NavBar />

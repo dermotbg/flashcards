@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
 import { rateCard } from '../reducers/cardReducer'
 
-import { Card as CardUI, CardHeader, CardBody, CardFooter, Heading, Text, Button, Input, FormControl, FormLabel } from '@chakra-ui/react'
+import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel } from '@chakra-ui/react'
 
 const Card = ({ card }) => {
 
@@ -107,6 +107,7 @@ const Card = ({ card }) => {
         <p>{card.en} / {card.bg}</p>
       </ToggleVisible>
     </div>
+    // oldie card below:
     // <div>
     //   <form onSubmit={checkAnswer}>
     //     <div className='answer' style={{ backgroundColor: correct }} >
