@@ -13,13 +13,27 @@ import hangman7 from '../assets/hangman_images/hangman_7.png'
 import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
+const keyboardStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+  // border: 'solid red',
+  width: '38%'
+}
+
 
 const Hangman = ({ cards }) => {
   const mainCard = useSelector(state => state.hangman.card)
   const guessed = useSelector(state => state.hangman.guessed)
   const user = useSelector((state) => state.user) //need user for addScore func
   const dispatch = useDispatch()
-  const chars = ['Я','В','Е','Р','Т','Ъ','У','И','О','П','Ш','Щ','А','С','Д','Ф','Г','Х','Й','К','Л','Ю','Ч','З','Ь','Ц','Ж','Б','Н','М']
+  const keyboardRows = [
+    ['Я','В','Е','Р','Т','Ъ','У','И','О','П','Ш','Щ'],
+    ['А','С','Д','Ф','Г','Х','Й','К','Л','Ю'],
+    ['Ч','З','Ь','Ц','Ж','Б','Н','М']
+  ]
   const images = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8]
   const [img, setImg] = useState(images[0])
 
@@ -98,10 +112,14 @@ const Hangman = ({ cards }) => {
         }
         )}</div>
       </div>
-      <div>
-        {chars.map((c) => {
-          return <button onClick={guessHandler} key={c} value={c} disabled={false}>{c}</button>
-        })}
+      <div style={keyboardStyle}>
+        {keyboardRows.map((row, rowIndex) => (
+          <div key={rowIndex}>
+            {row.map((c) => {
+              return <button onClick={guessHandler} key={c} value={c} disabled={false}>{c}</button>
+            })}
+          </div>
+        ))}
       </div>
       <img src={img} alt="hangman-image" />
     </div>
