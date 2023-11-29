@@ -17,7 +17,7 @@ const Hangman = ({ cards }) => {
   const mainCard = useSelector(state => state.hangman.card)
   const guessed = useSelector(state => state.hangman.guessed)
   const dispatch = useDispatch()
-  const chars = ['я','в','е','р','т','ъ','у','и','о','п','ш','щ','а','с','д','ф','г','х','й','к','л','ч','з','ь','ц','ж','б','н','м','ю']
+  const chars = ['Я','В','Е','Р','Т','Ъ','У','И','О','П','Ш','Щ','А','С','Д','Ф','Г','Х','Й','К','Л','Ю','Ч','З','Ь','Ц','Ж','Б','Н','М']
   const images = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8]
   const [img, setImg] = useState(images[0])
 
@@ -45,7 +45,7 @@ const Hangman = ({ cards }) => {
   },[mainCard])
 
   const guessHandler = (event) => {
-    const wordArray = mainCard.bg.split('')
+    const wordArray = mainCard.bg.toUpperCase().split('')
     if(wordArray.indexOf(event.target.value) === -1){
       console.log('incorrect')
       setImg(images[images.indexOf(img) + 1])
@@ -65,9 +65,16 @@ const Hangman = ({ cards }) => {
     dispatch(setGuessed(updatedGuessed))
   }
 
+  //handle game over reset
+  const resetHandler = () => {
+    const cardDealt = functions.getRandomCards(cards.all, 1)
+    dispatch(setHangmanWord(cardDealt[0]))
+    setImg(images[0])
+  }
+
   if(!mainCard && guessed.length === 0) return <div>Loading...</div>
   // still needs win/lose state and points allocation
-  // if(images.indexOf(img) === 7) return <button>try again by refreshing for now</button>
+  if(img === hangman8) return <div><button onClick={resetHandler}>try again by refreshing for now</button> <img src={img} alt="hangman-image" /> </div>
   return(
     <div>
       <div>
