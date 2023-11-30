@@ -1,10 +1,24 @@
 import { Card, CardHeader, Heading, CardBody, CardFooter, Text, Button, Flex, Center, Image } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+import Login from './LoginForm'
+import RegForm from './RegForm'
 
-const Home = () => {
+const Home = ({ login }) => {
+
+  if(!login){
+    return(
+      <Center flex={1}>
+        <Login />
+        <RegForm />
+      </Center>
+
+    )
+  }
+
   return(
-    <Center>
+    <Center flex={1}>
       <Flex
         wrap={'wrap'}
         maxWidth={'75%'}
@@ -71,7 +85,6 @@ const Home = () => {
               flexDirection={'row'}
               alignItems={'center'}
               justifyContent={'space-between'}
-              m={4}
             >
               <Heading size='lg'> Hangman </Heading>
               <Image
@@ -92,3 +105,7 @@ const Home = () => {
   )
 }
 export default Home
+
+Home.propTypes = {
+  login: PropTypes.object.isRequired
+}

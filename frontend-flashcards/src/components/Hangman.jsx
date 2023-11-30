@@ -26,6 +26,7 @@ const keyboardStyle = {
 }
 const centerFlex = {
   display: 'flex',
+  flex: 1,
   flexDirection: 'column',
   alignItems: 'center'
 }

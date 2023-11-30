@@ -15,9 +15,10 @@ import { getAvatar } from './reducers/avatarReducer'
 import Match5 from './components/Match5'
 import { getCards } from './reducers/cardReducer'
 import Hangman from './components/Hangman'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -65,45 +66,23 @@ const App = () => {
   // }
 
   return(
-    <Box
+    <Flex
+      direction='column'
+      flex={1}
+      minH={'calc(100vh - 40px)'}
       // backgroundColor='brand.orange'
       // color='brand.white'
     >
       <NavBar />
-      {/* <div className='navbarContainer' style={navbarContainer}>
-        <Link to='/'>Home</Link>
-        {user ? <Link to={`/user/${user.id}`}>Account</Link> : <Link to='#'>Something</Link>  }
-        <Link to='#'>TBD</Link>
-        {login
-          ?
-          <div style={{ ...navbarContainer, border: 'none' }}>
-            <div>
-              <div>Hello {user.username}</div>
-              <div>Current Score: {user.score}</div>
-              <button onClick={logoutHandler}>logout</button>
-            </div>
-            <div>
-              <Avatar size={30}/>
-            </div>
-          </div>
-          : null}
-      </div> */}
-      {!login
-        ?
-        <div>
-          <Login />
-          <RegForm />
-        </div>
-        : null
-      }
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home login={login} />} />
         <Route path='/random10' element={<Random10 cards={cards} />} />
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
         <Route path='/match5' element={<Match5 cards={cards} />} />
         <Route path='/hangman' element={<Hangman cards={cards} />} />
       </Routes>
-    </Box>
+      <Footer />
+    </Flex>
   )
 }
 

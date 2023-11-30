@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 
 import Card from './Card'
+import { Box } from '@chakra-ui/react'
 
 const Random10 = ({ cards }) => {
 
@@ -14,14 +15,14 @@ const Random10 = ({ cards }) => {
   }
 
   return(
-    <div>
+    <Box flex={1}>
       {cards.all[0] ? <button onClick={() => triggerStart()} >Give me 10 random cards!</button> : <div>Loading...</div>}
       <div>
         {cards.selected.length !== 0 ? cards.selected.map(c => {
           return <Card key={c.id} card={c}/>
         }): null}
       </div>
-    </div>
+    </Box>
   )
 }
 

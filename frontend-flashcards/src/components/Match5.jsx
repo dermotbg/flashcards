@@ -6,6 +6,7 @@ import functions from '../utilities/functions'
 import './Card.css'
 import MatchCard from './MatchCard'
 import { updateScore } from '../reducers/userReducer'
+import { Box } from '@chakra-ui/react'
 
 const Match5 = ({ cards }) => {
 
@@ -74,7 +75,7 @@ const Match5 = ({ cards }) => {
   }
 
   return(
-    <div>
+    <Box flex={1}>
       {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <div>Loading...</div>}
       <div className='match-box'>
         <div id='bg-container'>
@@ -94,7 +95,7 @@ const Match5 = ({ cards }) => {
             : null}
         </div>
       </div>
-    </div>
+    </Box>
   )
 }
 
