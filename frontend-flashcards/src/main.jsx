@@ -10,10 +10,12 @@ import App from './App.jsx'
 const colors = {
   brand: {
     mainBlue: '#000090',
-    lightBlue: '#009FB7',
+    lightBlue: '#7070FF',
+    whiteBlue: '#EBEBFF',
     orange: '#F17300',
     white: '#F5F5F5',
-    red: '#A8201A'
+    offWhite: '#D9E5D6',
+    red: '#A8201A',
   },
 }
 

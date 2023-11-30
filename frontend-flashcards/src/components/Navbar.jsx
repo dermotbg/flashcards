@@ -34,7 +34,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Box bg='brand.mainBlue' color='brand.white'>
+      <Box bg='brand.mainBlue' color='brand.white' border={'solid 1px black'}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex
             w={250}

@@ -1,5 +1,25 @@
-import { Card, CardHeader, Heading, CardBody, CardFooter, Text, Button, Flex, Center, Image } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Center,
+  Divider,
+  Flex,
+  Heading,
+  Image,
+  Tab,
+  TabIndicator,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+} from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
+import { FaHandPointRight } from "react-icons/fa"
 import { Link as RouterLink } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 import Login from './LoginForm'
@@ -9,10 +29,88 @@ const Home = ({ login }) => {
 
   if(!login){
     return(
-      <Center flex={1}>
-        <Login />
-        <RegForm />
-      </Center>
+      <Box flex={1}>
+        <Center>
+          {/* <Card
+            borderRadius={'full'}
+            mt={5}
+          >
+            <CardBody
+              minWidth={'50vw'}
+              borderRadius={'full'}
+              bg={'brand.mainBlue'}
+              color={'brand.orange'}
+              border={'solid 1px black'}
+              boxShadow={'1px 1px .5em black'}
+            >
+              <Center>
+                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
+              </Center>
+            </CardBody>
+          </Card> */}
+        </Center>
+        <Center mt={5}>
+          <Card
+            borderRadius={'full'}
+          >
+            <CardBody
+              minWidth={'10vw'}
+              borderRadius={'full'}
+              bg={'brand.mainBlue'}
+              color={'brand.orange'}
+              border={'solid 1px black'}
+              boxShadow={'1px 1px .5em black'}
+            >
+              <Center flexDirection={'column'}>
+                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
+                <Flex dir='row' alignItems={'center'}>
+                  <Text pr={3}>Login or Register here</Text>
+                  <FaHandPointRight />
+                </Flex>
+              </Center>
+            </CardBody>
+          </Card>
+          {/* <Card
+            m={5}
+            bg={'brand.white'}
+            boxShadow={'1px 1px .5em black'}
+            maxW={'40%'}
+          >
+            <CardBody>
+              <Text p={4}>Welcome! You can Login or Register on the form to the right.</Text>
+              <Divider />
+              <Text p={4}>All we take is a username and password to record your score etc, no other data is taken.</Text>
+            </CardBody>
+          </Card> */}
+          <Card
+            m={5}
+            boxShadow={'1px 1px .5em black'}
+            maxW={'40%'}
+            maxH={'40%'}
+          >
+            <Tabs position="relative" variant="unstyled">
+              <TabList>
+                <Tab>Login</Tab>
+                <Tab>Register</Tab>
+              </TabList>
+              <TabIndicator
+                mt="-1.5px"
+                height="2px"
+                bg="blue.500"
+                borderRadius="1px"
+              />
+              <TabPanels>
+                <TabPanel>
+                  <Login />
+                </TabPanel>
+                <TabPanel>
+                  <RegForm />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          </Card>
+        </Center>
+      </Box>
 
     )
   }
@@ -107,5 +205,5 @@ const Home = ({ login }) => {
 export default Home
 
 Home.propTypes = {
-  login: PropTypes.object.isRequired
+  login: PropTypes.object
 }

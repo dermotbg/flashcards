@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
+import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
 const RegForm = () => {
   const dispatch = useDispatch()
@@ -42,11 +43,16 @@ const RegForm = () => {
   }
   return(
     <>
-      <p>Register here to save progress:</p>
       <form onSubmit={regHandler}>
-        <input type="text" name="username" label="username" placeholder="username" />
-        <input type="password" name="password" label="password" placeholder="password" />
-        <button type="submit">submit</button>
+        <FormControl isRequired>
+          <FormLabel>Username</FormLabel>
+          <Input name="username" placeholder='username' />
+        </FormControl>
+        <FormControl isRequired>
+          <FormLabel>Password</FormLabel>
+          <Input type="password" name="password" placeholder='Password' />
+        </FormControl>
+        <Button alignSelf={'end'} type='submit'>Register</Button>
       </form>
       {notification ? <div>{notification.message}</div>: null }
     </>

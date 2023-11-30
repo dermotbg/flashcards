@@ -46,6 +46,7 @@ const Footer = () =>  {
       // color={useColorModeValue('gray.700', 'gray.200')}
       bg={'brand.mainBlue'}
       color={'brand.white'}
+      border={'solid 1px black'}
     >
       <Container
         as={Stack}
@@ -86,12 +87,12 @@ const Footer = () =>  {
             sx={{ textShadow: '1px 1px 3px black' }}
           >Jump To:</Text>
           <Text as={'a'} href='/'>Home</Text>
-          <Text as={'a'} href='/random10'>Random 10</Text>
+          {/* <Text as={'a'} href='/random10'>Random 10</Text>
           <Text as={'a'} href='/match5'>Match 5</Text>
-          <Text as={'a'} href='/hangman'>Hangman</Text>
+          <Text as={'a'} href='/hangman'>Hangman</Text> */}
         </Stack>
 
-        <Stack direction={'column'} alignItems={'end'} spacing={6}>
+        <Stack direction={'column'} alignItems={'end'} spacing={1}>
           <Text
             color='brand.orange'
             fontWeight={900}
