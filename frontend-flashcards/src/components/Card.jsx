@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 import './Card.css'
 import ToggleVisible from './ToggleVisible'
@@ -18,7 +18,9 @@ const Card = ({ card }) => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
-  const checkAnswerRef = useRef()
+  useEffect(() =>{
+    setAnswerChecked(false)
+  },[card.bg])
 
   const checkAnswer = useCallback((event) => {
     event.preventDefault()
@@ -146,8 +148,7 @@ const Card = ({ card }) => {
                   <Center>
                     <Flex justifyContent={'space-apart'}>
                       <Button mr={3} _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} style={{ alignSelf: 'flex-end' }} type="submit">Check answer</Button>
-                      <ToggleVisible buttonLabel={'Show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
-                      </ToggleVisible>
+                      <Button _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} onClick={showAnswer}>Show answer</Button>
                     </Flex>
                   </Center>
                 </Box>
