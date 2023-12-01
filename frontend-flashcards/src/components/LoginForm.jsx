@@ -18,17 +18,28 @@ const Login = () => {
 
 
   return(
-    <Box>
+    <Box pb={5}>
       <form onSubmit={loginHandler}>
         <FormControl isRequired>
-          <FormLabel>Username</FormLabel>
-          <Input name="username" placeholder='username' />
+          <FormLabel >Username</FormLabel>
+          <Input name="username" placeholder='Username' p={5} mb={5} />
         </FormControl>
         <FormControl isRequired>
-          <FormLabel>Password</FormLabel>
-          <Input type="password" name="password" placeholder='Password' />
+          <FormLabel >Password</FormLabel>
+          <Input p={5} type="password" name="password" placeholder='Password' mb={5} />
         </FormControl>
-        <Button type='submit'>Login</Button>
+        <Button
+          p={5}
+          bg={'brand.mainBlue'}
+          color={'brand.orange'}
+          _hover={{
+            background: 'white',
+            color: 'brand.mainBlue',
+          }}
+          type='submit'
+        >
+          Login
+        </Button>
       </form>
     </Box>
   )

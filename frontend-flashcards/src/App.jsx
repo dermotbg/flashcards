@@ -75,7 +75,7 @@ const App = () => {
     >
       <NavBar />
       <Routes>
-        <Route path='/' element={<Home login={login} />} />
+        <Route path='/' element={<Home login={JSON.parse(login)} />} />
         <Route path='/random10' element={<Random10 cards={cards} />} />
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
         <Route path='/match5' element={<Match5 cards={cards} />} />

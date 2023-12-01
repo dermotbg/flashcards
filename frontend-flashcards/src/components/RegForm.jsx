@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
-import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
 const RegForm = () => {
   const dispatch = useDispatch()
@@ -42,20 +42,31 @@ const RegForm = () => {
     event.target.password.value = ''
   }
   return(
-    <>
+    <Box pb={5}>
       <form onSubmit={regHandler}>
         <FormControl isRequired>
           <FormLabel>Username</FormLabel>
-          <Input name="username" placeholder='username' />
+          <Input name="username" placeholder='Username' p={5} mb={5}  />
         </FormControl>
         <FormControl isRequired>
           <FormLabel>Password</FormLabel>
-          <Input type="password" name="password" placeholder='Password' />
+          <Input type="password" name="password" placeholder='Password' p={5} mb={5}  />
         </FormControl>
-        <Button alignSelf={'end'} type='submit'>Register</Button>
+        <Button
+          p={5}
+          bg={'brand.mainBlue'}
+          color={'brand.orange'}
+          _hover={{
+            background: 'white',
+            color: 'brand.mainBlue',
+          }}
+          type='submit'
+        >
+          Register
+        </Button>
       </form>
       {notification ? <div>{notification.message}</div>: null }
-    </>
+    </Box>
   )
 }
 

@@ -17,6 +17,7 @@ import {
   TabPanels,
   Tabs,
   Text,
+  Stack,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { FaHandPointRight } from "react-icons/fa"
@@ -49,27 +50,34 @@ const Home = ({ login }) => {
             </CardBody>
           </Card> */}
         </Center>
-        <Center mt={5}>
-          <Card
-            borderRadius={'full'}
-          >
-            <CardBody
-              minWidth={'10vw'}
+        <Center mt={5} alignItems={'start'}>
+          <Stack>
+            <Card
               borderRadius={'full'}
-              bg={'brand.mainBlue'}
-              color={'brand.orange'}
-              border={'solid 1px black'}
-              boxShadow={'1px 1px .5em black'}
             >
-              <Center flexDirection={'column'}>
-                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
-                <Flex dir='row' alignItems={'center'}>
-                  <Text pr={3}>Login or Register here</Text>
-                  <FaHandPointRight />
-                </Flex>
-              </Center>
-            </CardBody>
-          </Card>
+              <CardBody
+                minWidth={'10vw'}
+                borderRadius={'full'}
+                bg={'brand.mainBlue'}
+                color={'brand.orange'}
+                border={'solid 1px black'}
+                boxShadow={'1px 1px .5em black'}
+              >
+                <Center flexDirection={'column'}>
+                  <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
+                  <Flex dir='row' alignItems={'center'}>
+                    <Text pr={3}>Login or Register here</Text>
+                    <FaHandPointRight />
+                  </Flex>
+                </Center>
+              </CardBody>
+            </Card>
+            <Image
+              src='https://media.istockphoto.com/id/1308793903/vector/students-reading-textbook-writing-down-in-notebook.jpg?s=612x612&w=0&k=20&c=SE5U6UPNMykX6B9mbiR4E1lyJTrEJJuHuWcf9Sf-ATE='
+              alt='learning illustration'
+              boxSize={80}
+            />
+          </Stack>
           {/* <Card
             m={5}
             bg={'brand.white'}

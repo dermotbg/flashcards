@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
 import { rateCard } from '../reducers/cardReducer'
 
-import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel } from '@chakra-ui/react'
+import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel, Box, Center } from '@chakra-ui/react'
 
 const Card = ({ card }) => {
 
@@ -78,9 +78,9 @@ const Card = ({ card }) => {
   }
 
   return(
-    <div>
+    <Center>
       <form onSubmit={checkAnswer}>
-        <CardUI className='answer' style={{ backgroundColor: correct }} >
+        <CardUI className='answer' style={{ backgroundColor: correct }}>
           <Heading size='md'>{card.en}</Heading>
           <CardBody>
             <Text><em>In the context of {card.cat}</em></Text>
@@ -101,12 +101,12 @@ const Card = ({ card }) => {
               <Button colorScheme='green' size='sm' type='button' name='plus' onClick={(e) => ratingHandler(card, e)}>rate card +</Button>
               <Button colorScheme='red' size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</Button>
             </div>}
+          <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
+            <p>{card.en} / {card.bg}</p>
+          </ToggleVisible>
         </CardUI>
       </form>
-      <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
-        <p>{card.en} / {card.bg}</p>
-      </ToggleVisible>
-    </div>
+    </Center>
     // oldie card below:
     // <div>
     //   <form onSubmit={checkAnswer}>
