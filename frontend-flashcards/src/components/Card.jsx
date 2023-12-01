@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
 import { rateCard } from '../reducers/cardReducer'
 
-import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel, Box, Center } from '@chakra-ui/react'
+import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel, Box, Center, Stack, Divider, Flex } from '@chakra-ui/react'
+import { FaThumbsDown, FaThumbsUp, FaUndo } from 'react-icons/fa'
 
 const Card = ({ card }) => {
 
@@ -80,30 +81,79 @@ const Card = ({ card }) => {
   return(
     <Center>
       <form onSubmit={checkAnswer}>
-        <CardUI className='answer' style={{ backgroundColor: correct }}>
-          <Heading size='md'>{card.en}</Heading>
+        <CardUI
+          className='answer'
+          minW={'100%'}
+          border={'solid 1px black'}
+          boxShadow={'1px 1px .5em black'}
+          style={{ backgroundColor: correct }}
+          mb={6}
+        >
+          <Heading
+            size='4xl'
+            minW={'100%'}
+          >
+            {card.en}
+          </Heading>
           <CardBody>
-            <Text><em>In the context of {card.cat}</em></Text>
-            <Text>Card Rating: {card.rating}</Text>
-            {answerChecked
-              ? null
-              :
-              <div className='answer-container'>
-                <FormLabel>Your Answer:</FormLabel>
-                <Input style={{ alignSelf: 'center' }}  width='40%' size='md' type="text" name="bg" />
-                <Button style={{ alignSelf: 'flex-end' }} type="submit">Check answer</Button>
-              </div>}
+            <Stack dir='row' >
+              <Text><em>In the context of {card.cat}</em></Text>
+              <Divider borderColor={'black'}/>
+              <Text pb={2} textAlign={'center'}>Card User Rating: {card.rating}</Text>
+              {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
+                ?
+                <Flex dir='row' justifyContent={'center'}>
+                  <Button type='button' colorScheme='red' size='sm' name='undo' onClick={() => undoRatingHandler(card)}>
+                    <FaUndo />
+                  </Button>
+                </Flex>
+                :
+                <Flex dir='row' justifyContent={'center'}>
+                  <Button
+                    mr={3}
+                    _hover={{
+                      bg: 'brand.mainBlue',
+                      color: 'brand.white'
+                    }}
+                    size='sm'
+                    type='button'
+                    name='plus'
+                    onClick={(e) => ratingHandler(card, e)}
+                  >
+                    <FaThumbsUp />
+                  </Button>
+                  <Button
+                    _hover={{
+                      bg: 'brand.red',
+                      color: 'brand.white'
+                    }}
+                    size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >
+                    <FaThumbsDown />
+                  </Button>
+                </Flex>}
+              <Divider borderColor={'black'} />
+              {answerChecked
+                ?
+                <Center>
+                  <Heading > {card.en} / {card.bg} </Heading>
+                </Center>
+                :
+                <Box>
+                  <Center className='answer-container'>
+                    <FormLabel>Your Answer:</FormLabel>
+                    <Input borderColor={'black'} mb={2} style={{ alignSelf: 'center' }}  width='100%' size='md' type="text" name="bg" />
+                  </Center>
+                  <Center>
+                    <Flex justifyContent={'space-apart'}>
+                      <Button mr={3} _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} style={{ alignSelf: 'flex-end' }} type="submit">Check answer</Button>
+                      <ToggleVisible buttonLabel={'Show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
+                      </ToggleVisible>
+                    </Flex>
+                  </Center>
+                </Box>
+              }
+            </Stack>
           </CardBody>
-          {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
-            ? <div><Button type='button' colorScheme='red' size='sm' name='undo' onClick={() => undoRatingHandler(card)}> Undo rating </Button></div>
-            :
-            <div>
-              <Button colorScheme='green' size='sm' type='button' name='plus' onClick={(e) => ratingHandler(card, e)}>rate card +</Button>
-              <Button colorScheme='red' size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >rate card -</Button>
-            </div>}
-          <ToggleVisible buttonLabel={'show answer'} ref={checkAnswerRef} onClick={showAnswer} buttonLabel2={'noCancel'}>
-            <p>{card.en} / {card.bg}</p>
-          </ToggleVisible>
         </CardUI>
       </form>
     </Center>

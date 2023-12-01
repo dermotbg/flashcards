@@ -14,6 +14,7 @@ import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
 import { Button } from '@chakra-ui/react'
+import Loading from './Loading'
 
 const keyboardStyle = {
   display: 'flex',
@@ -102,7 +103,7 @@ const Hangman = ({ cards }) => {
     setImg(images[0])
   }
 
-  if(!mainCard && guessed.length === 0) return <div style={centerFlex} >Loading...</div>
+  if(!mainCard && guessed.length === 0) return <Loading/>
   // lose condition
   if(img === hangman8) return (
     <div style={centerFlex}>

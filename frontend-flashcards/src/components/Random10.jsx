@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 
 import Card from './Card'
-import { Box, Card as CardUI, CardBody, Center, Flex, Heading, Stack, Text, Image, Button } from '@chakra-ui/react'
+import { Box, Card as CardUI, CardBody, Center, Flex, Heading, Stack, Text, Button } from '@chakra-ui/react'
 import { FaHandPointDown } from 'react-icons/fa'
 import Carousel from './Carousel'
 import Loading from './Loading'
@@ -17,7 +17,7 @@ const Random10 = ({ cards }) => {
     dispatch(setSelected(functions.getRandomCards([...cards.all], 10)))
   }
 
-  return(
+  return( // needs to have separate reset button that undos show answer toggle
     <Box flex={1}>
       {cards.all[0]
         ?

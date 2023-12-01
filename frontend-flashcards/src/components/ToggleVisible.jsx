@@ -1,3 +1,4 @@
+import { Button, Text } from '@chakra-ui/react'
 import PropTypes from 'prop-types'
 import { useState, forwardRef, useImperativeHandle } from 'react'
 
@@ -21,10 +22,10 @@ const ToggleVisible = forwardRef((props, refs) => {
   return(
     <div>
       <div style={hiddenWhileTrue}>
-        <button onClick={ () => { toggleVisible(); props.onClick() }}>{props.buttonLabel}</button>
+        <Button _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} onClick={ () => { toggleVisible(); props.onClick() }}>{props.buttonLabel}</Button>
       </div>
       <div style={shownWhileTrue}>
-        {props.buttonLabel2 === 'noCancel' ? null : <button onClick={ () => { toggleVisible() }}>{props.buttonLabel2}</button>}
+        {props.buttonLabel2 === 'noCancel' ? null : <Button onClick={ () => { toggleVisible() }}>{props.buttonLabel2}</Button>}
         {props.children}
       </div>
     </div>

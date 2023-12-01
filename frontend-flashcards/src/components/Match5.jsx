@@ -7,6 +7,7 @@ import './Card.css'
 import MatchCard from './MatchCard'
 import { updateScore } from '../reducers/userReducer'
 import { Box } from '@chakra-ui/react'
+import Loading from './Loading'
 
 const Match5 = ({ cards }) => {
 
@@ -76,7 +77,7 @@ const Match5 = ({ cards }) => {
 
   return(
     <Box flex={1}>
-      {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <div>Loading...</div>}
+      {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <Loading />}
       <div className='match-box'>
         <div id='bg-container'>
           {activeCards.bg.length !== 0

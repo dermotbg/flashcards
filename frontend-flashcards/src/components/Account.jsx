@@ -3,6 +3,7 @@ import { get1User } from '../reducers/userReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import Avatar from './Avatar'
+import Loading from './Loading'
 
 
 const Account = ({ login }) => {
@@ -18,7 +19,7 @@ const Account = ({ login }) => {
     return dateObj
   }
   // check for user pre date load
-  if(!user.createdAt) return <div>Loading...</div>
+  if(!user.createdAt) return <Loading />
 
   const dateObj = getDate(user.createdAt)
 
