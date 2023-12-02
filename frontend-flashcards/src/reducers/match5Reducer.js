@@ -56,24 +56,44 @@ const match5Slice = createSlice({
       // this can be refactored but for now it breaks when it's touched.
       // checks each card to see if it has already been matched
       return{
-        // en: state.en.map(c => c.en === action.payload.en ? c : { ...c, disabled: false }),
         en: state.en.map(c => {
           const alreadyMatched = state.matched.find(obj => obj.id === c.id)
           if (c.en === action.payload.en || alreadyMatched) {
-            return { ...c, disabled:true }
+            return { ...c, disabled: true, matched: true }
           }
-          return { ...c, disabled: false } }),
+          return { ...c, disabled: false, matched: false } }),
 
-        // bg: state.bg.map(c => c.bg === action.payload.bg ? c : { ...c, disabled: false }),
         bg: state.bg.map(c => {
           const alreadyMatched = state.matched.find(obj => obj.id === c.id)
           if (c.bg === action.payload.bg || alreadyMatched){
-            return { ...c, disabled:true }
+            return { ...c, disabled: true, matched: true }
           }
-          return { ...c, disabled: false }}),
+          return { ...c, disabled: false, matched: false }}),
+
         matched: state.matched
       }
     },
+    // undoActive(state, action) {
+    //   const cyrillicPattern = /[\u0400-\u04FF]+/
+    //   if (cyrillicPattern.test(action.payload)){
+    //     const cardToUndo = state.bg.find(c => c.bg === action.payload) // only txt name sent as payload
+    //     return{
+    //       en: state.en,
+    //       bg: state.bg.map(c => {
+    //         c.id === cardToUndo.id ? { ...c, disabled: false } : c
+    //       }),
+    //       matched: state.matched
+    //     }
+    //   }
+    //   const cardToUndo = state.en.find(c => c.en === action.payload) // only txt name sent as payload
+    //   return{
+    //     en: state.en.map(c => {
+    //       c.id === cardToUndo.id ? { ...c, disabled: false } : c
+    //     }),
+    //     bg: state.bg,
+    //     matched: state.matched
+    //   }
+    // },
     setDisabled(state, action){
       //to disable already completed matches
       const enToUpdate = state.en.find((c) => c.id === action.payload.id)
@@ -105,6 +125,6 @@ const match5Slice = createSlice({
   }
 })
 
-export const { set5, setActive, resetActive, setDisabled, addToMatched, resetGame } = match5Slice.actions
+export const { set5, setActive, resetActive, undoActive, setDisabled, addToMatched, resetGame } = match5Slice.actions
 
 export default match5Slice.reducer

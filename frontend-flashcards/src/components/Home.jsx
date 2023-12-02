@@ -20,7 +20,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { FaHandPointRight } from "react-icons/fa"
+import { FaHandPointRight } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 import Login from './LoginForm'
@@ -50,7 +50,7 @@ const Home = ({ login }) => {
             </CardBody>
           </Card> */}
         </Center>
-        <Center mt={5} alignItems={'start'}>
+        <Center mt={5} alignItems={'start'} justifyContent={'space-evenly'}>
           <Stack>
             <Card
               borderRadius={'full'}
@@ -92,6 +92,7 @@ const Home = ({ login }) => {
           </Card> */}
           <Card
             m={5}
+            mt={10}
             boxShadow={'1px 1px .5em black'}
             maxW={'40%'}
             maxH={'40%'}

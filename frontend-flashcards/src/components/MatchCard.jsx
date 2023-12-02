@@ -1,32 +1,71 @@
+import { Box, Button, Flex } from '@chakra-ui/react'
 import { PropTypes } from 'prop-types'
+import { FaCheckCircle } from 'react-icons/fa'
 
-const MatchCard = ({ card, correct, en, matchHandler, disabled }) => {
+const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
 
   return(
-    <div>
-      <div>
+    <Box >
+      <Box m={8} >
         {en
           ?
-          <div key={`${card.en}-en`} style={{ backgroundColor: correct }}>
-            <input type='radio' id={`${card.en}-en`} name={'en'} value={card.en} disabled={disabled} onChange={(event) => matchHandler(card, event)} />
-            <label htmlFor={`${card.en}-en`}>{card.en}</label>
-          </div>
+          <Flex
+            key={`${card.en}-en`}
+            justifyContent={'end'}
+          >
+            {disabled
+              ?
+              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button isDisabled>{card.en}</Button>
+              :
+              <Button
+                id={`${card.en}-en`}
+                name={'en'}
+                value={card.en}
+                isDisabled={disabled}
+                onClick={(event) => matchHandler(card, event)}
+                _hover={{
+                  bg: 'brand.mainBlue',
+                  color: 'brand.orange'
+                }}
+              >
+                {card.en}
+              </Button>
+            }
+          </Flex>
           :
-          <div key={`${card.bg}-bg`} style={{ backgroundColor: correct }}>
-            <input type='radio' id={`${card.bg}-bg`} name={'bg'} value={card.bg} disabled={disabled} onChange={(event) => matchHandler(card, event)} />
-            <label htmlFor={`${card.bg}-bg`}>{card.bg}</label>
-          </div> }
-      </div>
-    </div>
+          <Flex
+            key={`${card.bg}-bg`}
+          >
+            {disabled
+              ?
+              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button isDisabled>{card.en}</Button>
+              :
+              <Button
+                id={`${card.bg}-bg`}
+                name={'bg'}
+                value={card.bg}
+                isDisabled={disabled}
+                onClick={(event) => matchHandler(card, event)}
+                _hover={{
+                  bg: 'brand.mainBlue',
+                  color: 'brand.orange'
+                }}
+              >
+                {card.bg}
+              </Button>
+            }
+          </Flex> }
+      </Box>
+    </Box>
   )
 }
 
 MatchCard.propTypes = {
   card: PropTypes.object.isRequired,
-  correct: PropTypes.string,
   matchHandler: PropTypes.func.isRequired,
   en: PropTypes.bool, //this is just to print it in the right hand div
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  matched: PropTypes.bool
 }
 
 export default MatchCard

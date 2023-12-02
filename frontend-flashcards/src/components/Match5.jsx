@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { addToMatched, resetActive, resetGame, set5, setActive, setDisabled } from '../reducers/match5Reducer'
+import { addToMatched, resetActive, resetGame, set5, setActive, setDisabled, undoActive } from '../reducers/match5Reducer'
 import { useDispatch, useSelector } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
@@ -12,9 +12,8 @@ import Loading from './Loading'
 const Match5 = ({ cards }) => {
 
   const activeCards = useSelector((state) => state.match5)
-  const user = useSelector((state) => state.user) //need user for addScore func
+  const user = useSelector((state) => state.user)
   const [match, setMatch] = useState([])
-  const [correct, setCorrect] = useState('none')
 
   const dispatch = useDispatch()
 
@@ -27,10 +26,18 @@ const Match5 = ({ cards }) => {
 
   const matchHandler = (card, event) => {
     if(match[0]) {
+      // **************************************RETURN TO THIS
+      // if(match[0] === event.target.value){
+      //   console.log('here')
+      //   setMatch([])
+      //   dispatch(undoActive(event.target.value))
+      //   return
+      // }
+      // **************************************RETURN TO THIS
       setMatch([...match, event.target.name])
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
         console.log('correct')
-        setCorrect('green')
+        // setCorrect('green')
         // calc players new score
         let updatedUser = functions.addScore(user, card)
         // disable correct answer from future use
@@ -42,17 +49,9 @@ const Match5 = ({ cards }) => {
         // add score to player acc
         dispatch(updateScore(updatedUser))
         setMatch([])
-        setTimeout(() => {
-          setCorrect('')
-        }, 1000)
         return
       }
       console.log('incorrect')
-      setCorrect('red')
-      // unselect the radio button here?
-      setTimeout(() => {
-        setCorrect('')
-      }, 1000)
       return
     }
     setMatch([event.target.value])
@@ -83,7 +82,7 @@ const Match5 = ({ cards }) => {
           {activeCards.bg.length !== 0
             ?
             activeCards.bg.map((c) => {
-              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} correct={correct} disabled={c.disabled} />)
+              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
             })
             : null}
         </div>
@@ -91,7 +90,7 @@ const Match5 = ({ cards }) => {
           {activeCards.en.length !== 0
             ?
             activeCards.en.map((c) => {
-              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} correct={correct} disabled={c.disabled} />)
+              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
             })
             : null}
         </div>

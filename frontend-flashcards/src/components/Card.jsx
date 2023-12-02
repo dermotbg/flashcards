@@ -72,6 +72,7 @@ const Card = ({ card }) => {
 
   const ratingHandler = (card, event) => {
     const cardObj = { ...card }
+    console.log(event)
     const rating = event.target.name === 'plus' ? '+' : '-'
     cardObj.rating = rating === '+'
       ? card.rating + 1
