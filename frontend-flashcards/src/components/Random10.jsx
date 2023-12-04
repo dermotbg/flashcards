@@ -7,6 +7,7 @@ import { Box, Card as CardUI, CardBody, Center, Flex, Heading, Stack, Text, Butt
 import { FaHandPointDown } from 'react-icons/fa'
 import Carousel from './Carousel'
 import Loading from './Loading'
+import InactiveScreen from './InactiveScreen'
 import { useState } from 'react'
 
 const Random10 = ({ cards }) => {
@@ -24,63 +25,26 @@ const Random10 = ({ cards }) => {
     <Box flex={1}>
       {cards.all[0]
         ?
-        <Center>
-          <Stack>
-            {gameActive
-              ? null
-              :
-              <CardUI
-                borderRadius={'full'}
-                mt={10}
-              >
-                <CardBody
-                  minWidth={'10vw'}
-                  borderRadius={'full'}
-                  bg={'brand.mainBlue'}
-                  color={'brand.orange'}
-                  border={'solid 1px black'}
-                  boxShadow={'1px 1px .5em black'}
-                >
-                  <Center flexDirection={'column'}>
-                    <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Are you ready?</Heading>
-                    <Flex dir='row' alignItems={'center'}>
-                      <Text pr={3}>When you&apos;re ready, hit start!</Text>
-                      <FaHandPointDown />
-                    </Flex>
-                  </Center>
-                </CardBody>
-              </CardUI>
-            }
-            {gameActive
-              ?
-              <Button
-                mt={10}
-                mb={10}
-                minWidth={'10vw'}
-                borderRadius={'full'}
-                bg={'brand.mainBlue'}
-                color={'brand.orange'}
-                border={'solid 1px black'}
-                boxShadow={'1px 1px .5em black'}
-                onClick={() => triggerStart()} >Reset Cards!
-              </Button>
-              :
-              <Button
-                mt={10}
-                mb={10}
-                minWidth={'10vw'}
-                borderRadius={'full'}
-                bg={'brand.mainBlue'}
-                color={'brand.orange'}
-                border={'solid 1px black'}
-                boxShadow={'1px 1px .5em black'}
-                onClick={() => triggerStart()} >Start!
-              </Button>
-            }
-          </Stack>
-        </Center>
+        <InactiveScreen startHandler={triggerStart} gameActive={gameActive} mainText={'Are you ready?'} buttonText={'Start!'}/>
         :
         <Loading />
+      }
+      {gameActive
+        ?
+        <Center>
+          <Button
+            mt={10}
+            mb={10}
+            minWidth={'10vw'}
+            borderRadius={'full'}
+            bg={'brand.mainBlue'}
+            color={'brand.orange'}
+            border={'solid 1px black'}
+            boxShadow={'1px 1px .5em black'}
+            onClick={() => triggerStart()} >Reset Cards!
+          </Button>
+        </Center>
+        : null
       }
       <Box>
         <Carousel cards={cards.selected} reset={gameActive}/>
