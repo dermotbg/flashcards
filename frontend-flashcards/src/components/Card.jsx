@@ -18,7 +18,7 @@ const Card = ({ card, active }) => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
-  useEffect(() =>{
+  useEffect(() => {
     setAnswerChecked(false)
   },[card.bg])
 
@@ -26,7 +26,7 @@ const Card = ({ card, active }) => {
     event.preventDefault()
     console.log(card)
     const answer = card.bg.localeCompare(event.target.bg.value, 'bg', { sensitivity: 'base' })
-    if(!answer){ 
+    if(!answer){
       setCorrect('green')
       const updatedUser = functions.addScore(user, card)
       dispatch(updateScore(updatedUser))

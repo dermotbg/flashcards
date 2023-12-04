@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 
-import { Box, Card as CardUI, CardBody, Center, Flex, Heading, Stack, Text, Button } from '@chakra-ui/react'
-import { FaHandPointDown } from 'react-icons/fa'
+import { Box, Center, Button } from '@chakra-ui/react'
 import Carousel from './Carousel'
 import Loading from './Loading'
 import InactiveScreen from './InactiveScreen'
@@ -47,7 +46,7 @@ const Random10 = ({ cards }) => {
         : null
       }
       <Box>
-        <Carousel cards={cards.selected} reset={gameActive}/>
+        <Carousel cards={cards.selected} gameActive={gameActive}/>
       </Box>
     </Box>
   )
