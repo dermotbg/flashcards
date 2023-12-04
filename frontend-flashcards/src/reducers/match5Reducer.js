@@ -73,27 +73,39 @@ const match5Slice = createSlice({
         matched: state.matched
       }
     },
-    // undoActive(state, action) {
-    //   const cyrillicPattern = /[\u0400-\u04FF]+/
-    //   if (cyrillicPattern.test(action.payload)){
-    //     const cardToUndo = state.bg.find(c => c.bg === action.payload) // only txt name sent as payload
-    //     return{
-    //       en: state.en,
-    //       bg: state.bg.map(c => {
-    //         c.id === cardToUndo.id ? { ...c, disabled: false } : c
-    //       }),
-    //       matched: state.matched
-    //     }
-    //   }
-    //   const cardToUndo = state.en.find(c => c.en === action.payload) // only txt name sent as payload
-    //   return{
-    //     en: state.en.map(c => {
-    //       c.id === cardToUndo.id ? { ...c, disabled: false } : c
-    //     }),
-    //     bg: state.bg,
-    //     matched: state.matched
-    //   }
-    // },
+    undoActive(state, action) {
+      const cyrillicPattern = /[\u0400-\u04FF]+/
+      if (cyrillicPattern.test(action.payload)){
+        const cardToUndo = state.bg.find(c => c.bg === action.payload) // only txt name sent as payload
+        return{
+          en: state.en,
+          bg: state.bg.map(c => {
+            if(c.id === cardToUndo.id){
+              return c
+            }
+            else if(state.matched.includes(c)) {
+              return { ...c, disabled: true, matched: true }
+            }
+            return { ...c, disabled: false, matched: false }
+          }),
+          matched: state.matched
+        }
+      }
+      const cardToUndo = state.en.find(c => c.en === action.payload) // only txt name sent as payload
+      return{
+        en: state.en.map(c => {
+          if(c.id === cardToUndo.id){
+            return c
+          }
+          else if(state.matched.includes(c)) {
+            return { ...c, disabled: true, matched: true }
+          }
+          return { ...c, disabled: false, matched: false }
+        }),
+        bg: state.bg,
+        matched: state.matched
+      }
+    },
     setDisabled(state, action){
       //to disable already completed matches
       const enToUpdate = state.en.find((c) => c.id === action.payload.id)

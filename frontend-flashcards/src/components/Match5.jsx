@@ -30,12 +30,12 @@ const Match5 = ({ cards }) => {
   const matchHandler = (card, event) => {
     if(match[0]) {
       // **************************************RETURN TO THIS
-      // if(match[0] === event.target.value){
-      //   console.log('here')
-      //   setMatch([])
-      //   dispatch(undoActive(event.target.value))
-      //   return
-      // }
+      if(match[0] === event.target.value){
+        console.log('here')
+        setMatch([])
+        dispatch(undoActive(event.target.value))
+        return
+      }
       // **************************************RETURN TO THIS
       setMatch([...match, event.target.name])
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
