@@ -13,7 +13,7 @@ import hangman7 from '../assets/hangman_images/hangman_7.png'
 import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
-import { Button } from '@chakra-ui/react'
+import { Box, Button, Center, Flex } from '@chakra-ui/react'
 import Loading from './Loading'
 
 const keyboardStyle = {
@@ -119,7 +119,7 @@ const Hangman = ({ cards }) => {
     </div>)
 
   return(
-    <div style={centerFlex}>
+    <Box style={centerFlex} >
       <img style={{ marginLeft: '40%' }} src={img} alt="hangman-image" />
       <div style={centerFlex}>
         <div>{mainCard.en}</div>
@@ -132,14 +132,26 @@ const Hangman = ({ cards }) => {
       </div>
       <div style={keyboardStyle}>
         {keyboardRows.map((row, rowIndex) => (
-          <div key={rowIndex}>
+          <Flex maxW={'100vw'} key={rowIndex}>
             {row.map((c) => {
-              return <Button border='1px' borderColor='black.500' margin='1px' onClick={guessHandler} key={c} value={c} disabled={false}>{c}</Button>
+              return <Button
+                size={{ base: 'xs', sm: 'md' }}
+                border='1px'
+                borderColor='black.500'
+                p={0}
+                margin='1px'
+                onClick={guessHandler}
+                key={c}
+                value={c}
+                disabled={false}
+              >
+                {c}
+              </Button>
             })}
-          </div>
+          </Flex>
         ))}
       </div>
-    </div>
+    </Box>
   )
 }
 
