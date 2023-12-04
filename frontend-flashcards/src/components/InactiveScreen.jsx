@@ -25,7 +25,7 @@ const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
               <Center flexDirection={'column'}>
                 <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >{mainText}</Heading>
                 <Flex dir='row' alignItems={'center'}>
-                  <Text pr={3}>{buttonText}</Text>
+                  <Text pr={3}></Text>
                   <FaHandPointDown />
                 </Flex>
               </Center>
@@ -42,7 +42,10 @@ const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
               color={'brand.orange'}
               border={'solid 1px black'}
               boxShadow={'1px 1px .5em black'}
-              onClick={() => startHandler()} >Start!
+              _hover={{ bg: 'white', color: 'brand.orange' }}
+              onClick={() => startHandler()}
+            >
+              {buttonText}
             </Button>
           </Center>
         </Stack>
