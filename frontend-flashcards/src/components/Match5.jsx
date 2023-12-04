@@ -87,8 +87,16 @@ const Match5 = ({ cards }) => {
         ?
         <Box mt={10} mb={10}>
           <Heading as={'h1'} textAlign={'center'}>Match the words on each side</Heading>
-          <Box className='match-box'>
-            <Box id='bg-container'>
+          <Box
+            // className='match-box'
+            display={'flex'}
+            justifyContent={'space-between'}
+            //
+          >
+            <Box
+              id='bg-container'
+              pl={{ base: 1, md: 10 }}
+            >
               {activeCards.bg.length !== 0
                 ?
                 activeCards.bg.map((c) => {
@@ -96,7 +104,10 @@ const Match5 = ({ cards }) => {
                 })
                 : null}
             </Box>
-            <Box id='en-container'>
+            <Box
+              id='en-container'
+              pr={{ base: 1, md: 10 }}
+            >
               {activeCards.en.length !== 0
                 ?
                 activeCards.en.map((c) => {

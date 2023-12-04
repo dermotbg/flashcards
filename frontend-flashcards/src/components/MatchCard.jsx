@@ -4,6 +4,11 @@ import { FaCheckCircle } from 'react-icons/fa'
 
 const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
 
+  const disabledColor = {
+    bg: 'white',
+    color: '#7070FF',
+  }
+
   return(
     <Box >
       <Box mt={8} mb={8} >
@@ -15,7 +20,7 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
           >
             {disabled
               ?
-              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button isDisabled>{card.en}</Button>
+              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button style={disabledColor} isDisabled>{card.en}</Button>
               :
               <Button
                 id={`${card.en}-en`}
@@ -23,6 +28,8 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
                 value={card.en}
                 isDisabled={disabled}
                 onClick={(event) => matchHandler(card, event)}
+                bg={'white'}
+                color={'brand.lightBlue'}
                 _hover={{
                   bg: 'brand.mainBlue',
                   color: 'brand.orange'
@@ -38,7 +45,7 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
           >
             {disabled
               ?
-              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button isDisabled>{card.en}</Button>
+              matched ? <FaCheckCircle size={40} color={'green'}/> : <Button style={disabledColor} isDisabled>{card.bg}</Button>
               :
               <Button
                 id={`${card.bg}-bg`}
@@ -46,6 +53,8 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
                 value={card.bg}
                 isDisabled={disabled}
                 onClick={(event) => matchHandler(card, event)}
+                bg={'white'}
+                color={'brand.lightBlue'}
                 _hover={{
                   bg: 'brand.mainBlue',
                   color: 'brand.orange'
