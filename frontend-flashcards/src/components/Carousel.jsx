@@ -7,20 +7,26 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 import Slider from 'react-slick'
 import Card from './Card'
 
-// Settings for the slider
-const settings = {
-  dots: true,
-  infinite: true,
-  autoplay: false,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-}
 
 const Carousel = ({ cards }) => {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = useState(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  // Settings for the slider
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    beforeChange: (current, next) =>{
+      setActiveIndex(next)
+    }
+  }
+
 
   // These are the breakpoints which changes the position of the
   // buttons as the screen size changes
@@ -72,10 +78,11 @@ const Carousel = ({ cards }) => {
       </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {cards.map((c) => (
+        {cards.map((c, index) => (
           <Card
             key={c.id}
             card={c}
+            active={{ display: index === activeIndex ? 'flex' : 'none' }}
           />
         ))}
       </Slider>
