@@ -6,7 +6,7 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched }) => {
 
   return(
     <Box >
-      <Box m={8} >
+      <Box mt={8} mb={8} >
         {en
           ?
           <Flex

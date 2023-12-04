@@ -6,14 +6,17 @@ import functions from '../utilities/functions'
 import './Card.css'
 import MatchCard from './MatchCard'
 import { updateScore } from '../reducers/userReducer'
-import { Box } from '@chakra-ui/react'
+import { Box, Button, CardBody, Card as CardUI, Center, Flex, Heading, Text } from '@chakra-ui/react'
 import Loading from './Loading'
+import { FaHandPointDown } from 'react-icons/fa'
+import StartScreen from './InactiveScreen'
 
 const Match5 = ({ cards }) => {
 
   const activeCards = useSelector((state) => state.match5)
   const user = useSelector((state) => state.user)
   const [match, setMatch] = useState([])
+  const [gameActive, setGameActive] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -62,39 +65,49 @@ const Match5 = ({ cards }) => {
     dispatch(resetGame())
     triggerStart()
     setMatch([])
+    setGameActive(true)
   }
 
   // win state
   if (activeCards.matched.length === 5){
     return (
-      <div>
-        Congrats! All cards matched!
-        <button onClick={startHandler} >Start Again!</button>
-      </div>
+      <StartScreen startHandler={startHandler} gameActive={false} mainText={'Congrats! All Matched'} buttonText={'Restart!'}/>
     )
   }
 
   return(
     <Box flex={1}>
-      {cards.all[0] ? <button onClick={startHandler} >Start!</button> : <Loading />}
-      <div className='match-box'>
-        <div id='bg-container'>
-          {activeCards.bg.length !== 0
-            ?
-            activeCards.bg.map((c) => {
-              return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
-            })
-            : null}
-        </div>
-        <div id='en-container'>
-          {activeCards.en.length !== 0
-            ?
-            activeCards.en.map((c) => {
-              return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
-            })
-            : null}
-        </div>
-      </div>
+      {cards.all[0]
+        ?
+        <StartScreen startHandler={startHandler} gameActive={gameActive} mainText={'Are you ready?'} buttonText={'Start!'}/>
+        :
+        <Loading />
+      }
+      {gameActive
+        ?
+        <Box mt={10} mb={10}>
+          <Heading as={'h1'} textAlign={'center'}>Match the words on each side</Heading>
+          <Box className='match-box'>
+            <Box id='bg-container'>
+              {activeCards.bg.length !== 0
+                ?
+                activeCards.bg.map((c) => {
+                  return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
+                })
+                : null}
+            </Box>
+            <Box id='en-container'>
+              {activeCards.en.length !== 0
+                ?
+                activeCards.en.map((c) => {
+                  return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
+                })
+                : null}
+            </Box>
+          </Box>
+        </Box>
+        : null
+      }
     </Box>
   )
 }
