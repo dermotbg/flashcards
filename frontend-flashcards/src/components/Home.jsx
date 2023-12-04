@@ -6,7 +6,6 @@ import {
   CardBody,
   CardFooter,
   Center,
-  Divider,
   Flex,
   Heading,
   Image,
@@ -20,7 +19,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { FaHandPointRight } from 'react-icons/fa'
+import { FaHandPointDown, FaHandPointRight } from 'react-icons/fa'
 import { Link as RouterLink } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 import Login from './LoginForm'
@@ -30,33 +29,20 @@ const Home = ({ login }) => {
 
   if(!login){
     return(
-      <Box flex={1}>
-        <Center>
-          {/* <Card
-            borderRadius={'full'}
-            mt={5}
-          >
-            <CardBody
-              minWidth={'50vw'}
-              borderRadius={'full'}
-              bg={'brand.mainBlue'}
-              color={'brand.orange'}
-              border={'solid 1px black'}
-              boxShadow={'1px 1px .5em black'}
-            >
-              <Center>
-                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
-              </Center>
-            </CardBody>
-          </Card> */}
-        </Center>
-        <Center mt={5} alignItems={'start'} justifyContent={'space-evenly'}>
-          <Stack>
+      <Box flex={1} minH={'80vh'} >
+        <Center
+          flexDirection={{ base: 'column', sm: 'row' }}
+          mt={5}
+          alignItems={'center'}
+          justifyContent={'space-evenly'}
+        >
+
+          <Stack >
             <Card
               borderRadius={'full'}
             >
               <CardBody
-                minWidth={'10vw'}
+                minWidth={{ base: '80vw', md: '10vw' }}
                 borderRadius={'full'}
                 bg={'brand.mainBlue'}
                 color={'brand.orange'}
@@ -67,35 +53,31 @@ const Home = ({ login }) => {
                   <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
                   <Flex dir='row' alignItems={'center'}>
                     <Text pr={3}>Login or Register here</Text>
-                    <FaHandPointRight />
+                    <Box display={{ base: 'none', md: 'flex' }}>
+                      <FaHandPointRight display={{ base: 'none', md: 'flex' }} />
+                    </Box>
+                    <Box display={{ base: 'flex', md: 'none' }}>
+                      <FaHandPointDown  />
+                    </Box>
                   </Flex>
                 </Center>
               </CardBody>
             </Card>
-            <Image
-              src='https://media.istockphoto.com/id/1308793903/vector/students-reading-textbook-writing-down-in-notebook.jpg?s=612x612&w=0&k=20&c=SE5U6UPNMykX6B9mbiR4E1lyJTrEJJuHuWcf9Sf-ATE='
-              alt='learning illustration'
-              boxSize={80}
-            />
+            <Box display={{ base: 'none', md: 'flex' }}>
+              <Image
+                src='https://media.istockphoto.com/id/1308793903/vector/students-reading-textbook-writing-down-in-notebook.jpg?s=612x612&w=0&k=20&c=SE5U6UPNMykX6B9mbiR4E1lyJTrEJJuHuWcf9Sf-ATE='
+                alt='learning illustration'
+                boxSize={80}
+              />
+            </Box>
           </Stack>
-          {/* <Card
-            m={5}
-            bg={'brand.white'}
-            boxShadow={'1px 1px .5em black'}
-            maxW={'40%'}
-          >
-            <CardBody>
-              <Text p={4}>Welcome! You can Login or Register on the form to the right.</Text>
-              <Divider />
-              <Text p={4}>All we take is a username and password to record your score etc, no other data is taken.</Text>
-            </CardBody>
-          </Card> */}
+
           <Card
             m={5}
-            mt={10}
+            mt={{ base: '20', md: '0' }}
             boxShadow={'1px 1px .5em black'}
-            maxW={'40%'}
-            maxH={'40%'}
+            minW={{ base: '80%', md: '30%' }}
+            minH={{ base: '80%', md: '40%' }}
           >
             <Tabs position="relative" variant="unstyled">
               <TabList>
