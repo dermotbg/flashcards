@@ -29,7 +29,7 @@ const NavBar = () => {
   const navigate = useNavigate()
   const { colorMode, toggleColorMode } = useColorMode()
 
-  const menuColor = useColorModeValue('grey.100, grey.800')
+  const menuColor = useColorModeValue('grey.100', 'gray.800')
   const menuTextColor  = useColorModeValue('red.400', 'yellow.400')
 
   const logoutHandler = () => {
@@ -93,7 +93,7 @@ const NavBar = () => {
                       >
                         Random 10
                       </MenuItem>
-                      <MenuDivider borderColor={'grey.300'} m={0} p={0}/>
+                      <MenuDivider borderColor={'gray.600'} m={0} p={0}/>
                       <MenuItem
                         as={RouterLink}
                         to='/match5'
@@ -110,7 +110,7 @@ const NavBar = () => {
                       >
                         Match 5
                       </MenuItem>
-                      <MenuDivider borderColor={'grey.300'} m={0} p={0}/>
+                      <MenuDivider borderColor={'gray.600'} m={0} p={0}/>
                       <MenuItem
                         as={RouterLink}
                         to='/hangman'
@@ -132,10 +132,10 @@ const NavBar = () => {
                   </Menu>
                 </Box>
                 <Box pl={4}>
-                  <Link 
-                    variant={'link'} 
-                    as={RouterLink} 
-                    color={menuTextColor} 
+                  <Link
+                    variant={'link'}
+                    as={RouterLink}
+                    color={menuTextColor}
                     fontWeight={'600'} to='/leaderboards'
                   >
                       Leaderboards
@@ -152,8 +152,8 @@ const NavBar = () => {
               <Menu>
                 {login
                   ?
-                  <Box pr={3} 
-                    display='flex' 
+                  <Box pr={3}
+                    display='flex'
                     dir='row'
                     alignItems={'center'}
                   >
@@ -184,11 +184,11 @@ const NavBar = () => {
                     <MenuList
                       alignItems={'center'}
                       boxShadow={'1px 1px .5em black'}
-                      color='red.400'
-                      // bg={'yellow.200'}
-                      bg={'grey.100'}
+                      bg={menuColor}
+                      color={menuTextColor}
                       p={0}
-                      border={'1px solid gray'}
+                      border={'1px solid'}
+                      borderColor={'gray.600'}
                       borderRadius='0.305rem'
                       fontWeight={'600'}
                     >
@@ -203,30 +203,37 @@ const NavBar = () => {
                       <Center pb={5}>
                         <Text>Current Score: {login.score}</Text>
                       </Center>
-                      <MenuDivider borderColor='red.400' m={0} p={0}/>
+                      <MenuDivider borderColor={'gray.600'} m={0} p={0}/>
                       <MenuItem
-                        bg='grey.100'
-                        color='red.400'
                         as={RouterLink}
                         to={`/user/${login.id}`}
+                        bg={menuColor}
+                        color={menuTextColor}
+                        fontWeight='600'
                         _hover={{
-                          bg: 'red.400',
-                          color: 'white',
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: menuColor,
+                          color: menuTextColor,
                         }}
                       >
                         Account Settings
                       </MenuItem>
-                      <MenuDivider borderColor='red.400' m={0} p={0}/>
+                      <MenuDivider borderColor={'gray.600'} m={0} p={0}/>
                       <MenuItem
                         onClick={logoutHandler}
-                        bg='grey.100'
-                        color='red.400'
                         pb={2}
+                        bg={menuColor}
+                        color={menuTextColor}
                         borderBottomRadius='inherit'
-                        fontWeight={'inherit'}
+                        fontWeight='600'
                         _hover={{
-                          bg: 'red.400',
-                          color: 'white',
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: menuColor,
+                          color: menuTextColor,
                         }}
                       >
                         Logout
@@ -256,7 +263,7 @@ const NavBar = () => {
                         <p>Hey Stranger!</p>
                       </Center>
                       <br />
-                      <MenuDivider />
+                      <MenuDivider borderColor={'gray.600'}/>
                       <MenuItem bg='brand.mainBlue' as={RouterLink} to={'/'} >Login</MenuItem>
                       <MenuItem bg='brand.mainBlue' as={RouterLink} to={'/'} >Register</MenuItem>
                     </MenuList>
