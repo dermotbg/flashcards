@@ -35,7 +35,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Box bg='white' color='brand.black' boxShadow={'0em .01em .3em gray'}>
+      <Box bg='white' boxShadow={'0em .01em .3em gray'}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex
             w={250}
@@ -145,7 +145,7 @@ const NavBar = () => {
               <Menu>
                 {login
                   ?
-                  <Box>
+                  <Box pr={3}>
                     <MenuButton
                       as={Button}
                       variant={'link'}
