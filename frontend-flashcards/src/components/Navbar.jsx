@@ -41,7 +41,7 @@ const NavBar = () => {
 
   return (
     <>
-      <Box color={useColorModeValue('white', 'grey.800')} boxShadow={useColorModeValue('0em .01em .3em gray','0em .01em .3em black' )}>
+      <Box color={useColorModeValue('white', 'gray.800')} boxShadow={useColorModeValue('0em .01em .3em gray','0em .01em .3em black' )}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex
             w={250}
