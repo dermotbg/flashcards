@@ -12,20 +12,25 @@ import {
   Center,
   Link,
   Text,
+  useColorMode,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import Avatar from './Avatar'
 import { logoutUser } from '../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 
-import { ChevronDownIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 
 const NavBar = () => {
   const login = JSON.parse(window.localStorage.getItem('loggedInUser'))
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { colorMode, toggleColorMode } = useColorMode()
 
+  const menuColor = useColorModeValue('grey.100, grey.800')
+  const menuTextColor  = useColorModeValue('red.400', 'yellow.400')
 
   const logoutHandler = () => {
     dispatch(logoutUser())
@@ -33,9 +38,10 @@ const NavBar = () => {
   }
 
 
+
   return (
     <>
-      <Box bg='white' boxShadow={'0em .01em .3em gray'}>
+      <Box color={useColorModeValue('white', 'grey.800')} boxShadow={useColorModeValue('0em .01em .3em gray','0em .01em .3em black' )}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex
             w={250}
@@ -45,7 +51,7 @@ const NavBar = () => {
             color='red.400'
           >
             <Box >
-              <Link as={RouterLink} variant={'link'} to='/'><b>Home</b></Link>
+              <Link as={RouterLink} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
             </Box>
             {login
               ?
@@ -57,7 +63,7 @@ const NavBar = () => {
                       rightIcon={<ChevronDownIcon />}
                       variant={'link'}
                       cursor={'pointer'}
-                      color='red.400'
+                      color={menuTextColor}
                       _active={{
                         color: 'red.300',
                       }}
@@ -67,24 +73,22 @@ const NavBar = () => {
                     <MenuList
                       alignItems={'center'}
                       boxShadow={'1px 1px .5em black'}
-                      color='red.400'
+                      color={menuTextColor}
                       p={0}
                     >
                       <MenuItem
                         as={RouterLink}
                         to='/random10'
                         p={3}
-                        bg='grey.100'
+                        bg={menuColor}
                         borderTopRadius='inherit'
                         fontWeight='600'
                         _hover={{
-                          bg: 'red.400',
-                          color: 'white',
                           fontWeight: '900'
                         }}
                         _focus={{
-                          bg: 'red.400',
-                          color: 'white',
+                          bg: menuColor,
+                          color: menuTextColor,
                         }}
                       >
                         Random 10
@@ -94,16 +98,14 @@ const NavBar = () => {
                         as={RouterLink}
                         to='/match5'
                         p={3}
-                        bg='grey.100'
+                        bg={menuColor}
                         fontWeight='600'
                         _hover={{
-                          bg: 'red.400',
-                          color: 'white',
                           fontWeight: '900'
                         }}
                         _focus={{
-                          bg: 'red.400',
-                          color: 'white',
+                          bg: menuColor,
+                          color: menuTextColor,
                         }}
                       >
                         Match 5
@@ -113,17 +115,15 @@ const NavBar = () => {
                         as={RouterLink}
                         to='/hangman'
                         p={3}
-                        bg='grey.100'
+                        bg={menuColor}
                         borderBottomRadius='inherit'
                         fontWeight='600'
                         _hover={{
-                          bg: 'red.400',
-                          color: 'white',
                           fontWeight: '900'
                         }}
                         _focus={{
-                          bg: 'red.400',
-                          color: 'white',
+                          bg: menuColor,
+                          color: menuTextColor,
                         }}
                       >
                         Hangman
@@ -132,7 +132,14 @@ const NavBar = () => {
                   </Menu>
                 </Box>
                 <Box pl={4}>
-                  <Link variant={'link'} as={RouterLink} fontWeight={'600'} to='/leaderboards'>Leaderboards</Link>
+                  <Link 
+                    variant={'link'} 
+                    as={RouterLink} 
+                    color={menuTextColor} 
+                    fontWeight={'600'} to='/leaderboards'
+                  >
+                      Leaderboards
+                  </Link>
                 </Box>
               </Flex>
               : null
@@ -145,7 +152,19 @@ const NavBar = () => {
               <Menu>
                 {login
                   ?
-                  <Box pr={3}>
+                  <Box pr={3} 
+                    display='flex' 
+                    dir='row'
+                    alignItems={'center'}
+                  >
+                    <Button mr={5} onClick={toggleColorMode}>
+                      {colorMode === 'light'
+                        ?
+                        <SunIcon  />
+                        :
+                        <MoonIcon />
+                      }
+                    </Button>
                     <MenuButton
                       as={Button}
                       variant={'link'}
