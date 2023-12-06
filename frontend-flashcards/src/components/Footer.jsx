@@ -3,7 +3,6 @@ import {
   chakra,
   Container,
   Flex,
-  Heading,
   Stack,
   Text,
   useColorModeValue,
@@ -11,7 +10,6 @@ import {
 } from '@chakra-ui/react'
 import { PropTypes } from 'prop-types'
 import { FaGithub, FaLinkedin } from 'react-icons/fa6'
-import { SiChakraui } from 'react-icons/si'
 
 const SocialButton = ({
   children,

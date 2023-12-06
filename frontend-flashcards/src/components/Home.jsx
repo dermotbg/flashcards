@@ -10,6 +10,8 @@ import {
   Image,
   Text,
   Stack,
+  Box,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom'
@@ -18,33 +20,23 @@ import LoginPage from './LoginPage'
 
 const Home = ({ login }) => {
 
-  const cardStyle = {
-    border: 'solid 1px black',
-    boxShadow: '1px 1px .5em black',
-  }
+  const headingColor = useColorModeValue('red.400', 'yellow.400')
+  const buttonColor = useColorModeValue('gray.800', 'yellow.400')
+  const buttonText = useColorModeValue('yellow.400', 'gray.800')
+  const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px #ecc94b80')
+
 
   if(!login) return <LoginPage />
 
   return(
     <Center flex={1}>
       <Stack alignItems={'center'}>
-        <Card
-          style={cardStyle}
-          bg={'brand.orange'}
-          color={'brand.black'}
-          mt={3}
-        >
-          <Center flexDirection={'column'}>
-            <CardHeader>
-              <Heading>
-                Welcome {login.username}!
-              </Heading>
-            </CardHeader>
-            <CardBody>
-              <Text textAlign={'center'}>Below you can choose which game you want to practise with...</Text>
-            </CardBody>
-          </Center>
-        </Card>
+        <Box flexDirection={'column'} alignSelf={'start'} p={10}>
+          <Heading as={'h1'} size={'2xl'} pb={5}>
+              Welcome to your flashcards <Heading as={'h1'} size={'2xl'} color={headingColor}> {login.username} </Heading>
+          </Heading>
+          <Heading as={'h2'} size={'md'} fontWeight={'400'} >Below you can choose which game you want to practise with.</Heading>
+        </Box>
         <Flex
           wrap={'wrap'}
           maxWidth={'75%'}
@@ -54,7 +46,8 @@ const Home = ({ login }) => {
           <Card
             margin={'5px'}
             variant={'outline'}
-            style={cardStyle}
+            border={'1px solid black'}
+            boxShadow={boxShad}
             size={{ base: 'sm', md: 'md' }}
           >
             <CardHeader>
@@ -64,7 +57,7 @@ const Home = ({ login }) => {
                 justifyContent={'space-between'}
                 m={4}
               >
-                <Heading size='lg'> Random 10</Heading>
+                <Heading size='lg' color={headingColor} > Random 10</Heading>
                 <Image
                   boxSize={'100px'}
                   borderRadius={'full'}
@@ -80,10 +73,9 @@ const Home = ({ login }) => {
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/random10'}
-                bg={'brand.mainBlue'}
-                color={'brand.orange'}
-                _hover={{ bg: 'white', color: 'brand.orange' }}
-
+                bg={!buttonColor}
+                color={!buttonText}
+                _hover={{ bg: buttonColor, color: buttonText  }}
               >
               Take me there!</Button>
             </CardFooter>
@@ -91,7 +83,8 @@ const Home = ({ login }) => {
           <Card
             variant={'outline'}
             margin={'5px'}
-            style={cardStyle}
+            border={'1px solid black'}
+            boxShadow={boxShad}
           >
             <CardHeader>
               <Flex
@@ -100,7 +93,7 @@ const Home = ({ login }) => {
                 justifyContent={'space-between'}
                 m={4}
               >
-                <Heading size='lg'> Match 5</Heading>
+                <Heading size='lg' color={headingColor} > Match 5</Heading>
                 <Image
                   boxSize={'100px'}
                   borderRadius={'full'}
@@ -109,16 +102,16 @@ const Home = ({ login }) => {
               </Flex>
             </CardHeader>
             <CardBody>
-              <Text>Match the words with their translations</Text>
+              <Text >Match the words with their translations</Text>
             </CardBody>
             <CardFooter>
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/match5'}
-                bg={'brand.mainBlue'}
-                color={'brand.orange'}
-                _hover={{ bg: 'white', color: 'brand.orange' }}
+                bg={!buttonColor}
+                color={!buttonText}
+                _hover={{ bg: buttonColor, color: buttonText  }}
               >
                 Take me there!
               </Button>
@@ -127,7 +120,8 @@ const Home = ({ login }) => {
           <Card
             variant={'outline'}
             margin={'5px'}
-            style={cardStyle}
+            border={'1px solid black'}
+            boxShadow={boxShad}
           >
             <CardHeader>
               <Flex
@@ -135,7 +129,7 @@ const Home = ({ login }) => {
                 alignItems={'center'}
                 justifyContent={'space-between'}
               >
-                <Heading size='lg'> Hangman </Heading>
+                <Heading size='lg' color={headingColor} > Hangman </Heading>
                 <Image
                   boxSize={'100px'}
                   src='https://media.istockphoto.com/id/1196954772/vector/simple-illustration-of-hangman-game.jpg?s=612x612&w=0&k=20&c=Z_Sxdqu4i100u0qeSsVdX_M--VoXgPISK83gBJCf3LM='
@@ -150,9 +144,9 @@ const Home = ({ login }) => {
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/hangman'}
-                bg={'brand.mainBlue'}
-                color={'brand.orange'}
-                _hover={{ bg: 'white', color: 'brand.orange' }}
+                bg={!buttonColor}
+                color={!buttonText}
+                _hover={{ bg: buttonColor, color: buttonText  }}
               >
                 Take me there!
               </Button>

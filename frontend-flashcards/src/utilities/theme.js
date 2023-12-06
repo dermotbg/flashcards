@@ -22,6 +22,7 @@ const theme = extendTheme({
       100: '#E3564F'
     },
     yellow:{
+      400: '#ECC94B',
       300: '#F1A204',
       200: '#FCBF49',
       100: '#FDC85E'
