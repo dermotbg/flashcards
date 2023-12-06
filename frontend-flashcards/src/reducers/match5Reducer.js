@@ -83,7 +83,7 @@ const match5Slice = createSlice({
             if(c.id === cardToUndo.id){
               return c
             }
-            else if(state.matched.includes(c)) {
+            else if(c.matched) {
               return { ...c, disabled: true, matched: true }
             }
             return { ...c, disabled: false, matched: false }
@@ -97,7 +97,7 @@ const match5Slice = createSlice({
           if(c.id === cardToUndo.id){
             return c
           }
-          else if(state.matched.includes(c)) {
+          else if(c.matched) {
             return { ...c, disabled: true, matched: true }
           }
           return { ...c, disabled: false, matched: false }

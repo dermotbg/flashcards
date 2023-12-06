@@ -30,8 +30,8 @@ const Home = ({ login }) => {
       <Stack alignItems={'center'}>
         <Card
           style={cardStyle}
-          bg={'brand.mainBlue'}
-          color={'brand.orange'}
+          bg={'brand.orange'}
+          color={'brand.black'}
           mt={3}
         >
           <Center flexDirection={'column'}>

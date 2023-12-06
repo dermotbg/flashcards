@@ -17,6 +17,7 @@ const Match5 = ({ cards }) => {
   const user = useSelector((state) => state.user)
   const [match, setMatch] = useState([])
   const [gameActive, setGameActive] = useState(false)
+  const [isIncorrect, setIsIncorrect] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -29,14 +30,12 @@ const Match5 = ({ cards }) => {
 
   const matchHandler = (card, event) => {
     if(match[0]) {
-      // **************************************RETURN TO THIS
+      // unselect route
       if(match[0] === event.target.value){
-        console.log('here')
         setMatch([])
         dispatch(undoActive(event.target.value))
         return
       }
-      // **************************************RETURN TO THIS
       setMatch([...match, event.target.name])
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
         console.log('correct')
@@ -55,6 +54,10 @@ const Match5 = ({ cards }) => {
         return
       }
       console.log('incorrect')
+      setIsIncorrect(true)
+      setTimeout(() => {
+        setIsIncorrect(false)
+      }, 2000)
       return
     }
     setMatch([event.target.value])
@@ -91,7 +94,6 @@ const Match5 = ({ cards }) => {
             // className='match-box'
             display={'flex'}
             justifyContent={'space-between'}
-            //
           >
             <Box
               id='bg-container'
@@ -100,7 +102,14 @@ const Match5 = ({ cards }) => {
               {activeCards.bg.length !== 0
                 ?
                 activeCards.bg.map((c) => {
-                  return(<MatchCard card={c} key={`${c.bg}-bg`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
+                  return(<MatchCard
+                    card={c}
+                    key={`${c.bg}-bg`}
+                    matchHandler={matchHandler}
+                    disabled={c.disabled}
+                    matched={c.matched}
+                    isIncorrect={isIncorrect}
+                  />)
                 })
                 : null}
             </Box>
@@ -111,7 +120,15 @@ const Match5 = ({ cards }) => {
               {activeCards.en.length !== 0
                 ?
                 activeCards.en.map((c) => {
-                  return(<MatchCard card={c} en={true} key={`${c.en}-en`} matchHandler={matchHandler} disabled={c.disabled} matched={c.matched} />)
+                  return(<MatchCard
+                    card={c}
+                    en={true}
+                    key={`${c.en}-en`}
+                    matchHandler={matchHandler}
+                    disabled={c.disabled}
+                    matched={c.matched}
+                    isIncorrect={isIncorrect}
+                  />)
                 })
                 : null}
             </Box>

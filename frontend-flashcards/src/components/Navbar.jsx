@@ -11,6 +11,7 @@ import {
   Stack,
   Center,
   Link,
+  Text,
 } from '@chakra-ui/react'
 import Avatar from './Avatar'
 import { logoutUser } from '../reducers/userReducer'
@@ -34,15 +35,14 @@ const NavBar = () => {
 
   return (
     <>
-      <Box bg='brand.mainBlue' color='brand.white' border={'solid 1px black'}>
+      <Box bg='white' color='brand.black' boxShadow={'0em .01em .3em gray'}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
           <Flex
             w={250}
             ml={10}
             direction={'row'}
             justifyContent={'space-between'}
-            color='brand.white'
-            // border={'solid red'}
+            color='red.400'
           >
             <Box >
               <Link as={RouterLink} variant={'link'} to='/'><b>Home</b></Link>
@@ -55,56 +55,75 @@ const NavBar = () => {
                     <MenuButton
                       as={Button}
                       rightIcon={<ChevronDownIcon />}
-                      rounded={'full'}
                       variant={'link'}
                       cursor={'pointer'}
-                      minW={0}
-                      color='brand.white'
+                      color='red.400'
                       _active={{
-                        color: 'brand.white',
+                        color: 'red.300',
                       }}
                     >
-                        Games
+                        Jump to Game
                     </MenuButton>
                     <MenuList
                       alignItems={'center'}
-                      bg='brand.mainBlue'
-                      color='brand.white'
+                      boxShadow={'1px 1px .5em black'}
+                      color='red.400'
                       p={0}
                     >
                       <MenuItem
-                        bg='brand.mainBlue'
                         as={RouterLink}
                         to='/random10'
+                        p={3}
+                        bg='grey.100'
                         borderTopRadius='inherit'
+                        fontWeight='600'
                         _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
+                          bg: 'red.400',
+                          color: 'white',
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: 'red.400',
+                          color: 'white',
                         }}
                       >
                         Random 10
                       </MenuItem>
-                      <MenuDivider borderColor='brand.white' m={0} p={0}/>
+                      <MenuDivider borderColor={'grey.300'} m={0} p={0}/>
                       <MenuItem
-                        bg='brand.mainBlue'
                         as={RouterLink}
                         to='/match5'
+                        p={3}
+                        bg='grey.100'
+                        fontWeight='600'
                         _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
+                          bg: 'red.400',
+                          color: 'white',
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: 'red.400',
+                          color: 'white',
                         }}
                       >
                         Match 5
                       </MenuItem>
-                      <MenuDivider borderColor='brand.white' m={0} p={0}/>
+                      <MenuDivider borderColor={'grey.300'} m={0} p={0}/>
                       <MenuItem
-                        bg='brand.mainBlue'
                         as={RouterLink}
                         to='/hangman'
+                        p={3}
+                        bg='grey.100'
                         borderBottomRadius='inherit'
+                        fontWeight='600'
                         _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
+                          bg: 'red.400',
+                          color: 'white',
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: 'red.400',
+                          color: 'white',
                         }}
                       >
                         Hangman
@@ -113,7 +132,7 @@ const NavBar = () => {
                   </Menu>
                 </Box>
                 <Box pl={4}>
-                  <Link variant={'link'} as={RouterLink} to='/leaderboards'>Leaderboards</Link>
+                  <Link variant={'link'} as={RouterLink} fontWeight={'600'} to='/leaderboards'>Leaderboards</Link>
                 </Box>
               </Flex>
               : null
@@ -132,6 +151,11 @@ const NavBar = () => {
                       variant={'link'}
                       cursor={'pointer'}
                       minW={0}
+                      // color='red.400'
+                      bg={'yellow.200'}
+                      _active={{
+                        color: 'red.300',
+                      }}
                     >
                       <Avatar
                         mr={'10'}
@@ -140,59 +164,50 @@ const NavBar = () => {
                     </MenuButton>
                     <MenuList
                       alignItems={'center'}
-                      bg='brand.mainBlue'
-                      color='brand.white'
+                      boxShadow={'1px 1px .5em black'}
+                      color='red.400'
+                      // bg={'yellow.200'}
+                      bg={'grey.100'}
                       p={0}
+                      border={'1px solid gray'}
                       borderRadius='0.305rem'
+                      fontWeight={'600'}
                     >
-                      <br />
-                      <Center>
+                      <Center p={5} >
                         <Avatar
                           size={100}
                         />
                       </Center>
-                      <br />
-                      <Center>
-                        <p>Hey {login.username}!</p>
+                      <Center >
+                        <Text>Hey {login.username}!</Text>
                       </Center>
-                      <Center>
-                        <p>Current Score: {login.score}</p>
+                      <Center pb={5}>
+                        <Text>Current Score: {login.score}</Text>
                       </Center>
-                      <br />
-                      <MenuDivider borderColor='brand.white' m={0} p={0}/>
+                      <MenuDivider borderColor='red.400' m={0} p={0}/>
                       <MenuItem
-                        bg='brand.mainBlue'
-                        color='brand.white'
+                        bg='grey.100'
+                        color='red.400'
                         as={RouterLink}
                         to={`/user/${login.id}`}
                         _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
+                          bg: 'red.400',
+                          color: 'white',
                         }}
                       >
                         Account Settings
                       </MenuItem>
-                      <MenuDivider borderColor='brand.white' m={0} p={0}/>
-                      <MenuItem
-                        bg='brand.mainBlue'
-                        color='brand.white'
-                        _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
-                        }}
-                      >
-                        Points Shop
-                      </MenuItem>
-                      <MenuDivider borderColor='brand.white' m={0} p={0}/>
+                      <MenuDivider borderColor='red.400' m={0} p={0}/>
                       <MenuItem
                         onClick={logoutHandler}
-                        bg='brand.mainBlue'
-                        color='brand.white'
+                        bg='grey.100'
+                        color='red.400'
                         pb={2}
                         borderBottomRadius='inherit'
+                        fontWeight={'inherit'}
                         _hover={{
-                          bg: 'brand.white',
-                          color: 'brand.mainBlue',
+                          bg: 'red.400',
+                          color: 'white',
                         }}
                       >
                         Logout
