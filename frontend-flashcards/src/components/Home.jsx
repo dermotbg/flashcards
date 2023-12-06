@@ -28,7 +28,7 @@ const Home = ({ login }) => {
   const hoverColor = useColorModeValue('red.400', 'yellow.400')
   const hoverText = useColorModeValue('white', 'gray.800')
 
-  const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px #ecc94b80')
+  const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px black') // yellow: #ecc94b80
 
 
   if(!login) return <LoginPage buttonColor={buttonColor} buttonText={buttonText} hoverColor={hoverColor} hoverText={hoverText} />
