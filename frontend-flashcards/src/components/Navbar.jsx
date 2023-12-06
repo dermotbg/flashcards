@@ -241,33 +241,23 @@ const NavBar = () => {
                     </MenuList>
                   </Box>
                   :
-                  <Box>
-                    <MenuButton
-                      as={Button}
-                      rounded={'full'}
-                      variant={'link'}
-                      cursor={'pointer'}
-                      minW={0}>
+                  <Flex dir='row'>
+                    <Center>
+                      <Button mr={5} onClick={toggleColorMode}>
+                        {colorMode === 'light'
+                          ?
+                          <SunIcon  />
+                          :
+                          <MoonIcon />
+                        }
+                      </Button>
                       <BlankAvatar
                         mr={'10'}
                         size={'sm'}
                         src={'https://avatars.dicebear.com/api/male/username.svg'}
                       />
-                    </MenuButton>
-                    <MenuList
-                      alignItems={'center'}
-                      bg='brand.mainBlue'
-                    >
-                      <br />
-                      <Center>
-                        <p>Hey Stranger!</p>
-                      </Center>
-                      <br />
-                      <MenuDivider borderColor={'gray.600'}/>
-                      <MenuItem bg='brand.mainBlue' as={RouterLink} to={'/'} >Login</MenuItem>
-                      <MenuItem bg='brand.mainBlue' as={RouterLink} to={'/'} >Register</MenuItem>
-                    </MenuList>
-                  </Box>
+                    </Center>
+                  </Flex>
                 }
               </Menu>
             </Stack>

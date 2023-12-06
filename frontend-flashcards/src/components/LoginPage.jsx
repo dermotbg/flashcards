@@ -1,7 +1,6 @@
 import {
   Box,
   Card,
-  CardBody,
   Center,
   Flex,
   Heading,
@@ -13,14 +12,19 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
-  Text
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
-import { FaHandPointDown, FaHandPointRight } from 'react-icons/fa'
+import { FaHandPointDown } from 'react-icons/fa'
+import loginImage from '../assets/misc_images/login.png'
 import Login from './LoginForm'
 import RegForm from './RegForm'
 
 
 const LoginPage = () => {
+
+  const primaryColor = useColorModeValue('red.400', 'yellow.400')
+  const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
 
   return(
     <Box flex={1} minH={'80vh'} >
@@ -31,69 +35,59 @@ const LoginPage = () => {
         justifyContent={'space-evenly'}
       >
 
-        <Stack >
-          <Card
-            borderRadius={'full'}
-          >
-            <CardBody
-              minWidth={{ base: '80vw', md: '10vw' }}
-              borderRadius={'full'}
-              bg={'brand.mainBlue'}
-              color={'brand.orange'}
-              border={'solid 1px black'}
-              boxShadow={'1px 1px .5em black'}
-            >
-              <Center flexDirection={'column'}>
-                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >Hey Stranger!</Heading>
-                <Flex dir='row' alignItems={'center'}>
-                  <Text pr={3}>Login or Register here</Text>
-                  <Box display={{ base: 'none', md: 'flex' }}>
-                    <FaHandPointRight display={{ base: 'none', md: 'flex' }} />
-                  </Box>
-                  <Box display={{ base: 'flex', md: 'none' }}>
-                    <FaHandPointDown  />
-                  </Box>
-                </Flex>
-              </Center>
-            </CardBody>
-          </Card>
-          <Box display={{ base: 'none', md: 'flex' }}>
+        <Stack pb={10}>
+          <Center >
             <Image
-              src='https://media.istockphoto.com/id/1308793903/vector/students-reading-textbook-writing-down-in-notebook.jpg?s=612x612&w=0&k=20&c=SE5U6UPNMykX6B9mbiR4E1lyJTrEJJuHuWcf9Sf-ATE='
+              src={loginImage}
               alt='learning illustration'
-              boxSize={80}
+              boxSize={{ base: 40, md: 80 }}
             />
-          </Box>
+          </Center>
+          <Heading as={'h1'} textAlign={{ base: 'center', md: 'left' }} color={primaryColor} sx={{ textShadow: textShadowColor }} >Hey Stranger!</Heading>
+          <Text textAlign={{ base: 'center', md: 'left' }}>Welcome to Flashcards, a simple platform to practise languages using flashcards</Text>
+        </Stack>
+        <Stack >
+          <Center flexDirection={'column'}>
+            <Flex dir='row' alignItems={{ base: 'center', md: 'row' }}>
+              <Text pr={3}>Let&apos;s get started</Text>
+              <Box display={{ base: 'none', md: 'flex' }}>
+                <FaHandPointDown display={{ base: 'none', md: 'flex' }} />
+              </Box>
+              <Box display={{ base: 'flex', md: 'none' }}>
+                <FaHandPointDown  />
+              </Box>
+            </Flex>
+          </Center>
+          <Card
+            m={5}
+            mt={{ base: '20', md: '0' }}
+            boxShadow={'1px 1px .5em black'}
+            minW={{ base: '80%', md: '30%' }}
+            minH={{ base: '80%', md: '40%' }}
+          >
+            <Tabs position="relative" variant="unstyled">
+              <TabList>
+                <Tab>Login</Tab>
+                <Tab>Register</Tab>
+              </TabList>
+              <TabIndicator
+                mt="-1.5px"
+                height="2px"
+                bg="blue.500"
+                borderRadius="1px"
+              />
+              <TabPanels>
+                <TabPanel>
+                  <Login />
+                </TabPanel>
+                <TabPanel>
+                  <RegForm />
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          </Card>
         </Stack>
 
-        <Card
-          m={5}
-          mt={{ base: '20', md: '0' }}
-          boxShadow={'1px 1px .5em black'}
-          minW={{ base: '80%', md: '30%' }}
-          minH={{ base: '80%', md: '40%' }}
-        >
-          <Tabs position="relative" variant="unstyled">
-            <TabList>
-              <Tab>Login</Tab>
-              <Tab>Register</Tab>
-            </TabList>
-            <TabIndicator
-              mt="-1.5px"
-              height="2px"
-              bg="blue.500"
-              borderRadius="1px"
-            />
-            <TabPanels>
-              <TabPanel>
-                <Login />
-              </TabPanel>
-              <TabPanel>
-                <RegForm />
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
-        </Card>
       </Center>
     </Box>
   )
