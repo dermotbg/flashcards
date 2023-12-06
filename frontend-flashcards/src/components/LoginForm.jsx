@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { loginUser } from '../reducers/userReducer'
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
-const Login = ({ buttonColor, buttonText }) => {
+const Login = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
 
   const dispatch = useDispatch()
 
@@ -31,9 +31,9 @@ const Login = ({ buttonColor, buttonText }) => {
         </FormControl>
         <Button
           p={5}
-          bg={!buttonColor}
-          color={!buttonText}
-          _hover={{ bg: buttonColor, color: buttonText  }}
+          bg={buttonColor}
+          color={buttonText}
+          _hover={{ bg: hoverColor, color: hoverText  }}
           type='submit'
         >
           Login
@@ -48,4 +48,6 @@ export default Login
 Login.propTypes = {
   buttonColor: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
+  hoverColor: PropTypes.string.isRequired,
+  hoverText: PropTypes.string.isRequired,
 }

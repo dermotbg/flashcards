@@ -13,7 +13,7 @@ import hangman7 from '../assets/hangman_images/hangman_7.png'
 import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
-import { Box, Button, Center, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react'
 import Loading from './Loading'
 
 const keyboardStyle = {
@@ -33,6 +33,8 @@ const centerFlex = {
 }
 
 
+
+
 const Hangman = ({ cards }) => {
   const mainCard = useSelector(state => state.hangman.card)
   const guessed = useSelector(state => state.hangman.guessed)
@@ -45,6 +47,12 @@ const Hangman = ({ cards }) => {
   ]
   const images = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8]
   const [img, setImg] = useState(images[0])
+
+  const buttonColor = useColorModeValue('white', 'gray.800')
+  const buttonText = useColorModeValue('red.400', 'yellow.400')
+
+  const hoverColor = useColorModeValue('red.400', 'yellow.400')
+  const hoverText = useColorModeValue('white', 'gray.800')
 
   useEffect(() => {
     const cardDealt = functions.getRandomCards(cards.all, 1)
@@ -106,31 +114,47 @@ const Hangman = ({ cards }) => {
   if(!mainCard && guessed.length === 0) return <Loading/>
   // lose condition
   if(img === hangman8) return (
-    <div style={centerFlex}>
-      <Button onClick={resetHandler}>Oops! Try again</Button>
-      <img style={{ marginLeft: '40%' }} src={img} alt="hangman-image" />
-    </div>
+    <Flex style={centerFlex}>
+      <Button
+        m={8}
+        bg={buttonColor}
+        color={buttonText}
+        _hover={{ bg: hoverColor, color: hoverText  }}
+        onClick={resetHandler}
+      >
+        Oops! Try again
+      </Button>
+      <Image src={img} maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} alt="hangman-image" />
+    </Flex>
   )
   // win condition
   if (!guessed.includes('_')) return (
-    <div style={centerFlex}>
-      <Button onClick={resetHandler}>Congrats! You have won. Start Again?</Button>
+    <Box style={centerFlex}>
+      <Button
+        m={8}
+        bg={buttonColor}
+        color={buttonText}
+        _hover={{ bg: hoverColor, color: hoverText  }}
+        onClick={resetHandler}
+      >
+        Congrats! You have won. Start Again?
+      </Button>
       {mainCard.en} / {mainCard.bg}
-    </div>)
+    </Box>)
 
   return(
     <Box style={centerFlex} >
-      <img style={{ marginLeft: '40%' }} src={img} alt="hangman-image" />
-      <div style={centerFlex}>
-        <div>{mainCard.en}</div>
-        <div className='hangman-font'>{guessed.map(c => {
+      <Image src={img} maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} alt="hangman-image" />
+      <Box style={centerFlex}>
+        <Heading as={'h1'}>{mainCard.en}</Heading>
+        <Heading as={'h2'} className='hangman-font' pb={8}>{guessed.map(c => {
           return c !== '_'
             ? c
             :` ${c}   `
         }
-        )}</div>
-      </div>
-      <div style={keyboardStyle}>
+        )}</Heading>
+      </Box>
+      <Box style={keyboardStyle}>
         {keyboardRows.map((row, rowIndex) => (
           <Flex maxW={'100vw'} key={rowIndex}>
             {row.map((c) => {
@@ -138,6 +162,7 @@ const Hangman = ({ cards }) => {
                 size={{ base: 'xs', sm: 'md' }}
                 border='1px'
                 borderColor='black.500'
+                color={buttonText}
                 p={0}
                 margin='1px'
                 onClick={guessHandler}
@@ -150,7 +175,7 @@ const Hangman = ({ cards }) => {
             })}
           </Flex>
         ))}
-      </div>
+      </Box>
     </Box>
   )
 }

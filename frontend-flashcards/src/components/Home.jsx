@@ -15,18 +15,23 @@ import {
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom'
+import hangman from '../assets/hangman_images/hangman_1.png'
 import { PropTypes } from 'prop-types'
 import LoginPage from './LoginPage'
 
 const Home = ({ login }) => {
 
   const headingColor = useColorModeValue('red.400', 'yellow.400')
-  const buttonColor = useColorModeValue('gray.800', 'yellow.400')
-  const buttonText = useColorModeValue('yellow.400', 'gray.800')
+  const buttonColor = useColorModeValue('white', 'gray.800')
+  const buttonText = useColorModeValue('red.400', 'yellow.400')
+
+  const hoverColor = useColorModeValue('red.400', 'yellow.400')
+  const hoverText = useColorModeValue('white', 'gray.800')
+
   const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px #ecc94b80')
 
 
-  if(!login) return <LoginPage />
+  if(!login) return <LoginPage buttonColor={buttonColor} buttonText={buttonText} hoverColor={hoverColor} hoverText={hoverText} />
 
   return(
     <Center flex={1}>
@@ -73,9 +78,9 @@ const Home = ({ login }) => {
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/random10'}
-                bg={!buttonColor}
-                color={!buttonText}
-                _hover={{ bg: buttonColor, color: buttonText  }}
+                bg={buttonColor}
+                color={buttonText}
+                _hover={{ bg: hoverColor, color: hoverText  }}
               >
               Take me there!</Button>
             </CardFooter>
@@ -85,6 +90,7 @@ const Home = ({ login }) => {
             margin={'5px'}
             border={'1px solid black'}
             boxShadow={boxShad}
+            size={{ base: 'sm', md: 'md' }}
           >
             <CardHeader>
               <Flex
@@ -109,9 +115,9 @@ const Home = ({ login }) => {
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/match5'}
-                bg={!buttonColor}
-                color={!buttonText}
-                _hover={{ bg: buttonColor, color: buttonText  }}
+                bg={buttonColor}
+                color={buttonText}
+                _hover={{ bg: hoverColor, color: hoverText  }}
               >
                 Take me there!
               </Button>
@@ -122,6 +128,7 @@ const Home = ({ login }) => {
             margin={'5px'}
             border={'1px solid black'}
             boxShadow={boxShad}
+            size={{ base: 'sm', md: 'md' }}
           >
             <CardHeader>
               <Flex
@@ -132,7 +139,8 @@ const Home = ({ login }) => {
                 <Heading size='lg' color={headingColor} > Hangman </Heading>
                 <Image
                   boxSize={'100px'}
-                  src='https://media.istockphoto.com/id/1196954772/vector/simple-illustration-of-hangman-game.jpg?s=612x612&w=0&k=20&c=Z_Sxdqu4i100u0qeSsVdX_M--VoXgPISK83gBJCf3LM='
+                  src={hangman}
+                  // src='https://media.istockphoto.com/id/1196954772/vector/simple-illustration-of-hangman-game.jpg?s=612x612&w=0&k=20&c=Z_Sxdqu4i100u0qeSsVdX_M--VoXgPISK83gBJCf3LM='
                 />
               </Flex>
             </CardHeader>
@@ -144,9 +152,9 @@ const Home = ({ login }) => {
                 rightIcon={<ArrowForwardIcon />}
                 as={RouterLink}
                 to={'/hangman'}
-                bg={!buttonColor}
-                color={!buttonText}
-                _hover={{ bg: buttonColor, color: buttonText  }}
+                bg={buttonColor}
+                color={buttonText}
+                _hover={{ bg: hoverColor, color: hoverText  }}
               >
                 Take me there!
               </Button>

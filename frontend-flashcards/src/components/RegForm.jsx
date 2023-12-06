@@ -4,7 +4,7 @@ import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
-const RegForm = ({ buttonColor, buttonText }) => {
+const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   const dispatch = useDispatch()
   const notification = useSelector((state) => state.notification)
 
@@ -55,9 +55,9 @@ const RegForm = ({ buttonColor, buttonText }) => {
         </FormControl>
         <Button
           p={5}
-          bg={!buttonColor}
-          color={!buttonText}
-          _hover={{ bg: buttonColor, color: buttonText  }}
+          bg={buttonColor}
+          color={buttonText}
+          _hover={{ bg: hoverColor, color: hoverText  }}
           type='submit'
         >
           Register
@@ -73,4 +73,6 @@ export default RegForm
 RegForm.propTypes = {
   buttonColor: PropTypes.string.isRequired,
   buttonText: PropTypes.string.isRequired,
+  hoverColor: PropTypes.string.isRequired,
+  hoverText: PropTypes.string.isRequired,
 }
