@@ -1,9 +1,10 @@
+import { PropTypes } from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
-const RegForm = () => {
+const RegForm = ({ buttonColor, buttonText }) => {
   const dispatch = useDispatch()
   const notification = useSelector((state) => state.notification)
 
@@ -46,20 +47,17 @@ const RegForm = () => {
       <form onSubmit={regHandler}>
         <FormControl isRequired>
           <FormLabel>Username</FormLabel>
-          <Input name="username" placeholder='Username' p={5} mb={5}  />
+          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username' p={5} mb={5}  />
         </FormControl>
         <FormControl isRequired>
           <FormLabel>Password</FormLabel>
-          <Input type="password" name="password" placeholder='Password' p={5} mb={5}  />
+          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} type="password" name="password" placeholder='Password' p={5} mb={5}  />
         </FormControl>
         <Button
           p={5}
-          bg={'brand.mainBlue'}
-          color={'brand.orange'}
-          _hover={{
-            background: 'white',
-            color: 'brand.mainBlue',
-          }}
+          bg={!buttonColor}
+          color={!buttonText}
+          _hover={{ bg: buttonColor, color: buttonText  }}
           type='submit'
         >
           Register
@@ -71,3 +69,8 @@ const RegForm = () => {
 }
 
 export default RegForm
+
+RegForm.propTypes = {
+  buttonColor: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+}

@@ -1,8 +1,9 @@
+import { PropTypes } from 'prop-types'
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../reducers/userReducer'
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
 
-const Login = () => {
+const Login = ({ buttonColor, buttonText }) => {
 
   const dispatch = useDispatch()
 
@@ -22,20 +23,17 @@ const Login = () => {
       <form onSubmit={loginHandler}>
         <FormControl isRequired>
           <FormLabel >Username</FormLabel>
-          <Input name="username" placeholder='Username' p={5} mb={5} />
+          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username' p={5} mb={5} />
         </FormControl>
         <FormControl isRequired>
           <FormLabel >Password</FormLabel>
-          <Input p={5} type="password" name="password" placeholder='Password' mb={5} />
+          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} p={5} type="password" name="password" placeholder='Password' mb={5} />
         </FormControl>
         <Button
           p={5}
-          bg={'brand.mainBlue'}
-          color={'brand.orange'}
-          _hover={{
-            background: 'white',
-            color: 'brand.mainBlue',
-          }}
+          bg={!buttonColor}
+          color={!buttonText}
+          _hover={{ bg: buttonColor, color: buttonText  }}
           type='submit'
         >
           Login
@@ -46,3 +44,8 @@ const Login = () => {
 }
 
 export default Login
+
+Login.propTypes = {
+  buttonColor: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+}

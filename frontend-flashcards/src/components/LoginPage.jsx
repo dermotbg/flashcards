@@ -25,6 +25,8 @@ const LoginPage = () => {
 
   const primaryColor = useColorModeValue('red.400', 'yellow.400')
   const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
+  const buttonColor = useColorModeValue('gray.800', 'yellow.400')
+  const buttonText = useColorModeValue('yellow.400', 'gray.800')
 
   return(
     <Box flex={1} minH={'80vh'} >
@@ -47,7 +49,7 @@ const LoginPage = () => {
           <Text textAlign={{ base: 'center', md: 'left' }}>Welcome to Flashcards, a simple platform to practise languages using flashcards</Text>
         </Stack>
         <Stack >
-          <Center flexDirection={'column'}>
+          <Center flexDirection={'column'} >
             <Flex dir='row' alignItems={{ base: 'center', md: 'row' }}>
               <Text pr={3}>Let&apos;s get started</Text>
               <Box display={{ base: 'none', md: 'flex' }}>
@@ -65,7 +67,7 @@ const LoginPage = () => {
             minW={{ base: '80%', md: '30%' }}
             minH={{ base: '80%', md: '40%' }}
           >
-            <Tabs position="relative" variant="unstyled">
+            <Tabs position="relative" variant="unstyled" >
               <TabList>
                 <Tab>Login</Tab>
                 <Tab>Register</Tab>
@@ -73,15 +75,15 @@ const LoginPage = () => {
               <TabIndicator
                 mt="-1.5px"
                 height="2px"
-                bg="blue.500"
+                bg={primaryColor}
                 borderRadius="1px"
               />
               <TabPanels>
                 <TabPanel>
-                  <Login />
+                  <Login buttonColor={buttonColor} buttonText={buttonText} />
                 </TabPanel>
                 <TabPanel>
-                  <RegForm />
+                  <RegForm buttonColor={buttonColor} buttonText={buttonText} />
                 </TabPanel>
               </TabPanels>
             </Tabs>
