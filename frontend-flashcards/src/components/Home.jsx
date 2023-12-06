@@ -16,6 +16,8 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom'
 import hangman from '../assets/hangman_images/hangman_1.png'
+import flashcardPic from '../assets/misc_images/flashcard1.png'
+import match5Pic from '../assets/misc_images/match5.png'
 import { PropTypes } from 'prop-types'
 import LoginPage from './LoginPage'
 
@@ -28,6 +30,8 @@ const Home = ({ login }) => {
   const hoverColor = useColorModeValue('red.400', 'yellow.400')
   const hoverText = useColorModeValue('white', 'gray.800')
 
+  const textShadowColor = useColorModeValue('1px 1px 1px gray', '1px 1px 3px black')
+
   const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px black') // yellow: #ecc94b80
 
 
@@ -37,10 +41,29 @@ const Home = ({ login }) => {
     <Center flex={1}>
       <Stack alignItems={'center'}>
         <Box flexDirection={'column'} alignSelf={'start'} p={10}>
-          <Heading as={'h1'} size={'2xl'} pb={5}>
-              Welcome to your flashcards <Heading as={'h1'} size={'2xl'} color={headingColor}> {login.username} </Heading>
+          <Heading
+            as={'h1'}
+            size={'2xl'}
+            pb={5}
+            sx={{ textShadow: textShadowColor }}
+          >
+              Welcome to your flashcards
+            <Heading
+              as={'h1'}
+              size={'2xl'}
+              color={headingColor}
+              sx={{ textShadow: textShadowColor }}
+            >
+              {login.username}
+            </Heading>
           </Heading>
-          <Heading as={'h2'} size={'md'} fontWeight={'400'} >Below you can choose which game you want to practise with.</Heading>
+          <Heading
+            as={'h2'}
+            size={'md'}
+            fontWeight={'400'}
+          >
+            Below you can choose which game you want to practise with.
+          </Heading>
         </Box>
         <Flex
           wrap={'wrap'}
@@ -62,11 +85,18 @@ const Home = ({ login }) => {
                 justifyContent={'space-between'}
                 m={4}
               >
-                <Heading size='lg' color={headingColor} > Random 10</Heading>
+                <Heading
+                  size='lg'
+                  color={headingColor}
+                  sx={{ textShadow: textShadowColor }}
+                >
+                  Random 10
+                </Heading>
                 <Image
                   boxSize={'100px'}
                   borderRadius={'full'}
-                  src='https://media.istockphoto.com/id/138033086/photo/blank-index-card-with-pen-on-laptop-computer.jpg?s=612x612&w=0&k=20&c=mQPF1x9RxaEORzoQPBesJc3xS4B1c_X4ybMoMsfyoMs='
+                  src={flashcardPic}
+                  // src='https://media.istockphoto.com/id/138033086/photo/blank-index-card-with-pen-on-laptop-computer.jpg?s=612x612&w=0&k=20&c=mQPF1x9RxaEORzoQPBesJc3xS4B1c_X4ybMoMsfyoMs='
                 />
               </Flex>
             </CardHeader>
@@ -99,11 +129,18 @@ const Home = ({ login }) => {
                 justifyContent={'space-between'}
                 m={4}
               >
-                <Heading size='lg' color={headingColor} > Match 5</Heading>
+                <Heading
+                  size='lg'
+                  color={headingColor}
+                  sx={{ textShadow: textShadowColor }}
+                >
+                Match 5
+                </Heading>
                 <Image
                   boxSize={'100px'}
                   borderRadius={'full'}
-                  src='https://media.istockphoto.com/id/1044123532/vector/alphabet-cubes-line-and-glyph-icon-abc-and-toy-block-sign-vector-graphics-a-linear-pattern.jpg?s=612x612&w=0&k=20&c=okyUQdoHtIXikWHuGhyhjR7-uysf6QoJeOH52Z0W7BU='
+                  src={match5Pic}
+                  // src='https://media.istockphoto.com/id/1044123532/vector/alphabet-cubes-line-and-glyph-icon-abc-and-toy-block-sign-vector-graphics-a-linear-pattern.jpg?s=612x612&w=0&k=20&c=okyUQdoHtIXikWHuGhyhjR7-uysf6QoJeOH52Z0W7BU='
                 />
               </Flex>
             </CardHeader>
@@ -136,7 +173,13 @@ const Home = ({ login }) => {
                 alignItems={'center'}
                 justifyContent={'space-between'}
               >
-                <Heading size='lg' color={headingColor} > Hangman </Heading>
+                <Heading
+                  size='lg'
+                  color={headingColor}
+                  sx={{ textShadow: textShadowColor }}
+                >
+                Hangman
+                </Heading>
                 <Image
                   boxSize={'100px'}
                   src={hangman}
