@@ -1,8 +1,15 @@
 import { PropTypes } from 'prop-types'
-import { Box, Button, CardBody, Card as CardUI, Center, Flex, Heading, Stack, Text } from '@chakra-ui/react'
-import { FaHandPointDown } from 'react-icons/fa'
+import { Box, Button, Center, Heading, Image, Stack, useColorModeValue } from '@chakra-ui/react'
+import startScreen from '../assets/misc_images/start_screen.png'
 
 const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
+
+  const primaryColor = useColorModeValue('red.400', 'yellow.400')
+  const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
+  const buttonColor = useColorModeValue('white', 'gray.800')
+  const buttonTextColor = useColorModeValue('red.400', 'yellow.400')
+  const hoverColor = useColorModeValue('red.400', 'yellow.400')
+  const hoverText = useColorModeValue('white', 'gray.800')
 
   if (gameActive) return null
 
@@ -10,39 +17,28 @@ const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
     <Box >
       <Center>
         <Stack>
-          <CardUI
-            borderRadius={'full'}
-            mt={10}
-          >
-            <CardBody
-              minWidth={'10vw'}
-              borderRadius={'full'}
-              bg={'brand.mainBlue'}
-              color={'brand.orange'}
-              border={'solid 1px black'}
-              boxShadow={'1px 1px .5em black'}
+          <Center flexDirection={'column'}>
+            <Heading
+              as={'h1'}
+              textAlign={{ base: 'center', md: 'left' }}
+              color={primaryColor}
+              sx={{ textShadow: textShadowColor }}
             >
-              <Center flexDirection={'column'}>
-                <Heading as={'h1'} m={5} sx={{ textShadow: '1px 1px 3px black' }} >{mainText}</Heading>
-                <Flex dir='row' alignItems={'center'}>
-                  <Text pr={3}></Text>
-                  <FaHandPointDown />
-                </Flex>
-              </Center>
-            </CardBody>
-          </CardUI>
-          <Center mt={10} mb={20}>
+              {mainText}
+            </Heading>
+            <Image
+              src={startScreen}
+            />
+          </Center>
+          <Center mt={0} mb={20}>
             <Button
-              mt={10}
+              mt={0}
               mb={10}
-              minWidth={'50vw'}
-              minHeight={'10vw'}
-              borderRadius={'full'}
-              bg={'brand.mainBlue'}
-              color={'brand.orange'}
               border={'solid 1px black'}
               boxShadow={'1px 1px .5em black'}
-              _hover={{ bg: 'white', color: 'brand.orange' }}
+              bg={buttonColor}
+              color={buttonTextColor}
+              _hover={{ bg: hoverColor, color: hoverText  }}
               onClick={() => startHandler()}
             >
               {buttonText}
