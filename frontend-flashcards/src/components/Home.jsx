@@ -96,7 +96,6 @@ const Home = ({ login }) => {
                   boxSize={'100px'}
                   borderRadius={'full'}
                   src={flashcardPic}
-                  // src='https://media.istockphoto.com/id/138033086/photo/blank-index-card-with-pen-on-laptop-computer.jpg?s=612x612&w=0&k=20&c=mQPF1x9RxaEORzoQPBesJc3xS4B1c_X4ybMoMsfyoMs='
                 />
               </Flex>
             </CardHeader>
@@ -140,7 +139,6 @@ const Home = ({ login }) => {
                   boxSize={'100px'}
                   borderRadius={'full'}
                   src={match5Pic}
-                  // src='https://media.istockphoto.com/id/1044123532/vector/alphabet-cubes-line-and-glyph-icon-abc-and-toy-block-sign-vector-graphics-a-linear-pattern.jpg?s=612x612&w=0&k=20&c=okyUQdoHtIXikWHuGhyhjR7-uysf6QoJeOH52Z0W7BU='
                 />
               </Flex>
             </CardHeader>
@@ -183,7 +181,6 @@ const Home = ({ login }) => {
                 <Image
                   boxSize={'100px'}
                   src={hangman}
-                  // src='https://media.istockphoto.com/id/1196954772/vector/simple-illustration-of-hangman-game.jpg?s=612x612&w=0&k=20&c=Z_Sxdqu4i100u0qeSsVdX_M--VoXgPISK83gBJCf3LM='
                 />
               </Flex>
             </CardHeader>

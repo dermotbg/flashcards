@@ -6,9 +6,8 @@ import functions from '../utilities/functions'
 import './Card.css'
 import MatchCard from './MatchCard'
 import { updateScore } from '../reducers/userReducer'
-import { Box, Button, CardBody, Card as CardUI, Center, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Heading, useColorModeValue } from '@chakra-ui/react'
 import Loading from './Loading'
-import { FaHandPointDown } from 'react-icons/fa'
 import StartScreen from './InactiveScreen'
 
 const Match5 = ({ cards }) => {
@@ -20,6 +19,16 @@ const Match5 = ({ cards }) => {
   const [isIncorrect, setIsIncorrect] = useState(false)
 
   const dispatch = useDispatch()
+
+  const colorDecoration = {
+    buttonColor: useColorModeValue('white', 'gray.800'),
+    buttonText: useColorModeValue('red.400', 'yellow.400'),
+    hoverColor: useColorModeValue('red.400', 'yellow.400'),
+    hoverText: useColorModeValue('white', 'gray.800'),
+    primaryColor: useColorModeValue('red.400', 'yellow.400'),
+    textShadowColor: useColorModeValue('1px 1px 1px brown', '1px 1px 3px black'),
+    boxShad: useColorModeValue('1px 1px .5em black','3px 3px .2em 1px black')
+  }
 
   //get 5 cards to be used from parent card state
   const triggerStart = () => {
@@ -109,6 +118,7 @@ const Match5 = ({ cards }) => {
                     disabled={c.disabled}
                     matched={c.matched}
                     isIncorrect={isIncorrect}
+                    colorDecoration={colorDecoration}
                   />)
                 })
                 : null}
@@ -128,6 +138,7 @@ const Match5 = ({ cards }) => {
                     disabled={c.disabled}
                     matched={c.matched}
                     isIncorrect={isIncorrect}
+                    colorDecoration={colorDecoration}
                   />)
                 })
                 : null}

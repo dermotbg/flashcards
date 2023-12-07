@@ -2,7 +2,7 @@ import { Box, Button, Flex } from '@chakra-ui/react'
 import { PropTypes } from 'prop-types'
 import { FaCheckCircle, FaRegTimesCircle } from 'react-icons/fa'
 
-const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect }) => {
+const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect, colorDecoration }) => {
 
   return(
     <Box >
@@ -17,7 +17,21 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect }) =
               ?
               matched
                 ? <FaCheckCircle size={40} color={'green'}/>
-                : <Button bg={'white'} color={'brand.lightBlue'} isDisabled>{card.en}</Button>
+                // : <Button bg={'white'} color={'brand.lightBlue'} isDisabled>{card.en}</Button>
+                : <Button
+                  _disabled={{
+                    textDecoration: 'line-through',
+                    bg: colorDecoration.buttonColor,
+                    color: colorDecoration.buttonText,
+                    cursor: 'not-allowed',
+                    _hover: {
+                      bg: 'none'
+                    }
+                  }}
+                  isDisabled
+                >
+                  {card.en}
+                </Button>
               :
               isIncorrect
                 ? <FaRegTimesCircle size={40} color={'red'} />
@@ -28,11 +42,11 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect }) =
                   value={card.en}
                   isDisabled={disabled}
                   onClick={(event) => matchHandler(card, event)}
-                  bg={'white'}
-                  color={'brand.lightBlue'}
+                  bg={colorDecoration.buttonColor}
+                  color={colorDecoration.buttonText}
                   _hover={{
-                    bg: 'brand.mainBlue',
-                    color: 'brand.orange'
+                    bg: colorDecoration.hoverColor,
+                    color: colorDecoration.hoverText
                   }}
                 >
                   {card.en}
@@ -49,7 +63,20 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect }) =
                 ? <FaCheckCircle size={40} color={'green'}/>
                 : isIncorrect
                   ? <FaRegTimesCircle size={40} color={'red'} />
-                  : <Button bg={'white'} color={'brand.lightBlue'} isDisabled>{card.bg}</Button>
+                  : <Button
+                    _disabled={{
+                      textDecoration: 'line-through',
+                      bg: colorDecoration.buttonColor,
+                      color: colorDecoration.buttonText,
+                      cursor: 'not-allowed',
+                      _hover: {
+                        bg: 'none'
+                      }
+                    }}
+                    isDisabled
+                  >
+                    {card.bg}
+                  </Button>
               :
               <Button
                 id={`${card.bg}-bg`}
@@ -57,11 +84,11 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect }) =
                 value={card.bg}
                 isDisabled={disabled}
                 onClick={(event) => matchHandler(card, event)}
-                bg={'white'}
-                color={'brand.lightBlue'}
+                bg={colorDecoration.buttonColor}
+                color={colorDecoration.buttonText}
                 _hover={{
-                  bg: 'brand.mainBlue',
-                  color: 'brand.orange'
+                  bg: colorDecoration.hoverColor,
+                  color: colorDecoration.hoverText
                 }}
               >
                 {card.bg}
@@ -81,6 +108,7 @@ MatchCard.propTypes = {
   disabled: PropTypes.bool,
   matched: PropTypes.bool,
   isIncorrect: PropTypes.bool,
+  colorDecoration: PropTypes.object.isRequired,
 }
 
 export default MatchCard
