@@ -57,7 +57,7 @@ const Hangman = ({ cards }) => {
   useEffect(() => {
     const cardDealt = functions.getRandomCards(cards.all, 1)
     dispatch(setHangmanWord(cardDealt[0]))
-  },[cards])
+  },[dispatch, cards])
 
   useEffect(() => {
     if(mainCard && mainCard.bg){
@@ -75,7 +75,7 @@ const Hangman = ({ cards }) => {
       console.log(guessedArray)
       dispatch(setGuessed(guessedArray))
     }
-  },[mainCard])
+  },[dispatch, mainCard])
 
   const guessHandler = (event) => {
     event.target.disabled = true

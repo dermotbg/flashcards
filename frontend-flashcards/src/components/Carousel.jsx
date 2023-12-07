@@ -7,7 +7,7 @@ import Slider from 'react-slick'
 import Card from './Card'
 
 
-const Carousel = ({ cards, gameActive }) => {
+const Carousel = ({ cards, gameActive, colorDecoration }) => {
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = useState(null)
@@ -52,8 +52,9 @@ const Carousel = ({ cards, gameActive }) => {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        bg={'brand.mainBlue'}
-        color={'brand.orange'}
+        bg={colorDecoration.buttonColor}
+        color={colorDecoration.buttonText}
+        _hover={{ bg: colorDecoration.hoverColor, color: colorDecoration.hoverText }}
         borderRadius="full"
         position="absolute"
         left={side}
@@ -66,8 +67,9 @@ const Carousel = ({ cards, gameActive }) => {
       {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
-        bg={'brand.mainBlue'}
-        color={'brand.orange'}
+        bg={colorDecoration.buttonColor}
+        color={colorDecoration.buttonText}
+        _hover={{ bg: colorDecoration.hoverColor, color: colorDecoration.hoverText }}
         borderRadius="full"
         position="absolute"
         right={side}
@@ -84,6 +86,7 @@ const Carousel = ({ cards, gameActive }) => {
             key={c.id}
             card={c}
             active={{ display: index === activeIndex ? 'flex' : 'none' }}
+            colorDecoration={colorDecoration}
           />
         ))}
       </Slider>
@@ -93,7 +96,8 @@ const Carousel = ({ cards, gameActive }) => {
 
 Carousel.propTypes = {
   cards: PropTypes.array.isRequired,
-  gameActive: PropTypes.bool.isRequired
+  gameActive: PropTypes.bool.isRequired,
+  colorDecoration: PropTypes.object.isRequired
 }
 
 export default Carousel

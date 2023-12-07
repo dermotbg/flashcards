@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { PropTypes } from 'prop-types'
 import functions from '../utilities/functions'
 
-import { Box, Center, Button } from '@chakra-ui/react'
+import { Box, Center, Button, useColorModeValue } from '@chakra-ui/react'
 import Carousel from './Carousel'
 import Loading from './Loading'
 import InactiveScreen from './InactiveScreen'
@@ -14,6 +14,16 @@ const Random10 = ({ cards }) => {
   const [gameActive, setGameActive] = useState(false)
 
   const dispatch = useDispatch()
+
+  const colorDecoration = {
+    buttonColor: useColorModeValue('white', 'gray.800'),
+    buttonText: useColorModeValue('red.400', 'yellow.400'),
+    hoverColor: useColorModeValue('red.400', 'yellow.400'),
+    hoverText: useColorModeValue('white', 'gray.800'),
+    primaryColor: useColorModeValue('red.400', 'yellow.400'),
+    textShadowColor: useColorModeValue('1px 1px 1px brown', '1px 1px 3px black'),
+    boxShad: useColorModeValue('1px 1px .5em black','3px 3px .2em 1px black')
+  }
 
   const triggerStart = () => {
     setGameActive(true)
@@ -36,17 +46,21 @@ const Random10 = ({ cards }) => {
             mb={10}
             minWidth={'10vw'}
             borderRadius={'full'}
-            bg={'brand.mainBlue'}
-            color={'brand.orange'}
+            bg={colorDecoration.buttonColor}
+            color={colorDecoration.buttonText}
             border={'solid 1px black'}
-            boxShadow={'1px 1px .5em black'}
+            boxShadow={colorDecoration.boxShad}
+            _hover={{
+              bg: colorDecoration.primaryColor,
+              color: colorDecoration.buttonColor
+            }}
             onClick={() => triggerStart()} >Reset Cards!
           </Button>
         </Center>
         : null
       }
       <Box>
-        <Carousel cards={cards.selected} gameActive={gameActive}/>
+        <Carousel cards={cards.selected} gameActive={gameActive} colorDecoration={colorDecoration} />
       </Box>
     </Box>
   )

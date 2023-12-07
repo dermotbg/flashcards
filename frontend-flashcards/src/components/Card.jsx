@@ -5,11 +5,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateScore } from '../reducers/userReducer'
 import { rateCard } from '../reducers/cardReducer'
 
-import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel, Box, Center, Stack, Divider, Flex } from '@chakra-ui/react'
+import { Card as CardUI, CardBody, Heading, Text, Button, Input, FormLabel, Box, Center, Stack, Divider, Flex, useColorModeValue } from '@chakra-ui/react'
 import { FaThumbsDown, FaThumbsUp, FaUndo } from 'react-icons/fa'
 import functions from '../utilities/functions'
 
-const Card = ({ card, active }) => {
+const Card = ({ card, active, colorDecoration }) => {
 
   const [correct, setCorrect] = useState('')
   const [answerChecked, setAnswerChecked] = useState(false)
@@ -17,6 +17,9 @@ const Card = ({ card, active }) => {
   // const user = JSON.parse(window.localStorage.getItem('loggedInUser'))
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
+
+  const correctColor = useColorModeValue('#53ff00', 'green.900')
+  const inCorrectColor = useColorModeValue('#ff0b00', 'red.400')
 
   useEffect(() => {
     setAnswerChecked(false)
@@ -27,17 +30,17 @@ const Card = ({ card, active }) => {
     console.log(card)
     const answer = card.bg.localeCompare(event.target.bg.value, 'bg', { sensitivity: 'base' })
     if(!answer){
-      setCorrect('green')
+      setCorrect(correctColor)
       const updatedUser = functions.addScore(user, card)
       dispatch(updateScore(updatedUser))
       setAnswerChecked(true)
     }
 
-    else {setCorrect('red')}
+    else {setCorrect(inCorrectColor)}
     setTimeout(() => {
       setCorrect('')
-    }, 5000)
-  }, [card, dispatch, user])
+    }, 300)
+  }, [card, dispatch, user, inCorrectColor, correctColor])
 
   const showAnswer = () => {
     setAnswerChecked(true)
@@ -73,12 +76,14 @@ const Card = ({ card, active }) => {
           minW={'100%'}
           border={'solid 1px black'}
           boxShadow={'1px 1px .5em black'}
-          style={{ backgroundColor: correct }}
+          bg={ correct }
           mb={6}
         >
           <Heading
             size='4xl'
             minW={'100%'}
+            color={colorDecoration.primaryColor}
+            sx={{ textShadow: colorDecoration.textShadowColor }}
           >
             {card.en}
           </Heading>
@@ -90,7 +95,17 @@ const Card = ({ card, active }) => {
               {Array.isArray(card.ratedBy) && card.ratedBy.find(u  => u.user === user.id)
                 ?
                 <Flex dir='row' justifyContent={'center'}>
-                  <Button type='button' colorScheme='red' size='sm' name='undo' onClick={() => undoRatingHandler(card)}>
+                  <Button
+                    type='button'
+                    color={'white'}
+                    size='sm'
+                    name='undo'
+                    _hover={{
+                      bg: colorDecoration.primaryColor,
+                      color: colorDecoration.buttonColor
+                    }}
+                    onClick={() => undoRatingHandler(card)}
+                  >
                     <FaUndo />
                   </Button>
                 </Flex>
@@ -99,8 +114,8 @@ const Card = ({ card, active }) => {
                   <Button
                     mr={3}
                     _hover={{
-                      bg: 'brand.mainBlue',
-                      color: 'brand.white'
+                      bg: colorDecoration.primaryColor,
+                      color: colorDecoration.buttonColor
                     }}
                     size='sm'
                     type='button'
@@ -111,8 +126,8 @@ const Card = ({ card, active }) => {
                   </Button>
                   <Button
                     _hover={{
-                      bg: 'brand.red',
-                      color: 'brand.white'
+                      bg: colorDecoration.primaryColor,
+                      color: colorDecoration.buttonColor
                     }}
                     size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >
                     <FaThumbsDown />
@@ -122,18 +137,47 @@ const Card = ({ card, active }) => {
               {answerChecked
                 ?
                 <Center>
-                  <Heading > {card.en} / {card.bg} </Heading>
+                  <Heading
+                    color={ correct === '#69de31' ? 'black' : colorDecoration.primaryColor}
+                    sx={{ textShadow: correct === '#69de31' ? '' : colorDecoration.textShadowColor }}
+                  > {card.en} / {card.bg}
+                  </Heading>
                 </Center>
                 :
                 <Box>
                   <Center className='answer-container'>
                     <FormLabel>Your Answer:</FormLabel>
-                    <Input borderColor={'black'} mb={2} style={{ alignSelf: 'center' }}  width='100%' size='md' type="text" name="bg" />
+                    <Input
+                      _focus={{ borderColor: colorDecoration.buttonText, boxShadow: '0 0 0 black' }}
+                      mb={2}
+                      style={{ alignSelf: 'center' }}
+                      width='100%'
+                      size='md'
+                      type="text"
+                      name="bg"
+                    />
                   </Center>
                   <Center>
                     <Flex justifyContent={'space-apart'}>
-                      <Button mr={3} _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} style={{ alignSelf: 'flex-end' }} type="submit">Check answer</Button>
-                      <Button _hover={{ bg:'brand.mainBlue', color: 'brand.white' }} onClick={showAnswer}>Show answer</Button>
+                      <Button
+                        mr={3} _hover={{
+                          bg: colorDecoration.primaryColor,
+                          color: colorDecoration.buttonColor
+                        }}
+                        style={{ alignSelf: 'flex-end' }}
+                        type="submit"
+                      >
+                          Check answer
+                      </Button>
+                      <Button
+                        _hover={{
+                          bg: colorDecoration.primaryColor,
+                          color: colorDecoration.buttonColor
+                        }}
+                        onClick={showAnswer}
+                      >
+                      Show answer
+                      </Button>
                     </Flex>
                   </Center>
                 </Box>
@@ -148,7 +192,8 @@ const Card = ({ card, active }) => {
 
 Card.propTypes = {
   card: PropTypes.object.isRequired,
-  active: PropTypes.object.isRequired
+  active: PropTypes.object.isRequired,
+  colorDecoration: PropTypes.object.isRequired
 }
 
 export default Card

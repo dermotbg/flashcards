@@ -23,11 +23,11 @@ const Login = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
       <form onSubmit={loginHandler}>
         <FormControl isRequired>
           <FormLabel >Username</FormLabel>
-          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username' p={5} mb={5} />
+          <Input p={5} mb={5} _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username'  />
         </FormControl>
         <FormControl isRequired>
           <FormLabel >Password</FormLabel>
-          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} p={5} type="password" name="password" placeholder='Password' mb={5} />
+          <Input p={5} mb={5} _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }}  type="password" name="password" placeholder='Password'  />
         </FormControl>
         <Button
           p={5}
