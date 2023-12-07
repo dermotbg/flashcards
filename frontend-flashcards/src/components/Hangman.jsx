@@ -115,6 +115,7 @@ const Hangman = ({ cards }) => {
   // lose condition
   if(img === hangman8) return (
     <Flex style={centerFlex}>
+      <Image src={img} maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} alt="hangman-image" />
       <Button
         m={8}
         bg={buttonColor}
@@ -124,12 +125,12 @@ const Hangman = ({ cards }) => {
       >
         Oops! Try again
       </Button>
-      <Image src={img} maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} alt="hangman-image" />
     </Flex>
   )
   // win condition
   if (!guessed.includes('_')) return (
     <Box style={centerFlex}>
+      <Image src={hangman1} maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} alt="hangman-image" />
       <Button
         m={8}
         bg={buttonColor}
@@ -137,9 +138,9 @@ const Hangman = ({ cards }) => {
         _hover={{ bg: hoverColor, color: hoverText  }}
         onClick={resetHandler}
       >
-        Congrats! You have won. Start Again?
+        Congrats! Stickaman lives another day. Start Again?
       </Button>
-      {mainCard.en} / {mainCard.bg}
+      <Heading as={'h1'}>{mainCard.en} / {mainCard.bg}</Heading>
     </Box>)
 
   return(
