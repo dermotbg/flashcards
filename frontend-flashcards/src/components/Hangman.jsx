@@ -138,7 +138,7 @@ const Hangman = ({ cards }) => {
         _hover={{ bg: hoverColor, color: hoverText  }}
         onClick={resetHandler}
       >
-        Congrats! Stickaman lives another day. Start Again?
+        Congrats! Stick-man lives another day. Start Again?
       </Button>
       <Heading as={'h1'}>{mainCard.en} / {mainCard.bg}</Heading>
     </Box>)

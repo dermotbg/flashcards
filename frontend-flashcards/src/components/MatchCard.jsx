@@ -21,6 +21,7 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect, col
                 : <Button
                   _disabled={{
                     textDecoration: 'line-through',
+                    fontWeight: 100,
                     bg: colorDecoration.buttonColor,
                     color: colorDecoration.buttonText,
                     cursor: 'not-allowed',
@@ -66,6 +67,7 @@ const MatchCard = ({ card, en, matchHandler, disabled, matched, isIncorrect, col
                   : <Button
                     _disabled={{
                       textDecoration: 'line-through',
+                      fontWeight: 100,
                       bg: colorDecoration.buttonColor,
                       color: colorDecoration.buttonText,
                       cursor: 'not-allowed',
