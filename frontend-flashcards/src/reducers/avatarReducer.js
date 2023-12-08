@@ -5,6 +5,8 @@ const avatarSlice = createSlice({
   name: 'avatar',
   initialState: {
     seed: '',
+    rotate: 0,
+    scale: 100,
     flip: false,
     backgroundColor: [''],
     translateX: 0,
@@ -13,7 +15,7 @@ const avatarSlice = createSlice({
     beardProbability: 100,
     eyes: [''],
     mouth: [''],
-    moustache: [''],
+    mustache: [''],
     mustacheProbability: 100,
     nose: [''],
     top: [''],
@@ -23,16 +25,15 @@ const avatarSlice = createSlice({
     setSomething(state, action){
       const key = Object.keys(action.payload)[0]
       const value = Object.values(action.payload)[0]
-      return {  ...state, [key]: value
-      }
+      return {  ...state, [key]: value }
     },
     loadAvatar(state, action){
       return action.payload
-    }
+    },
   }
 })
 
-export const { setSomething, loadAvatar } = avatarSlice.actions
+export const { setSomething, loadAvatar, } = avatarSlice.actions
 
 export const saveAvatar = (avatarObj) => {
   return async () => {

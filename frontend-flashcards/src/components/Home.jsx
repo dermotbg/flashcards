@@ -48,14 +48,15 @@ const Home = ({ login }) => {
             sx={{ textShadow: textShadowColor }}
           >
               Welcome to your flashcards
-            <Heading
-              as={'h1'}
-              size={'2xl'}
-              color={headingColor}
-              sx={{ textShadow: textShadowColor }}
-            >
-              {login.username}
-            </Heading>
+          </Heading>
+          <Heading
+            as={'h1'}
+            size={'2xl'}
+            pb={10}
+            color={headingColor}
+            sx={{ textShadow: textShadowColor }}
+          >
+            {login.username}
           </Heading>
           <Heading
             as={'h2'}

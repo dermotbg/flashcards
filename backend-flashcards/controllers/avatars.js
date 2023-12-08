@@ -12,7 +12,7 @@ avatarRouter.put('/', async(request, response) => {
   // avatar id now gets set on user creation, all reqs will be PUT
   const avatar = request.body
   const user = await User.findById(avatar.user)
-  console.log('user',user)
+  console.log('av',avatar)
 
   const newAvatar = {
     seed: avatar.seed,
@@ -22,7 +22,7 @@ avatarRouter.put('/', async(request, response) => {
     beard: avatar.beard,
     eyes: avatar.eyes,
     mouth: avatar.mouth,
-    moustache: avatar.moustache,
+    mustache: avatar.mustache,
     nose: avatar.nose,
     top: avatar.top,
     face: avatar.face,
