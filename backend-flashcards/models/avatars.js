@@ -5,6 +5,7 @@ const avatarSchema = new mongoose.Schema({
   // seed: String,
   flip: { type: Boolean, default: false },
   backgroundColor: { type: Array, default: ['#B84900'] },
+  backgroundType: { type: Array, default: ['solid'] },
   translateX: { type: Number, default: 0 },
   translateY: { type: Number, default: 0 },
   beard: { type: Array, default: [''] },

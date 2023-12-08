@@ -1,5 +1,6 @@
 import { Box,
   Button,
+  Center,
   Flex,
   Image,
   Radio,
@@ -19,6 +20,8 @@ import { createAvatar } from '@dicebear/core'
 import { croodles as style } from '@dicebear/collection'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAvatar, saveAvatar, setSomething } from '../reducers/avatarReducer'
+import { HexColorPicker } from 'react-colorful'
+
 
 const Avatar = ({ size }) => {
 
@@ -60,8 +63,11 @@ const Avatar = ({ size }) => {
       mustacheProbability: 100,
       nose: avatar.nose,
       top: avatar.top,
+      topColor: avatar.topColor,
+      backgroundColor: avatar.backgroundColor
     }).toDataUriSync()
   }, [avatar, size])
+
 
   const changeHandler = (event) => {
     const key = event.target.name
@@ -97,6 +103,8 @@ const Avatar = ({ size }) => {
       mustacheProbability: 100,
       nose: avatar.nose,
       top: avatar.top,
+      topColor: avatar.topColor,
+      backgroundColor: avatar.backgroundColor,
       user: user.id
     }
     dispatch(saveAvatar(avatarObj))
@@ -107,11 +115,22 @@ const Avatar = ({ size }) => {
     toggleVisible()
   }
 
+  const topColorHandler = (event) => {
+    const hex = [event.replace('#','')]
+    dispatch(setSomething({ topColor: hex }))
+  }
+
+  const bgColorHandler = (event) => {
+    const hex = [event.replace('#','')]
+    dispatch(setSomething({ backgroundColor: hex }))
+  }
+
+
   return(
     <Stack alignItems={'center'}>
-      <Image src={newAvatar} alt='Avatar' maxH={{ base: '80%', md: '50%' }} maxW={{ base: '80%', md: '40%' }} />
-      <Flex id='avatar-container' flexDirection='row' flexWrap='wrap' >
-        {size ? null :
+      <Image src={newAvatar} alt='Avatar' borderRadius={'full'} />
+      {size ? null :
+        <Flex id='avatar-container' flexDirection='row' flexWrap='wrap' >
           <Box>
             <Button
               onClick={toggleVisible}
@@ -123,36 +142,39 @@ const Avatar = ({ size }) => {
           Create New Avatar
             </Button>
             <Stack id='edit-container' alignItems={'center'} style={shownWhileTrue}>
-              <Tabs maxW={'56%'}>
-                <TabList flexWrap={'wrap'}>
-                  <Tab>
+              <Tabs alignItems={'center'} maxW={{ base: '100%', md: '73%'}} >
+                <TabList flexWrap={'wrap'} p={3}>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Face
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Eyes
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Nose
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Mouth
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Top
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Top Color
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Beard
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Moustache
                   </Tab>
-                  <Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
+                    Background Color
+                  </Tab>
+                  <Tab _selected={{ borderColor: buttonText }}>
                     Flip
                   </Tab>
-                  <Tab>
+                  <Tab  _selected={{ borderColor: buttonText }}>
                     Axis
                   </Tab>
                 </TabList>
@@ -259,6 +281,9 @@ const Avatar = ({ size }) => {
                   </TabPanel>
                   <TabPanel>
                     {/* Top color goes in here */}
+                    <Center>
+                      <HexColorPicker onChange={topColorHandler}/>
+                    </Center>
                   </TabPanel>
                   <TabPanel>
                     <RadioGroup>
@@ -318,6 +343,12 @@ const Avatar = ({ size }) => {
                       </Flex>
                     </RadioGroup>
                   </TabPanel>
+                  {/* BG color goes in here */}
+                  <TabPanel>
+                    <Center>
+                      <HexColorPicker onChange={bgColorHandler}/>
+                    </Center>
+                  </TabPanel>
                   <TabPanel>
                     <Flex flexDirection={'row'} justifyContent={'space-evenly'} wrap={'wrap'}>
                       <Button
@@ -367,8 +398,8 @@ const Avatar = ({ size }) => {
               </Flex>
             </Stack>
           </Box>
-        }
-      </Flex>
+        </Flex>
+      }
     </Stack>
   )
 }

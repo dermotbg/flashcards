@@ -171,7 +171,7 @@ const NavBar = () => {
                       cursor={'pointer'}
                       minW={0}
                       // color='red.400'
-                      bg={'yellow.200'}
+                      // bg={'yellow.200'}
                       _active={{
                         color: 'red.300',
                       }}

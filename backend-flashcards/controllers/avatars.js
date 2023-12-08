@@ -25,7 +25,9 @@ avatarRouter.put('/', async(request, response) => {
     mustache: avatar.mustache,
     nose: avatar.nose,
     top: avatar.top,
+    topColor: avatar.topColor,
     face: avatar.face,
+    backgroundColor: avatar.backgroundColor,
     user: user
   }
 
