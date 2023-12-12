@@ -3,6 +3,11 @@ const User = require('../models/users')
 
 const avatarRouter = require('express').Router()
 
+avatarRouter.get('/', async(request, response) => {
+  const allAvatars = await Avatar.find({})
+  return response.status(200).send(allAvatars)
+})
+
 avatarRouter.get('/:id', async(request, response) => {
   const avatar = await Avatar.findById(request.params.id)
   return response.status(200).send(avatar)

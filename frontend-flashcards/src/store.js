@@ -5,7 +5,7 @@ import notificationReducer from './reducers/notificationReducer'
 import avatarReducer from './reducers/avatarReducer'
 import match5Reducer from './reducers/match5Reducer'
 import hangmanReducer from './reducers/hangmanReducer'
-import allUsersReducer from './reducers/allUsersReducer'
+import leaderboardReducer from './reducers/leaderboardReducer'
 
 const store = configureStore({
   reducer: {
@@ -15,7 +15,7 @@ const store = configureStore({
     user: userReducer,
     notification: notificationReducer,
     avatar: avatarReducer,
-    allUsers: allUsersReducer
+    leaderboard: leaderboardReducer,
   }
 })
 
