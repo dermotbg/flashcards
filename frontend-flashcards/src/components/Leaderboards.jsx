@@ -18,6 +18,7 @@ import { useEffect } from 'react'
 import Loading from './Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllAvatars, getAllUsers } from '../reducers/leaderboardReducer'
+import functions from '../utilities/functions'
 
 
 const Leaderboards = () => {
@@ -45,10 +46,12 @@ const Leaderboards = () => {
               <Th>Username</Th>
               <Th>Score</Th>
               <Th>Rated Cards</Th>
+              <Th>Date Joined</Th>
             </Tr>
           </Thead>
           <Tbody>
             {users.map(user => {
+              let date = String(functions.getDate(user.createdAt)).substring(0, 15)
               const avatar = avatars.find(a => a.id === user.avatar.id)
               const newAvatar = createAvatar(style, avatar).toDataUriSync()
               return (
@@ -64,6 +67,9 @@ const Leaderboards = () => {
                   </Td>
                   <Td>
                     {user.ratedCards.length}
+                  </Td>
+                  <Td>
+                    {date}
                   </Td>
                 </Tr>
               )

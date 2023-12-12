@@ -49,4 +49,9 @@ const addScore = (user, card, hangman = false) => {
   return updatedUser
 }
 
-export default { getRandomCards, shuffle, addScore }
+const getDate = (dateStr) => {
+  const dateObj = new Date(dateStr)
+  return dateObj
+}
+
+export default { getRandomCards, shuffle, addScore, getDate }

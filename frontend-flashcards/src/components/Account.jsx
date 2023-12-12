@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import Avatar from './Avatar'
 import Loading from './Loading'
 import { Box, Center, Flex, Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react'
+import functions from '../utilities/functions'
 
 
 const Account = ({ login }) => {
@@ -19,14 +20,10 @@ const Account = ({ login }) => {
     if(login.id) dispatch(get1User(login.id))
   },[dispatch, login.id])
 
-  const getDate = (dateStr) => {
-    const dateObj = new Date(dateStr)
-    return dateObj
-  }
   // check for user pre date load
   if(!user.createdAt) return <Loading />
 
-  const dateObj = getDate(user.createdAt)
+  const date = String(functions.getDate(user.createdAt)).substring(0, 25)
 
   return(
     <Box>
@@ -52,7 +49,7 @@ const Account = ({ login }) => {
             </Heading>
           </Flex>
           <Text fontSize={'xl'}>Your account was created: </Text>
-          <Text color={headingColor} sx={{ textShadow: textShadowColor }} >{dateObj.toString()}</Text>
+          <Text color={headingColor} sx={{ textShadow: textShadowColor }} >{date}</Text>
           <Text fontSize={'xl'}>You currently have a score of: </Text>
           <Text color={headingColor} sx={{ textShadow: textShadowColor }} >{user.score}</Text>
           <Text fontSize={'xl'}>You currently have rated a total of:</Text>

@@ -5,7 +5,7 @@ const usersRouter = require('express').Router()
 
 usersRouter.get('/', async (request, response) => {
   const users = await Users.find({})
-    .populate('ratedCards')
+    // .populate('ratedCards')
     .populate('avatar', { id: 1 })
   response.json(users)
 })
