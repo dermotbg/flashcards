@@ -13,8 +13,9 @@ import Match5 from './components/Match5'
 import { getCards } from './reducers/cardReducer'
 import Hangman from './components/Hangman'
 
-import NavBar from './components/NavBar'
+import NavBar from './components/Navbar'
 import Footer from './components/Footer'
+import Leaderboards from './components/Leaderboards'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -56,6 +57,7 @@ const App = () => {
         {user ? <Route path='/user/:id' element={<Account login={user} />} /> : null }
         <Route path='/match5' element={<Match5 cards={cards} />} />
         <Route path='/hangman' element={<Hangman cards={cards} />} />
+        <Route path='/leaderboards' element={<Leaderboards />} />
       </Routes>
       <Footer />
     </>

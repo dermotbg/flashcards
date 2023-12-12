@@ -142,7 +142,7 @@ const Avatar = ({ size }) => {
           Create New Avatar
             </Button>
             <Stack id='edit-container' alignItems={'center'} style={shownWhileTrue}>
-              <Tabs alignItems={'center'} maxW={{ base: '100%', md: '73%'}} >
+              <Tabs alignItems={'center'} maxW={{ base: '100%', md: '73%' }} >
                 <TabList flexWrap={'wrap'} p={3}>
                   <Tab _selected={{ borderColor: buttonText }}>
                     Face
