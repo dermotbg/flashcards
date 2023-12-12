@@ -57,7 +57,9 @@ const Leaderboards = () => {
               return (
                 <Tr key={user.username}>
                   <Td>
-                    <Image borderRadius={'full'} src={newAvatar} />
+                    {avatar.face[0] !== ''
+                      ? <Image borderRadius={'full'} src={newAvatar} />
+                      : <Image src={'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'} alt='Avatar' maxW={'40px'} borderRadius={'full'} />}
                   </Td>
                   <Td>
                     {user.username}

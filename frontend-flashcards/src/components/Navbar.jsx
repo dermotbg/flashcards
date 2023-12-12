@@ -254,7 +254,7 @@ const NavBar = () => {
                       <BlankAvatar
                         mr={'10'}
                         size={'sm'}
-                        src={'https://avatars.dicebear.com/api/male/username.svg'}
+                        src={'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'}
                       />
                     </Center>
                   </Flex>

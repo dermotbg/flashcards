@@ -21,6 +21,7 @@ import { croodles as style } from '@dicebear/collection'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAvatar, saveAvatar, setSomething } from '../reducers/avatarReducer'
 import { HexColorPicker } from 'react-colorful'
+import Loading from './Loading'
 
 
 const Avatar = ({ size }) => {
@@ -47,6 +48,7 @@ const Avatar = ({ size }) => {
 
   // define array of all availble variants of possible choices. Can be sliced later for limiting.
   const variants = Array.from({ length: 30 }, (_element, index) => `variant${String(index).padStart(2, '0')}`)
+
 
   const newAvatar = useMemo(() => {
     return createAvatar(style, {
@@ -125,10 +127,13 @@ const Avatar = ({ size }) => {
     dispatch(setSomething({ backgroundColor: hex }))
   }
 
-
+  if (!avatar.face) return null
   return(
     <Stack alignItems={'center'}>
-      <Image src={newAvatar} alt='Avatar' borderRadius={'full'} />
+      {avatar.face[0] !== ''
+        ? <Image src={newAvatar} alt='Avatar' borderRadius={'full'} />
+        : <Image src={'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'} alt='Avatar' maxW={'40px'} borderRadius={'full'} />
+      }
       {size ? null :
         <Flex id='avatar-container' flexDirection='row' flexWrap='wrap' >
           <Box>
