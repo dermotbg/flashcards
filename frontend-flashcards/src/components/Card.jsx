@@ -58,7 +58,7 @@ const Card = ({ card, active, colorDecoration }) => {
   }
 
   const ratingHandler = (rated) => {
-    const cardObj = { ...card }
+    const cardObj = { ...card, user: user.id }
     const rating = rated === 'plus' ? '+' : '-'
     cardObj.rating = rating === '+'
       ? card.rating + 1

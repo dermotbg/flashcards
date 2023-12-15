@@ -34,7 +34,9 @@ flashcardsRouter.post('/', async(request, response) => {
 
 flashcardsRouter.put('/:id', async (request, response) => {
   const body = request.body
+  const user = await User.findById(body.user)
 
+  // handle card update
   const updatedCard = {
     en: body.en,
     bg: body.bg,
@@ -42,19 +44,29 @@ flashcardsRouter.put('/:id', async (request, response) => {
     subcat: body.subcat,
     difficulty: body.difficulty,
     rating: body.rating,
-    ratedBy: { user: body.ratedBy.user, rating: body.ratedBy.rating },
+    ratedBy: body.ratedBy,
     id: body.id
   }
 
-  console.log('updated card done', updatedCard)
+  // console.log('updated card done', updatedCard)
 
   await Card.findByIdAndUpdate(body.id, updatedCard, {
     new: true, 
     runValidators: true,
     context: 'query'
   })
-  // might need to add rating data to user in the future 
-  await User.findByIdAndUpdate(body.ratedBy.user, { $push: { ratedCards: body.id } }, {
+
+  // handle user update
+  // remove rating
+  if (user.ratedCards.includes(body.id)){
+    await User.findByIdAndUpdate(body.user, { $pull: { ratedCards: body.id } }, {
+      new: true, 
+      runValidators: true,
+      context: 'query'
+    })
+  }
+  // add rating rating
+  await User.findByIdAndUpdate(body.user, { $push: { ratedCards: body.id } }, {
     new: true, 
     runValidators: true,
     context: 'query'

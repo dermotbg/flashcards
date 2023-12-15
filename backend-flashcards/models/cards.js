@@ -29,7 +29,7 @@ const cardSchema = new mongoose.Schema({
       },
       _id: false
     }
-  ] 
+  ]
 }, { timestamps: true }) 
 
 cardSchema.plugin(uniqueValidator)
