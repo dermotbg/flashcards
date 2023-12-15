@@ -22,10 +22,16 @@ const leaderboardSlice = createSlice({
         avatars: action.payload
       }
     },
+    sortUsers(state, action){
+      return {
+        users: state.users.toSorted((a,b) => b[action.payload] - a[action.payload]),
+        avatars: state.avatars
+      }
+    }
   }
 })
 
-export const { allUsers, allAvatars } = leaderboardSlice.actions
+export const { allUsers, allAvatars, sortUsers } = leaderboardSlice.actions
 
 export const getAllUsers = () => {
   return async dispatch => {

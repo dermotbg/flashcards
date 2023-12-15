@@ -17,7 +17,7 @@ import { croodles as style } from '@dicebear/collection'
 import { useEffect } from 'react'
 import Loading from './Loading'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllAvatars, getAllUsers } from '../reducers/leaderboardReducer'
+import { getAllAvatars, getAllUsers, sortUsers } from '../reducers/leaderboardReducer'
 import functions from '../utilities/functions'
 
 
@@ -30,9 +30,17 @@ const Leaderboards = () => {
   useEffect(() => {
     dispatch(getAllUsers())
     dispatch(getAllAvatars())
+    setTimeout(() => {
+      dispatch(sortUsers('score'))
+    },600)
   },[dispatch])
 
-  if(!users[0]) return <Loading />
+  // const sortHandler = (sortedByAttr) => {
+  //   const usersToSort = users
+  //   .sort((a,b) => a.score - b.score)
+  // }
+
+  if(!users[0] || !avatars[0]?.face[0]) return <Loading />
 
 
   return(
@@ -75,7 +83,8 @@ const Leaderboards = () => {
                   </Td>
                 </Tr>
               )
-            })}
+            })
+            }
           </Tbody>
         </Table>
       </TableContainer>
