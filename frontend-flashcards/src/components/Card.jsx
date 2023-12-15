@@ -46,7 +46,7 @@ const Card = ({ card, active, colorDecoration }) => {
     setAnswerChecked(true)
   }
 
-  const undoRatingHandler = (card) => {
+  const undoRatingHandler = () => {
     const cardObj = { ...card }
     const index = card.ratedBy.findIndex(i => i.user === user.id)
     const rating = cardObj.ratedBy[index].rating
@@ -57,10 +57,9 @@ const Card = ({ card, active, colorDecoration }) => {
     dispatch(rateCard(cardObj))
   }
 
-  const ratingHandler = (card, event) => {
+  const ratingHandler = (rated) => {
     const cardObj = { ...card }
-    console.log(event)
-    const rating = event.target.name === 'plus' ? '+' : '-'
+    const rating = rated === 'plus' ? '+' : '-'
     cardObj.rating = rating === '+'
       ? card.rating + 1
       : card.rating - 1
@@ -104,13 +103,15 @@ const Card = ({ card, active, colorDecoration }) => {
                       bg: colorDecoration.primaryColor,
                       color: colorDecoration.buttonColor
                     }}
-                    onClick={() => undoRatingHandler(card)}
+                    onClick={() => undoRatingHandler()}
                   >
                     <FaUndo />
                   </Button>
+
                 </Flex>
                 :
                 <Flex dir='row' justifyContent={'center'}>
+
                   <Button
                     mr={3}
                     _hover={{
@@ -120,19 +121,27 @@ const Card = ({ card, active, colorDecoration }) => {
                     size='sm'
                     type='button'
                     name='plus'
-                    onClick={(e) => ratingHandler(card, e)}
+                    onClick={() => ratingHandler('plus')}
                   >
                     <FaThumbsUp />
                   </Button>
+
+
                   <Button
                     _hover={{
                       bg: colorDecoration.primaryColor,
                       color: colorDecoration.buttonColor
                     }}
-                    size='sm' type='button' name='minus' onClick={(e) => ratingHandler(card, e)} >
+                    size='sm'
+                    type='button'
+                    name='minus'
+                    onClick={() => ratingHandler('minus')}
+                  >
                     <FaThumbsDown />
                   </Button>
-                </Flex>}
+
+                </Flex>
+              }
               <Divider borderColor={'black'} />
               {answerChecked
                 ?
