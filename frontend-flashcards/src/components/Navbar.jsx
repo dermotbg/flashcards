@@ -160,9 +160,9 @@ const NavBar = () => {
                     <Button mr={5} onClick={toggleColorMode}>
                       {colorMode === 'light'
                         ?
-                        <SunIcon  />
+                        <MoonIcon  />
                         :
-                        <MoonIcon />
+                        <SunIcon />
                       }
                     </Button>
                     <MenuButton
@@ -246,9 +246,9 @@ const NavBar = () => {
                       <Button mr={5} onClick={toggleColorMode}>
                         {colorMode === 'light'
                           ?
-                          <SunIcon  />
+                          <MoonIcon  />
                           :
-                          <MoonIcon />
+                          <SunIcon />
                         }
                       </Button>
                       <BlankAvatar
