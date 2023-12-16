@@ -1,36 +1,51 @@
 import {
   Box,
-  Flex,
   Avatar as BlankAvatar,
   Button,
+  Center,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Flex,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
   Stack,
-  Center,
   Link,
   Text,
   useColorMode,
   useColorModeValue,
+  useDisclosure,
 } from '@chakra-ui/react'
 import Avatar from './Avatar'
 import { logoutUser } from '../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 
-import { ChevronDownIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 
 
 const NavBar = () => {
   const login = JSON.parse(window.localStorage.getItem('loggedInUser'))
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const { colorMode, toggleColorMode } = useColorMode()
 
   const menuColor = useColorModeValue('grey.100', 'gray.800')
   const menuTextColor  = useColorModeValue('red.400', 'yellow.400')
+
+  const buttonColor = useColorModeValue('white', 'gray.800')
+  const buttonText = useColorModeValue('red.400', 'yellow.400')
+
+  const hoverColor = useColorModeValue('red.400', 'yellow.400')
+  const hoverText = useColorModeValue('white', 'gray.800')
 
   const logoutHandler = () => {
     dispatch(logoutUser())
@@ -43,12 +58,64 @@ const NavBar = () => {
     <>
       <Box color={useColorModeValue('white', 'gray.800')} boxShadow={useColorModeValue('0em .01em .3em gray','0em .01em .3em black' )}>
         <Flex h={20} alignItems={'center'} justifyContent={'space-between'}>
+          {/* Mobile Menu */}
+          <Flex
+            display={{ base: 'flex', md: 'none' }}
+          >
+            <Button
+              onClick={onOpen}
+              ml={4}
+              bg={buttonColor}
+              color={buttonText}
+              _hover={{ bg: hoverColor, color: hoverText  }}
+            >
+              <HamburgerIcon />
+            </Button>
+            <Drawer
+              placement='left'
+              onClose={onClose}
+              isOpen={isOpen}
+            >
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader as={'h1'}>
+                  Navigation
+                </DrawerHeader>
+                <DrawerBody>
+                  <Stack spacing={4}>
+
+                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
+                    <Text><b>Jump To Game:</b></Text>
+                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/Random10'><b>Random 10</b></Link>
+                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/match5'><b>Match 5</b></Link>
+                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/hangman'><b>Hangman</b></Link>
+                    <Text><b>Account / Avatar:</b></Text>
+                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Settings</b></Link>
+                  </Stack>
+                </DrawerBody>
+                <DrawerFooter borderTopWidth='1px'>
+                  <Button
+                    bg={buttonColor}
+                    color={buttonText}
+                    _hover={{ bg: hoverColor, color: hoverText  }}
+                    variant='outline'
+                    mr={3}
+                    onClick={onClose}>
+                    Cancel
+                  </Button>
+                </DrawerFooter>
+              </DrawerContent>
+            </Drawer>
+          </Flex>
+          {/* Desktop Links */}
           <Flex
             w={250}
             ml={10}
             direction={'row'}
             justifyContent={'space-between'}
             color='red.400'
+            display={{ base: 'none', md: 'flex' }}
           >
             <Box >
               <Link as={RouterLink} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
