@@ -21,7 +21,6 @@ import { croodles as style } from '@dicebear/collection'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAvatar, saveAvatar, setSomething } from '../reducers/avatarReducer'
 import { HexColorPicker } from 'react-colorful'
-import Loading from './Loading'
 
 
 const Avatar = ({ size }) => {

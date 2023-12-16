@@ -28,7 +28,7 @@ import { logoutUser } from '../reducers/userReducer'
 import { useDispatch } from 'react-redux'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 
-import { ChevronDownIcon, MoonIcon, SunIcon, HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+import { ChevronDownIcon, MoonIcon, SunIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 
 const NavBar = () => {
