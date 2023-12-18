@@ -83,7 +83,7 @@ const Match5 = ({ cards }) => {
   // win state
   if (activeCards.matched.length === 5){
     return (
-      <StartScreen startHandler={startHandler} gameActive={false} mainText={'Congrats! All Matched'} buttonText={'Restart!'}/>
+      <StartScreen win={true} startHandler={startHandler} gameActive={false} mainText={'Congrats! All Matched'} buttonText={'Restart!'}/>
     )
   }
 

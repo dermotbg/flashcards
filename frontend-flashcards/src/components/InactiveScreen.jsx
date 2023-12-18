@@ -1,8 +1,9 @@
 import { PropTypes } from 'prop-types'
 import { Box, Button, Center, Heading, Image, Stack, useColorModeValue } from '@chakra-ui/react'
 import startScreen from '../assets/misc_images/start_screen.png'
+import winScreen from '../assets/misc_images/win_screen.png'
 
-const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
+const StartScreen = ({ gameActive, startHandler, mainText, buttonText, win }) => {
 
   const primaryColor = useColorModeValue('red.400', 'yellow.400')
   const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
@@ -27,7 +28,7 @@ const StartScreen = ({ gameActive, startHandler, mainText, buttonText }) => {
               {mainText}
             </Heading>
             <Image
-              src={startScreen}
+              src={win ? winScreen : startScreen}
             />
           </Center>
           <Center mt={0} mb={20}>
@@ -56,5 +57,6 @@ StartScreen.propTypes = {
   gameActive: PropTypes.bool.isRequired,
   startHandler: PropTypes.func.isRequired,
   mainText: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  win: PropTypes.bool
 }

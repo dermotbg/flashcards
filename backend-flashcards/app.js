@@ -30,6 +30,7 @@ app.use('/api/flashcards',flashcardsRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/avatars', avatarRouter)
 
+app.use(express.static('dist'))
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
