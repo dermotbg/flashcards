@@ -2,12 +2,12 @@ import { PropTypes } from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
-import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Button, FormControl, FormLabel, Input, Stack } from '@chakra-ui/react'
 import { loginUser } from '../reducers/userReducer'
 
 const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   const dispatch = useDispatch()
-  const notification = useSelector((state) => state.notification)
+  const notification = useSelector((state) => state.notification.message)
 
   const regHandler = async (event) => {
     event.preventDefault()
@@ -15,9 +15,12 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
     const whspRegex = /\s/
     if(!pwRegex.test(event.target.password.value)){
       dispatch(setMessage({
-        message: 'Password must be between 8-16 characters, and contain at least one number and special character',
+        message: 'Password must be between 8-16 characters, contain at least one number and special character',
         isError: true
       }))
+      setTimeout(() => {
+        dispatch(setMessage(''))
+      }, 3000)
       return
     }
     else if (whspRegex.test(event.target.username.value)){
@@ -25,6 +28,9 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
         message: 'Please refrain from using spaces in your username',
         isError: true
       }))
+      setTimeout(() => {
+        dispatch(setMessage(''))
+      }, 3000)
       return
     }
     const userObj = {
@@ -39,6 +45,9 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
         message: error.response.data.error,
         isError: true
       }))
+      setTimeout(() => {
+        dispatch(setMessage(''))
+      }, 3000)
       return
     }
     dispatch(loginUser(userObj))
@@ -47,6 +56,18 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   }
   return(
     <Box pb={5}>
+      {notification 
+      ? 
+      <Alert  borderRadius={'5%'}>
+      <Stack>
+        <AlertIcon />
+        <AlertTitle>Could not process request:</AlertTitle>
+        <AlertDescription> <em><b>{notification} </b></em> </AlertDescription>
+        <AlertDescription>Please try again</AlertDescription>
+      </Stack>
+    </Alert>
+      : 
+      
       <form onSubmit={regHandler}>
         <FormControl isRequired>
           <FormLabel>Username</FormLabel>
@@ -66,7 +87,7 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
           Register
         </Button>
       </form>
-      {notification ? <div>{notification.message}</div>: null }
+      }
     </Box>
   )
 }
