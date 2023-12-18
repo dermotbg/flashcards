@@ -56,37 +56,37 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   }
   return(
     <Box pb={5}>
-      {notification 
-      ? 
-      <Alert  borderRadius={'5%'}>
-      <Stack>
-        <AlertIcon />
-        <AlertTitle>Could not process request:</AlertTitle>
-        <AlertDescription> <em><b>{notification} </b></em> </AlertDescription>
-        <AlertDescription>Please try again</AlertDescription>
-      </Stack>
-    </Alert>
-      : 
-      
-      <form onSubmit={regHandler}>
-        <FormControl isRequired>
-          <FormLabel>Username</FormLabel>
-          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username' p={5} mb={5}  />
-        </FormControl>
-        <FormControl isRequired>
-          <FormLabel>Password</FormLabel>
-          <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} type="password" name="password" placeholder='Password' p={5} mb={5}  />
-        </FormControl>
-        <Button
-          p={5}
-          bg={buttonColor}
-          color={buttonText}
-          _hover={{ bg: hoverColor, color: hoverText  }}
-          type='submit'
-        >
+      {notification
+        ?
+        <Alert  borderRadius={'5%'}>
+          <Stack>
+            <AlertIcon />
+            <AlertTitle>Could not process request:</AlertTitle>
+            <AlertDescription> <em><b>{notification} </b></em> </AlertDescription>
+            <AlertDescription>Please try again</AlertDescription>
+          </Stack>
+        </Alert>
+        :
+
+        <form onSubmit={regHandler}>
+          <FormControl isRequired>
+            <FormLabel>Username</FormLabel>
+            <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} name="username" placeholder='Username' p={5} mb={5}  />
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel>Password</FormLabel>
+            <Input _focus={{ borderColor: buttonColor, boxShadow: '0 0 0 black' }} type="password" name="password" placeholder='Password' p={5} mb={5}  />
+          </FormControl>
+          <Button
+            p={5}
+            bg={buttonColor}
+            color={buttonText}
+            _hover={{ bg: hoverColor, color: hoverText  }}
+            type='submit'
+          >
           Register
-        </Button>
-      </form>
+          </Button>
+        </form>
       }
     </Box>
   )
