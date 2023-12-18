@@ -8,7 +8,7 @@ const loginRouter = require('express').Router()
 loginRouter.post('/', async (request, response) => {
   console.log('bods',request.body)
   const { username, password } = request.body
-  const user = await User.findOne({ username: username })
+  const user = await User.findOne({ username: { $regex: username, $options: 'i' } })
 
   const passCheck = user === null ? false : await bcrypt.compare(password, user.passwordHash)
 

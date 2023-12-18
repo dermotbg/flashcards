@@ -10,7 +10,7 @@ const Login = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   const loginHandler = (event) => {
     event.preventDefault()
     const loginObj = {
-      username: event.target.username.value,
+      username: event.target.username.value.toLowerCase(),
       password: event.target.password.value,
     }
     dispatch(loginUser(loginObj))

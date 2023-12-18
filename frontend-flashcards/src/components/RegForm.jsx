@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { createUser } from '../services/users'
 import { setMessage } from '../reducers/notificationReducer'
 import { Box, Button, FormControl, FormLabel, Input } from '@chakra-ui/react'
+import { loginUser } from '../reducers/userReducer'
 
 const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   const dispatch = useDispatch()
@@ -38,7 +39,9 @@ const RegForm = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
         message: error.response.data.error,
         isError: true
       }))
+      return
     }
+    dispatch(loginUser(userObj))
     event.target.username.value = '',
     event.target.password.value = ''
   }
