@@ -83,16 +83,20 @@ const NavBar = () => {
                   Navigation
                 </DrawerHeader>
                 <DrawerBody>
-                  <Stack spacing={4}>
-
-                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
-                    <Text><b>Jump To Game:</b></Text>
-                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/Random10'><b>Random 10</b></Link>
-                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/match5'><b>Match 5</b></Link>
-                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/hangman'><b>Hangman</b></Link>
-                    <Text><b>Account / Avatar:</b></Text>
-                    <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Settings</b></Link>
-                  </Stack>
+                  {login
+                    ?
+                    <Stack spacing={4}>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
+                      <Text><b>Jump To Game:</b></Text>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/Random10'><b>Random 10</b></Link>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/match5'><b>Match 5</b></Link>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/hangman'><b>Hangman</b></Link>
+                      <Text><b>Account / Avatar:</b></Text>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Settings</b></Link>
+                    </Stack>
+                    :
+                    <Text> Please Log in</Text>
+                  }
                 </DrawerBody>
                 <DrawerFooter borderTopWidth='1px'>
                   <Button
