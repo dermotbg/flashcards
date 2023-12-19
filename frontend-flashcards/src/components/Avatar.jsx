@@ -79,7 +79,7 @@ const Avatar = ({ size }) => {
       return
     }
     // route for integer values
-    if (key === 'translateX' || key === 'translateY'){
+    if (key === 'xAxis' || key === 'yAxis'){
       const value = event.target.value
       dispatch(setSomething({ [key]: value }))
       return
@@ -109,6 +109,7 @@ const Avatar = ({ size }) => {
       user: user.id
     }
     dispatch(saveAvatar(avatarObj))
+    toggleVisible()
   }
 
   const cancelHandler = () => {
