@@ -22,6 +22,7 @@ import {
   useColorMode,
   useColorModeValue,
   useDisclosure,
+  Divider,
 } from '@chakra-ui/react'
 import Avatar from './Avatar'
 import { logoutUser } from '../reducers/userReducer'
@@ -87,10 +88,14 @@ const NavBar = () => {
                     ?
                     <Stack spacing={4}>
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/'><b>Home</b></Link>
+                      <Divider />
                       <Text><b>Jump To Game:</b></Text>
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/Random10'><b>Random 10</b></Link>
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/match5'><b>Match 5</b></Link>
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/hangman'><b>Hangman</b></Link>
+                      <Divider />
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/leaderboards'><b>Leaderboards</b></Link>
+                      <Divider />
                       <Text><b>Account / Avatar:</b></Text>
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Settings</b></Link>
                     </Stack>
