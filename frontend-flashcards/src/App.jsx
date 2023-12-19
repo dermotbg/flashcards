@@ -16,6 +16,7 @@ import Hangman from './components/Hangman'
 import NavBar from './components/Navbar'
 import Footer from './components/Footer'
 import Leaderboards from './components/Leaderboards'
+import AvatarRoute from './components/AvatarRoute'
 
 const App = () => {
   const user = useSelector((state) => state.user)
@@ -44,7 +45,6 @@ const App = () => {
 
   // fetch cards when app accessed. Possibly need to refactor into when there's an active login
   useEffect(() => {
-    console.log('cards fetched from app level')
     dispatch(getCards())
   }, [dispatch])
 
@@ -58,6 +58,7 @@ const App = () => {
         <Route path='/match5' element={<Match5 cards={cards} />} />
         <Route path='/hangman' element={<Hangman cards={cards} />} />
         <Route path='/leaderboards' element={<Leaderboards />} />
+        <Route path='/user/:id/avatar' element={<AvatarRoute />} />
       </Routes>
       <Footer />
     </>

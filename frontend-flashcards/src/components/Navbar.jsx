@@ -96,8 +96,9 @@ const NavBar = () => {
                       <Divider />
                       <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to='/leaderboards'><b>Leaderboards</b></Link>
                       <Divider />
-                      <Text><b>Account / Avatar:</b></Text>
-                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Settings</b></Link>
+                      <Text><b>User Settings:</b></Text>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}`}><b>Account Settings</b></Link>
+                      <Link as={RouterLink} onClick={onClose} color={menuTextColor} variant={'link'} to={`/user/${login.id}/avatar`}><b>Avatar Settings</b></Link>
                     </Stack>
                     :
                     <Text> Please Log in</Text>
@@ -217,6 +218,16 @@ const NavBar = () => {
                       Leaderboards
                   </Link>
                 </Box>
+                <Box pl={5}>
+                  <Link
+                    variant={'link'}
+                    as={RouterLink}
+                    color={menuTextColor}
+                    fontWeight={'600'} to={`/user/${login.id}/avatar`}
+                  >
+                      Avatar
+                  </Link>
+                </Box>
               </Flex>
               : null
             }
@@ -295,6 +306,22 @@ const NavBar = () => {
                         }}
                       >
                         Account Settings
+                      </MenuItem>
+                      <MenuItem
+                        as={RouterLink}
+                        to={`/user/${login.id}/avatar`}
+                        bg={menuColor}
+                        color={menuTextColor}
+                        fontWeight='600'
+                        _hover={{
+                          fontWeight: '900'
+                        }}
+                        _focus={{
+                          bg: menuColor,
+                          color: menuTextColor,
+                        }}
+                      >
+                        Avatar Settings
                       </MenuItem>
                       <MenuDivider borderColor={'gray.600'} m={0} p={0}/>
                       <MenuItem

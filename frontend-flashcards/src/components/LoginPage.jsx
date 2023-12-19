@@ -26,8 +26,6 @@ const LoginPage = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
 
   const primaryColor = useColorModeValue('red.400', 'yellow.400')
   const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
-  // const buttonColor = useColorModeValue('gray.800', 'yellow.400')
-  // const buttonText = useColorModeValue('yellow.400', 'gray.800')
 
   return(
     <Box flex={1} minH={'80vh'} >

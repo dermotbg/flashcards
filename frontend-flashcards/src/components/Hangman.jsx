@@ -72,7 +72,6 @@ const Hangman = ({ cards }) => {
           guessedArray.push('_')
         }
       }
-      console.log(guessedArray)
       dispatch(setGuessed(guessedArray))
     }
   },[dispatch, mainCard])
@@ -81,7 +80,6 @@ const Hangman = ({ cards }) => {
     event.target.disabled = true
     const wordArray = mainCard.bg.toUpperCase().split('')
     if(wordArray.indexOf(event.target.value) === -1){
-      console.log('incorrect')
       setImg(images[images.indexOf(img) + 1])
       //load hangman image
     }
@@ -138,7 +136,7 @@ const Hangman = ({ cards }) => {
         _hover={{ bg: hoverColor, color: hoverText  }}
         onClick={resetHandler}
       >
-        Congrats! Stick-man lives another day. Start Again?
+        Congrats! Start Again?
       </Button>
       <Heading as={'h1'}>{mainCard.en} / {mainCard.bg}</Heading>
     </Box>)

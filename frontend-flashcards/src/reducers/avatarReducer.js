@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { setAvatar, userAvatar } from '../services/avatars'
+import functions from '../utilities/functions'
+import { reqAllAvatars, setAvatar, userAvatar } from '../services/avatars'
 
 const avatarSlice = createSlice({
   name: 'avatar',
@@ -46,6 +47,12 @@ export const getAvatar = (id) => {
     const response = await userAvatar(id)
     await dispatch(loadAvatar(response))
   }
+}
+
+export const getRandomAvatars = async () => {
+  const response = await reqAllAvatars()
+  const randoms = functions.getRandomCards(response, 3)
+  return randoms
 }
 
 export default avatarSlice.reducer

@@ -2,9 +2,8 @@ import { useEffect } from 'react'
 import { get1User } from '../reducers/userReducer'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
-import Avatar from './Avatar'
 import Loading from './Loading'
-import { Box, Center, Flex, Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react'
+import { Box, Flex, Heading, Stack, Text, useColorModeValue } from '@chakra-ui/react'
 import functions from '../utilities/functions'
 
 
@@ -56,13 +55,6 @@ const Account = ({ login }) => {
           <Text color={headingColor} sx={{ textShadow: textShadowColor }} >{user.ratedCards.length} cards</Text>
         </Stack>
       </Flex>
-      <Center>
-        <Stack maxW={'70%'} minW={'70%'}>
-          <Heading textAlign={'center'}>Create New Avatar</Heading>
-          <Avatar />
-        </Stack>
-
-      </Center>
     </Box>
   )
 }

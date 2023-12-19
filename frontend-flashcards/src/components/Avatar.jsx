@@ -144,7 +144,7 @@ const Avatar = ({ size }) => {
               color={buttonText}
               _hover={{ bg: hoverColor, color: hoverText }}
             >
-          Create New Avatar
+          Get Started
             </Button>
             <Stack id='edit-container' alignItems={'center'} style={shownWhileTrue}>
               <Tabs alignItems={'center'} maxW={{ base: '100%', md: '73%' }} >
