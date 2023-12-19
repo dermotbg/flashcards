@@ -18,7 +18,6 @@ const AvatarRoute = () => {
       const getAvs = await getRandomAvatars()
       const avArray = []
       for (let av of getAvs){
-        console.log(av)
         if (av.face[0] === ''){
           const blank = 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg'
           avArray.push(blank)
@@ -26,7 +25,6 @@ const AvatarRoute = () => {
         const avToAdd = createAvatar(style, av).toDataUriSync()
         avArray.push(avToAdd)
       }
-      console.log(avArray)
       setRandomAvatars(avArray)
     }
   },[])
