@@ -63,7 +63,7 @@ const Home = ({ login }) => {
             size={'md'}
             fontWeight={'400'}
           >
-            Below you can choose which game you want to practise with.
+            Below you can choose which game you want to practice with.
           </Heading>
         </Box>
         <Flex

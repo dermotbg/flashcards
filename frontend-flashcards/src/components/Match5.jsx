@@ -38,6 +38,7 @@ const Match5 = ({ cards }) => {
   }
 
   const matchHandler = (card, event) => {
+    console.log(card)
     if(match[0]) {
       // unselect route
       if(match[0] === event.target.value){
@@ -47,8 +48,6 @@ const Match5 = ({ cards }) => {
       }
       setMatch([...match, event.target.name])
       if((match[0] === card.bg && event.target.value === card.en || match[0] === card.en && event.target.value === card.bg)){
-        console.log('correct')
-        // setCorrect('green')
         // calc players new score
         let updatedUser = functions.addScore(user, card)
         // disable correct answer from future use
@@ -62,7 +61,6 @@ const Match5 = ({ cards }) => {
         setMatch([])
         return
       }
-      console.log('incorrect')
       setIsIncorrect(true)
       setTimeout(() => {
         setIsIncorrect(false)

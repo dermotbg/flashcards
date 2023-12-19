@@ -155,7 +155,7 @@ const Hangman = ({ cards }) => {
         }
         )}</Heading>
       </Box>
-      <Box style={keyboardStyle}>
+      <Box style={keyboardStyle} maxWidth={'580'}>
         {keyboardRows.map((row, rowIndex) => (
           <Flex maxW={'100vw'} key={rowIndex}>
             {row.map((c) => {
