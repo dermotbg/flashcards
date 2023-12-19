@@ -164,9 +164,6 @@ const Avatar = ({ size }) => {
                     Top
                   </Tab>
                   <Tab _selected={{ borderColor: buttonText }}>
-                    Top Color
-                  </Tab>
-                  <Tab _selected={{ borderColor: buttonText }}>
                     Beard
                   </Tab>
                   <Tab _selected={{ borderColor: buttonText }}>
@@ -265,29 +262,28 @@ const Avatar = ({ size }) => {
                   </TabPanel>
                   <TabPanel>
                     <RadioGroup>
-                      <Flex flexDirection={'row'} justifyContent={'space-evenly'} wrap={'wrap'}>
-                        {variants.slice(1, 30).map((top, index) => (
-                          <Box key={top} pr={3} >
-                            <Radio
-                              id={`top-${top}`}
-                              name='top'
-                              value={top}
-                              onChange={changeHandler}
-                              colorScheme={radioColor}
-                            >
-                              {`#${index+1}`}
-                            </Radio>
-                          </Box>
-                        )
-                        )}
-                      </Flex>
+                      <Stack alignItems={'center'}>
+                        <Box>
+                          <HexColorPicker onChange={topColorHandler}/>
+                        </Box>
+                        <Flex flexDirection={'row'} justifyContent={'start'} alignItems={'start'} wrap={'wrap'}>
+                          {variants.slice(1, 30).map((top, index) => (
+                            <Box key={top} pr={3} >
+                              <Radio
+                                id={`top-${top}`}
+                                name='top'
+                                value={top}
+                                onChange={changeHandler}
+                                colorScheme={radioColor}
+                              >
+                                {`#${index+1}`}
+                              </Radio>
+                            </Box>
+                          )
+                          )}
+                        </Flex>
+                      </Stack>
                     </RadioGroup>
-                  </TabPanel>
-                  <TabPanel>
-                    {/* Top color goes in here */}
-                    <Center>
-                      <HexColorPicker onChange={topColorHandler}/>
-                    </Center>
                   </TabPanel>
                   <TabPanel>
                     <RadioGroup>
