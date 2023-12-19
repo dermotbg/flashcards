@@ -38,12 +38,26 @@ usersRouter.post('/', async (request, response) => {
 
 usersRouter.put('/:id/score', async (request, response) => {
   const body = request.body
-  console.log(body.score)
 
   await User.findByIdAndUpdate(body.id, { score: body.score }, {
     returnOriginal: false
   })
   return response.status(204).end()
 }) 
+
+usersRouter.put('/:id/password', async (request, response) => {
+  const { username, id, password, newPassword } = request.body
+  const user = await User.findOne({ username: { $regex: username, $options: 'i' } })
+  
+  const passCheck = user === null ? false : await bcrypt.compare(password, user.passwordHash)
+  if(!passCheck){
+    return response.status(401).json({ error: 'incorrect password' })
+  }
+
+  const passwordHash = await bcrypt.hash(newPassword, 10)
+
+  await User.findByIdAndUpdate(id, { passwordHash: passwordHash })
+  return response.status(204).json({ message: 'password changed' })
+})
 
 module.exports = usersRouter

@@ -21,3 +21,8 @@ export const getAllUser = async () => {
   const response = await axios.get(`${baseUrl}`)
   return response.data
 }
+
+export const updatePw = async (pwObj) => {
+  const response = await axios.put(`${baseUrl}/${pwObj.id}/password`, pwObj)
+  return response.data
+}

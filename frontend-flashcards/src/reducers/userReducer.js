@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loginReq } from '../services/login'
 import flashcardService from '../services/flashcards'
-import { addScore, getUser } from '../services/users'
+import { addScore, getUser, updatePw } from '../services/users'
 import { jwtDecode } from 'jwt-decode'
+import { setMessage } from './notificationReducer'
 
 
 const userSlice = createSlice({
@@ -68,6 +69,20 @@ export const get1User = (userObj) => {
   return async dispatch => {
     const response = await getUser(userObj)
     dispatch(setUser(response))
+    return response
+  }
+}
+
+export const updatePassword = (pwObj) => {
+  return async dispatch => {
+    const response = await updatePw(pwObj)
+    dispatch(setMessage({
+      message: 'Password updated',
+      isError: false
+    }))
+    setTimeout(() => {
+      dispatch(setMessage(''))
+    }, 2000)
     return response
   }
 }
