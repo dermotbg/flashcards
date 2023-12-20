@@ -16,7 +16,6 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { FaHandPointDown } from 'react-icons/fa'
-import loginImage from '../assets/misc_images/login.png'
 import { PropTypes } from 'prop-types'
 import Login from './LoginForm'
 import RegForm from './RegForm'
@@ -26,6 +25,8 @@ const LoginPage = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
 
   const primaryColor = useColorModeValue('red.400', 'yellow.400')
   const textShadowColor = useColorModeValue('1px 1px 1px brown', '1px 1px 3px black')
+  const loginImage = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/misc_images/login.png'
+
 
   return(
     <Box flex={1} minH={'80vh'} >
