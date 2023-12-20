@@ -28,7 +28,7 @@ const Card = ({ card, active, colorDecoration }) => {
   const checkAnswer = useCallback((event) => {
     event.preventDefault()
     console.log(card)
-    const answer = card.bg.localeCompare(event.target.bg.value, 'bg', { sensitivity: 'base' })
+    const answer = card.bg.localeCompare(event.target.bg.value.trim(), 'bg', { sensitivity: 'base' })
     if(!answer){
       setCorrect(correctColor)
       const updatedUser = functions.addScore(user, card)
