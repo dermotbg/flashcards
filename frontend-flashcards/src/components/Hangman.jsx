@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react'
 import functions from '../utilities/functions'
 import { useDispatch, useSelector } from 'react-redux'
 import { setGuessed, setHangmanWord } from '../reducers/hangmanReducer'
-import hangman1 from '../assets/hangman_images/hangman_1.png'
-import hangman2 from '../assets/hangman_images/hangman_2.png'
-import hangman3 from '../assets/hangman_images/hangman_3.png'
-import hangman4 from '../assets/hangman_images/hangman_4.png'
-import hangman5 from '../assets/hangman_images/hangman_5.png'
-import hangman6 from '../assets/hangman_images/hangman_6.png'
-import hangman7 from '../assets/hangman_images/hangman_7.png'
-import hangman8 from '../assets/hangman_images/hangman_8.png'
+// import hangman1 from '../assets/hangman_images/hangman_1.png'
+// import hangman2 from '../assets/hangman_images/hangman_2.png'
+// import hangman3 from '../assets/hangman_images/hangman_3.png'
+// import hangman4 from '../assets/hangman_images/hangman_4.png'
+// import hangman5 from '../assets/hangman_images/hangman_5.png'
+// import hangman6 from '../assets/hangman_images/hangman_6.png'
+// import hangman7 from '../assets/hangman_images/hangman_7.png'
+// import hangman8 from '../assets/hangman_images/hangman_8.png'
 import { updateScore } from '../reducers/userReducer'
 
 import { Box, Button, Flex, Heading, Image, useColorModeValue } from '@chakra-ui/react'
@@ -45,6 +45,14 @@ const Hangman = ({ cards }) => {
     ['А','С','Д','Ф','Г','Х','Й','К','Л','Ю'],
     ['Ч','З','Ь','Ц','Ж','Б','Н','М']
   ]
+  const hangman1 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_1.png'
+  const hangman2 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_2.png'
+  const hangman3 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_3.png'
+  const hangman4 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_4.png'
+  const hangman5 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_5.png'
+  const hangman6 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_6.png'
+  const hangman7 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_7.png'
+  const hangman8 = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_8.png'
   const images = [hangman1, hangman2, hangman3, hangman4, hangman5, hangman6, hangman7, hangman8]
   const [img, setImg] = useState(images[0])
 

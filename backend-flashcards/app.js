@@ -2,7 +2,7 @@ const express = require('express')
 require('express-async-errors')
 const mongoose = require('mongoose')
 const app = express()
-const path = require('path');
+const path = require('path')
 const cors = require('cors')
 
 const usersRouter = require('./controllers/users')

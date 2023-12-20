@@ -15,11 +15,9 @@ import {
 } from '@chakra-ui/react'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import { Link as RouterLink } from 'react-router-dom'
-import hangman from '../assets/hangman_images/hangman_1.png'
-import flashcardPic from '../assets/misc_images/flashcard1.png'
-import match5Pic from '../assets/misc_images/match5.png'
 import { PropTypes } from 'prop-types'
 import LoginPage from './LoginPage'
+
 
 const Home = ({ login }) => {
 
@@ -33,6 +31,10 @@ const Home = ({ login }) => {
   const textShadowColor = useColorModeValue('1px 1px 1px gray', '1px 1px 3px black')
 
   const boxShad = useColorModeValue('1px 1px .5em black','3px 3px .2em 1px black') // yellow: #ecc94b80
+
+  const hangman = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/hangman_images/hangman_1.png'
+  const flashcardPic = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/misc_images/flashcard1.png'
+  const match5Pic = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/misc_images/match5.png'
 
 
   if(!login) return <LoginPage buttonColor={buttonColor} buttonText={buttonText} hoverColor={hoverColor} hoverText={hoverText} />

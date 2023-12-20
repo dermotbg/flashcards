@@ -1,7 +1,6 @@
 import { PropTypes } from 'prop-types'
 import { Box, Button, Center, Heading, Image, Stack, useColorModeValue } from '@chakra-ui/react'
-import startScreen from '../assets/misc_images/start_screen.png'
-import winScreen from '../assets/misc_images/win_screen.png'
+
 
 const StartScreen = ({ gameActive, startHandler, mainText, buttonText, win }) => {
 
@@ -11,6 +10,10 @@ const StartScreen = ({ gameActive, startHandler, mainText, buttonText, win }) =>
   const buttonTextColor = useColorModeValue('red.400', 'yellow.400')
   const hoverColor = useColorModeValue('red.400', 'yellow.400')
   const hoverText = useColorModeValue('white', 'gray.800')
+
+  const startScreen = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/misc_images/start_screen.png'
+  const winScreen = 'https://s3.eu-north-1.amazonaws.com/flsh.buck/assets/misc_images/win_screen.png'
+
 
   if (gameActive) return null
 
