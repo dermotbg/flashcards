@@ -10,6 +10,7 @@ import { createAvatar } from '@dicebear/core'
 const AvatarRoute = () => {
 
   const [randomAvatars, setRandomAvatars] = useState([])
+  const headingColor = useColorModeValue('red.400', 'yellow.400')
   const textShadowColor = useColorModeValue('1px 1px 1px gray', '1px 1px 3px black')
 
 
@@ -36,7 +37,9 @@ const AvatarRoute = () => {
         p={10}
         size={'md'}
         pb={5}
-        sx={{ textShadow: textShadowColor }}> Check out some recently made Avatars from the community:
+        color={headingColor}
+      >
+        Check out some recently made Avatars from the community:
       </Heading>
       {randomAvatars
         ?
@@ -50,7 +53,12 @@ const AvatarRoute = () => {
       }
       <Center pt={10}>
         <Stack>
-          <Heading textAlign={'center'}>Create your new avatar here:</Heading>
+          <Heading
+            textAlign={'center'}
+            color={headingColor}
+          >
+            Create your new avatar here:
+          </Heading>
           <Avatar />
         </Stack>
       </Center>
