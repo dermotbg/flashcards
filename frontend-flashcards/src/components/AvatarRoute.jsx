@@ -14,7 +14,7 @@ const AvatarRoute = () => {
 
 
   useEffect(() => {
-    return async () => {
+    async function fetchAvatars() {
       const getAvs = await getRandomAvatars()
       const avArray = []
       for (let av of getAvs){
@@ -27,6 +27,7 @@ const AvatarRoute = () => {
       }
       setRandomAvatars(avArray)
     }
+    fetchAvatars()
   },[])
 
   return(
