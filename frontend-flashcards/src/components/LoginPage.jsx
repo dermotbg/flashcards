@@ -45,7 +45,7 @@ const LoginPage = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
             />
           </Center>
           <Heading as={'h1'} textAlign={{ base: 'center', md: 'left' }} color={primaryColor} sx={{ textShadow: textShadowColor }} >Hey Stranger!</Heading>
-          <Text textAlign={{ base: 'center', md: 'left' }}>Welcome to Flashcards, a simple platform to practise languages using flashcards</Text>
+          <Text textAlign={{ base: 'center', md: 'left' }}>Welcome to Flashcards, a simple platform to practice languages using flashcards</Text>
         </Stack>
         <Stack >
           <Center flexDirection={'column'} >

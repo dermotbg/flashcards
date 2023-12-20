@@ -2,6 +2,7 @@ const express = require('express')
 require('express-async-errors')
 const mongoose = require('mongoose')
 const app = express()
+const cors = require('cors')
 
 const usersRouter = require('./controllers/users')
 const { MDB_URI } = require('./utils/config')
@@ -10,6 +11,7 @@ const flashcardsRouter = require('./controllers/cards')
 const loginRouter = require('./controllers/login')
 const avatarRouter = require('./controllers/avatars')
 
+app.use(cors)
 app.use(express.json())
 
 mongoose.set('strictQuery',false)
@@ -31,6 +33,11 @@ app.use('/api/login', loginRouter)
 app.use('/api/avatars', avatarRouter)
 
 app.use(express.static('dist'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+ });
+
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
