@@ -11,7 +11,7 @@ const AvatarRoute = () => {
 
   const [randomAvatars, setRandomAvatars] = useState([])
   const headingColor = useColorModeValue('red.400', 'yellow.400')
-  const textShadowColor = useColorModeValue('1px 1px 1px gray', '1px 1px 3px black')
+  // const textShadowColor = useColorModeValue('1px 1px 1px gray', '1px 1px 3px black')
 
 
   useEffect(() => {

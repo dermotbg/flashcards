@@ -12,7 +12,7 @@ const Login = ({ buttonColor, buttonText, hoverColor, hoverText }) => {
   const loginHandler = async (event) => {
     event.preventDefault()
     const loginObj = {
-      username: event.target.username.value.toLowerCase(),
+      username: event.target.username.value.toLowerCase().trim(),
       password: event.target.password.value,
     }
     try{
