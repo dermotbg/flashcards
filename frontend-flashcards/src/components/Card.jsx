@@ -18,8 +18,8 @@ const Card = ({ card, active, colorDecoration }) => {
   const user = useSelector((state) => state.user)
   const dispatch = useDispatch()
 
-  const correctColor = useColorModeValue('#53ff00', 'green.900')
-  const inCorrectColor = useColorModeValue('#ff0b00', 'red.400')
+  const correctColor = useColorModeValue('#1ec918', 'green.900')
+  const inCorrectColor = useColorModeValue('#d13932', 'red.400')
 
   useEffect(() => {
     setAnswerChecked(false)
