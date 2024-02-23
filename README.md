@@ -1,5 +1,27 @@
-# Work in Progress
-Full readme will come soon, but here are some screenshots so far: 
+# Flashcards
+Personal Web Application to store and revise language flashcards. 
+
+An exercise in using the knowledge gained in fullstackopens course parts 0-7.
+
+### Technologies used:
+- Backend:
+    - Node.js
+    - Express.js
+    - MongoDB
+    - Mongoose
+    - bcrypt
+    - jsonwebtoken
+- Frontend:
+    - React
+    - React Router
+    - Redux w/Toolkit
+    - Chakra UI
+    - Dicebear API (Avatar Creator)
+- Cloud / Server: 
+    - AWS
+    - EC2
+    - S3
+    - Nginx
 
 ## Login (darkmode):
 ![login](https://github.com/dermotbg/flashcards/assets/123154617/a6a8df2b-8000-4df9-ab17-3bfc05f971dc)
