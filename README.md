@@ -1,3 +1,8 @@
+### Update:
+Check out a containerised version of this application that was submitted to the fullstackopen course here: 
+https://github.com/dermotbg/fullstackopen12/tree/main/my-app
+
+
 # Flashcards
 Personal Web Application to store and revise language flashcards. 
 
